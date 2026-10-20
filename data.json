@@ -1,0 +1,34 @@
+{
+  "handle": "Campeol-G",
+  "subtitle": "GustavoC  ·  Java / Android / Node",
+  "logo": "logo.txt",
+  "modules": [
+    {
+      "title": "System",
+      "rows": [
+        ["OS", "Arch Linux / Windows 11"],
+        ["Host", "Notebook"],
+        ["Kernel", "Backend Developer"],
+        ["Shell", "Zsh"],
+        ["Editor", "IntelliJ IDEA, VS Code"]
+      ]
+    },
+    {
+      "title": "Stack",
+      "rows": [
+        ["Languages", "Java, Kotlin, TypeScript, Python"],
+        ["Databases", "PostgreSQL, MongoDB, MySQL"],
+        ["Frameworks", "Spring Boot, Node.js, Android"],
+        ["Tools", "Gradle, Maven, Docker, Git"]
+      ]
+    },
+    {
+      "title": "Contact",
+      "rows": [
+        ["GitHub", "Campeol-G"],
+        ["LinkedIn", "seu-linkedin"],
+        ["Email", "seu-email@exemplo.com"]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Artefatos do companion de brainstorming (nao vao pro repo do perfil)
+.superpowers/
+
+# Temporarios
+__pycache__/
+*.pyc
