@@ -4,3 +4,6 @@
 # Temporarios
 __pycache__/
 *.pyc
+
+# SVG de referencia do repositorio Andrew6rant (apenas local, nao versionado)
+reference/
