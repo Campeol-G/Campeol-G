@@ -315,6 +315,26 @@ def main():
             break
         cursor = data["pageInfo"]["endCursor"]
 
+    # Bytes por linguagem (para a barra de status)
+    lang_bytes = {}
+    for node in repos:
+        full = node["nameWithOwner"]
+        try:
+            req = urllib.request.Request(
+                f"https://api.github.com/repos/{full}/languages",
+                headers={"Authorization": f"Bearer {TOKEN}", "User-Agent": "profile-readme-updater"},
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode())
+        except Exception as e:  # rede pode falhar; nao impede o resto
+            print(f"   aviso: linguagens de {full} indisponiveis ({e})")
+            continue
+        for lang, size in (data or {}).items():
+            lang_bytes[lang] = lang_bytes.get(lang, 0) + size
+    total_bytes = sum(lang_bytes.values()) or 1
+    languages = {k: round(v / total_bytes, 4) for k, v in sorted(lang_bytes.items(), key=lambda kv: -kv[1])}
+    print("   linguagens: " + ", ".join(f"{k} {v:.0%}" for k, v in list(languages.items())[:4]))
+
     cache = load_cache()
     loc_add = loc_del = my_commits = 0
     for node in repos:
@@ -355,7 +375,7 @@ def main():
         "repos": repo_count,
         "open_prs": open_prs,
         "open_issues": open_issues,
-        "weeks": grid,
+        "languages": languages,
     }
     dump_json(DATA_FILE, data)
     print(f"-> {DATA_FILE} atualizado.")

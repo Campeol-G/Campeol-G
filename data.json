@@ -1,23 +1,49 @@
 {
-  "handle": "Campeol-G",
-  "subtitle": "GustavoC  ·  Java / Android / Node",
+  "handle": "Gustavo Campeol",
+  "host": "campeol",
+  "subtitle": "Java · Spring Boot · Android",
+  "birthday": "2009-06-16",
   "logo": "logo.txt",
   "modules": [
     {
-      "title": "System",
-      "rows": [["OS", "Arch Linux / Windows 11"], ["Host", "Notebook"], ["Kernel", "Backend Developer"], ["Shell", "Zsh"], ["Editor", "IntelliJ IDEA, VS Code"]]
+      "title": "system",
+      "rows": [
+        ["os", "Android"],
+        ["host", "estudante · aspirante a backend developer"],
+        ["shell", "fish"],
+        ["editor", "Neovim, Zed"]
+      ]
     },
     {
-      "title": "Stack",
-      "rows": [["Languages", "Java, Kotlin, TypeScript, Python"], ["Databases", "PostgreSQL, MongoDB, MySQL"], ["Frameworks", "Spring Boot, Node.js, Android"], ["Tools", "Gradle, Maven, Docker, Git"]]
+      "title": "stack",
+      "highlight": ["Java"],
+      "rows": [
+        ["languages", "Java, Python"],
+        ["databases", "PostgreSQL, MongoDB, MySQL"],
+        ["frameworks", "Spring Boot, Micronaut, Android"],
+        ["tools", "Gradle, Maven, Docker, Kubernetes, Git"]
+      ]
     },
     {
-      "title": "Activity",
+      "title": "about",
+      "rows": [
+        ["spoken", "Português (nativo), Inglês (intermediário)"],
+        ["uptime", ""],
+        ["into", "CLI & TUI, Android, Kafka, jogos de tabuleiro"],
+        ["building", "ferramentas de terminal e apps Android"]
+      ]
+    },
+    {
+      "title": "activity",
       "auto": "stats"
     },
     {
-      "title": "Contact",
-      "rows": [["GitHub", "Campeol-G"], ["LinkedIn", "seu-linkedin"], ["Email", "seu-email@exemplo.com"]]
+      "title": "contact",
+      "rows": [
+        ["email", "gustavocampeol28@gmail.com"],
+        ["leetcode", "leetcode.com/u/Chicolinguica"],
+        ["discord", "Chicolinguica"]
+      ]
     }
   ],
   "activity": {
@@ -29,6 +55,6 @@
     "repos": 5,
     "open_prs": 2,
     "open_issues": 1,
-    "weeks": [[0, 1, 0, 0, 0, 0, 1], [0, 0, 1, 0, 0, 0, 0], [0, 3, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 0, 0, 2, 0], [0, 0, 0, 3, 0, 0, 0], [0, 2, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 4, 0], [0, 0, 4, 0, 2, 3, 0], [1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 2, 0], [0, 0, 1, 0, 1, 0, 0], [0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 2, 0, 0, 0], [0, 0, 0, 4, 0, 0, 0], [3, 0, 0, 0, 0, 2, 1], [1, 0, 3, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0], [1, 0, 0, 4, 1, 0, 0], [0, 0, 2, 0, 0, 0, 0], [0, 3, 2, 0, 1, 0, 1], [0, 0, 1, 4, 0, 0, 0], [0, 0, 0, 0, 0, 3, 2], [0, 1, 2, 2, 0, 2, 1], [0, 0, 2, 1, 0, 0, 2], [0, 1, 4, 0, 0, 0, 0], [0, 4, 0, 0, 0, 1, 2], [0, 2, 4, 0, 0, 0, 0], [2, 4, 0, 0, 0, 3, 3], [0, 3, 1, 0, 1, 1, 0], [0, 3, 4, 4, 4, 4, 0], [2, 2, 2, 0, 3, 4, 2], [0, 0, 1, 0, 1, 0, 0], [0, 2, 1, 4, 0, 0, 0], [1, 1, 2, 0, 2, 2, 0], [0, 1, 2, 3, 0, 0, 0], [0, 3, 2, 1, 0, 1, 0], [0, 0, 2, 4, 1, 3, 2], [3, 4, 0, 3, 3, 4, 0], [0, 2, 0, 2, 1, 1, 1], [0, 3, 2, 2, 2, 0, 2], [0, 0, 1, 3, 0, 0, 2], [1, 1, 1, 3, 1, 1, 0], [1, null, null, null, null, null, null]]
+    "languages": { "Java": 0.86, "TypeScript": 0.05, "Python": 0.04, "Shell": 0.03, "SCSS": 0.02 }
   }
 }
