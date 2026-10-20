@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1262px" height="696px"
-     viewBox="0 0 1262 696" font-family="'Mono','DejaVu Sans Mono','Menlo','Liberation Mono',monospace" font-size="16px">
+<svg xmlns="http://www.w3.org/2000/svg" width="1318px" height="734px"
+     viewBox="0 0 1318 734" font-family="'Mono','DejaVu Sans Mono','Menlo','Liberation Mono',monospace" font-size="16px">
 <style>
 @font-face {
   src: local('Consolas');
@@ -16,142 +16,155 @@
 }
 text, tspan { white-space: pre; }
 
+/* Cursor piscando, como um terminal esperando comando.
+   CSS dentro de um SVG referenciado como imagem roda no GitHub (mesmo
+   mecanismo dos badges animados). O prefers-reduced-motion desliga
+   pra quem pediu. */
+.cursor { animation: blink 1.15s steps(1, end) infinite; }
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; opacity: 1; }
+}
+
 </style>
 
-<rect width="1262" height="696" fill="#F2EFE5" rx="14"/>
-<rect x="0.5" y="0.5" width="1261" height="695" rx="14" fill="none" stroke="#D0D5C9" stroke-width="1"/>
+<rect width="1318" height="734" fill="#F2EFE5" rx="14"/>
+<rect x="0.5" y="0.5" width="1317" height="733" rx="14" fill="none" stroke="#D0D5C9" stroke-width="1"/>
 <g>
-<text x="26.0" y="118.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓▓   ░▓█░    ░█▓▓▓████▓▓▓░░▓▓░ ░░░░░▓▓▓███▓░   ░░░</text>
-<text x="26.0" y="136.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓░░░▓▓▓█▓     ░▓▓▓▓░                ░░░░░░░   ░░░ </text>
-<text x="26.0" y="154.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓░░▓▓▓▓▓                     ░     ░        ░▓░░░░</text>
-<text x="26.0" y="172.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓░░░░▓▓░░                ░▓░░░░░   ░░░ ░     █▓░░░▓</text>
-<text x="26.0" y="190.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░ ░░░ ░░░   ░   ░▓▓▓█▓             ▓█▓▓░░    ▓▓░░░▓</text>
-<text x="26.0" y="208.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░ ░░░░░░░░░░░░   ░▓▓█▓▓             ▓████░    ▓▓▓░▓▓</text>
-<text x="26.0" y="226.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░░░░▓▓    ░░░░░            ░░░       ░░▓░░  ░░░░▓▓▓▓</text>
-<text x="26.0" y="244.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░       ░░  ░░░░       ░░▓▓▓▓▓▓▓░        ░      ░█▓</text>
-<text x="26.0" y="262.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░▓░     █▓░░░░  ░ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░▓░░░░    ░  ░▓▓</text>
-<text x="26.0" y="280.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░▓▓░   ░▓░░░     ░▓▓▓░░░░▓▓██▓▓▓▓▓▓▓▓███░    ░  ░▓▓</text>
-<text x="26.0" y="298.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░▓▓   ▓▓░░     ░▓▓░░    ░░▓▓░▓█▓▓▓░░░▓█▓░      ░▓▓</text>
-<text x="26.0" y="316.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░░    █░░      ░░ ░░     ░░░░░▓▓▓     ░▓▓░░   ░▓█▓</text>
-<text x="26.0" y="334.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░           ▓█▓░       ░▓░░ ░▓▓░      ░░░   ░██▓░</text>
-<text x="26.0" y="352.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓        ░░▓███▓▓     ░▓█▓▓░  ▓▓░       ░░  ░██▓▓░</text>
-<text x="26.0" y="370.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓▓    ░▓▓▓▓▓▓▓▓▓▓░░░░▓▓██▓░░░  ░▓█▓░░   ░▓▓░ ▓▓░▓░░</text>
-<text x="26.0" y="388.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██░░   ░██▓▓▓▓░░░░░░░▓███▓░ ░░   ░▓██▓░░░░▓▓█▓▓▓▓▓▓ </text>
-<text x="26.0" y="406.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░   ░▓▓▓▓░    ░░░░░░░           ░░░░ ░▓▓▓▓▓██▓░░ </text>
-<text x="26.0" y="424.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓░  ▓░░▓░░    ░░░▓░                ░▓▓▓▓▓▓▓█▓░   </text>
-<text x="26.0" y="442.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓░  ░  ░░░░░░░░░░▓▓▓▓░░░░         ░▓█▓▓░▓▓▓░   ░░</text>
-<text x="26.0" y="460.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓░   ░░░░░▓▓▓▓▓░▓▓▓▓▓▓█▓▓░░░▓▓▓▓░░▓▓█▓▓▓  ▓    ░▓▓</text>
-<text x="26.0" y="478.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░    ░░░░   ░░░░░░░░░░░    ░▓▓░░░░░░░░       ░▓█▓</text>
-<text x="26.0" y="496.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓▓     ░░▓▓░░░   ░░░ ░░░░░░░░░         ▓▓    ▓██▓</text>
-<text x="26.0" y="514.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░░░░     ░▓▓▓▓░░        ░░░░      ░░░▓██░    ▓██▓</text>
-<text x="26.0" y="532.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░   ░▓░▓▓      ░░▓░░░░         ░░░▓▓███▓░      ▓██▓</text>
-<text x="26.0" y="550.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">        ░▓         ░░░░▓▓▓░░░▓░▓▓▓██▓▓░      ░░░▓██▓</text>
-<text x="26.0" y="568.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">             ░░        ░▓▓▓▓▓▓▓▓▓░░        ░▓▓▓░▓██▓</text>
+<text x="26.0" y="137.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓▓   ░▓█░    ░█▓▓▓████▓▓▓░░▓▓░ ░░░░░▓▓▓███▓░   ░░░</text>
+<text x="26.0" y="155.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓░░░▓▓▓█▓     ░▓▓▓▓░                ░░░░░░░   ░░░ </text>
+<text x="26.0" y="173.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓░░▓▓▓▓▓                     ░     ░        ░▓░░░░</text>
+<text x="26.0" y="191.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓░░░░▓▓░░                ░▓░░░░░   ░░░ ░     █▓░░░▓</text>
+<text x="26.0" y="209.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░ ░░░ ░░░   ░   ░▓▓▓█▓             ▓█▓▓░░    ▓▓░░░▓</text>
+<text x="26.0" y="227.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░ ░░░░░░░░░░░░   ░▓▓█▓▓             ▓████░    ▓▓▓░▓▓</text>
+<text x="26.0" y="245.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░░░░▓▓    ░░░░░            ░░░       ░░▓░░  ░░░░▓▓▓▓</text>
+<text x="26.0" y="263.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░       ░░  ░░░░       ░░▓▓▓▓▓▓▓░        ░      ░█▓</text>
+<text x="26.0" y="281.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░▓░     █▓░░░░  ░ ░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░▓░░░░    ░  ░▓▓</text>
+<text x="26.0" y="299.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░▓▓░   ░▓░░░     ░▓▓▓░░░░▓▓██▓▓▓▓▓▓▓▓███░    ░  ░▓▓</text>
+<text x="26.0" y="317.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░▓▓   ▓▓░░     ░▓▓░░    ░░▓▓░▓█▓▓▓░░░▓█▓░      ░▓▓</text>
+<text x="26.0" y="335.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░░    █░░      ░░ ░░     ░░░░░▓▓▓     ░▓▓░░   ░▓█▓</text>
+<text x="26.0" y="353.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░           ▓█▓░       ░▓░░ ░▓▓░      ░░░   ░██▓░</text>
+<text x="26.0" y="371.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓        ░░▓███▓▓     ░▓█▓▓░  ▓▓░       ░░  ░██▓▓░</text>
+<text x="26.0" y="389.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓▓    ░▓▓▓▓▓▓▓▓▓▓░░░░▓▓██▓░░░  ░▓█▓░░   ░▓▓░ ▓▓░▓░░</text>
+<text x="26.0" y="407.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██░░   ░██▓▓▓▓░░░░░░░▓███▓░ ░░   ░▓██▓░░░░▓▓█▓▓▓▓▓▓ </text>
+<text x="26.0" y="425.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░   ░▓▓▓▓░    ░░░░░░░           ░░░░ ░▓▓▓▓▓██▓░░ </text>
+<text x="26.0" y="443.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓░  ▓░░▓░░    ░░░▓░                ░▓▓▓▓▓▓▓█▓░   </text>
+<text x="26.0" y="461.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓░  ░  ░░░░░░░░░░▓▓▓▓░░░░         ░▓█▓▓░▓▓▓░   ░░</text>
+<text x="26.0" y="479.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓░   ░░░░░▓▓▓▓▓░▓▓▓▓▓▓█▓▓░░░▓▓▓▓░░▓▓█▓▓▓  ▓    ░▓▓</text>
+<text x="26.0" y="497.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░    ░░░░   ░░░░░░░░░░░    ░▓▓░░░░░░░░       ░▓█▓</text>
+<text x="26.0" y="515.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓▓     ░░▓▓░░░   ░░░ ░░░░░░░░░         ▓▓    ▓██▓</text>
+<text x="26.0" y="533.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓░░░░░     ░▓▓▓▓░░        ░░░░      ░░░▓██░    ▓██▓</text>
+<text x="26.0" y="551.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░   ░▓░▓▓      ░░▓░░░░         ░░░▓▓███▓░      ▓██▓</text>
+<text x="26.0" y="569.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">        ░▓         ░░░░▓▓▓░░░▓░▓▓▓██▓▓░      ░░░▓██▓</text>
+<text x="26.0" y="587.0" fill="#506653" font-size="16.0px" textLength="499.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve">             ░░        ░▓▓▓▓▓▓▓▓▓░░        ░▓▓▓░▓██▓</text>
 </g>
 <text x="555.2" y="44.0" fill="#86A79B" font-size="18px" font-weight="700">❯</text>
 <text x="571.2" y="44.0" fill="#3D5143" font-size="20px" font-weight="700">Gustavo Campeol</text>
 <text x="755.2" y="44.0" fill="#7D8778" font-size="17px">·</text>
 <text x="771.4" y="44.0" fill="#7D8778" font-size="17px">@Campeol-G</text>
-<text x="873.4" y="44.0" fill="#7D8778" font-size="17px">  ·  Java · Spring Boot · Android</text>
+<text x="873.4" y="44.0" fill="#7D8778" font-size="17px">  ·  Java Backend · Android · Applied AI</text>
 <rect x="555.2" y="51.0" width="3" height="14" fill="#3D5143"/>
 <text x="565.2" y="62.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">system</text>
 <text x="555.2" y="84.0" fill="#506653" font-weight="700">os</text>
 <text x="584.4" y="84.0" fill="#7D8778">.............</text>
-<text x="717.2" y="84.0" fill="#3D5143">Arch Linux, Windows 11, Android</text>
+<text x="723.6" y="84.0" fill="#3D5143">Arch Linux, Windows 11, Android</text>
 <text x="555.2" y="102.0" fill="#506653" font-weight="700">host</text>
 <text x="603.6" y="102.0" fill="#7D8778">...........</text>
-<text x="717.2" y="102.0" fill="#3D5143">estudante · aspirante a backend developer</text>
-<text x="555.2" y="120.0" fill="#506653" font-weight="700">shell</text>
-<text x="613.2" y="120.0" fill="#7D8778">..........</text>
-<text x="717.2" y="120.0" fill="#3D5143">fish</text>
-<text x="555.2" y="138.0" fill="#506653" font-weight="700">editor</text>
-<text x="622.8" y="138.0" fill="#7D8778">.........</text>
-<text x="717.2" y="138.0" fill="#3D5143">Neovim, Zed</text>
-<rect x="555.2" y="161.0" width="3" height="14" fill="#3D5143"/>
-<text x="565.2" y="172.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">stack</text>
-<text x="555.2" y="194.0" fill="#506653" font-weight="700">languages</text>
-<text x="651.6" y="194.0" fill="#7D8778">......</text>
-<text x="717.2" y="194.0" fill="#3D5143">Java, Python</text>
-<text x="555.2" y="212.0" fill="#506653" font-weight="700">databases</text>
-<text x="651.6" y="212.0" fill="#7D8778">......</text>
-<text x="717.2" y="212.0" fill="#3D5143">PostgreSQL, MongoDB, MySQL</text>
-<text x="555.2" y="230.0" fill="#506653" font-weight="700">frameworks</text>
-<text x="661.2" y="230.0" fill="#7D8778">.....</text>
-<text x="717.2" y="230.0" fill="#3D5143">Spring Boot, Android</text>
-<text x="555.2" y="248.0" fill="#506653" font-weight="700">tools</text>
-<text x="613.2" y="248.0" fill="#7D8778">..........</text>
-<text x="717.2" y="248.0" fill="#3D5143">Gradle, Maven, Docker, Kubernetes, Git</text>
-<rect x="555.2" y="271.0" width="3" height="14" fill="#3D5143"/>
-<text x="565.2" y="282.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">about</text>
-<text x="555.2" y="304.0" fill="#506653" font-weight="700">spoken</text>
-<text x="622.8" y="304.0" fill="#7D8778">.........</text>
-<text x="717.2" y="304.0" fill="#3D5143">Português (nativo), Inglês (intermediário)</text>
-<text x="555.2" y="322.0" fill="#506653" font-weight="700">uptime</text>
-<text x="622.8" y="322.0" fill="#7D8778">.........</text>
-<text x="717.2" y="322.0" fill="#3D5143">17 years, 4 months, 4 days</text>
-<text x="555.2" y="340.0" fill="#506653" font-weight="700">into</text>
-<text x="603.6" y="340.0" fill="#7D8778">...........</text>
-<text x="717.2" y="340.0" fill="#3D5143">IA aplicada, Android, CLI &amp; TUI, sistemas distribuídos</text>
-<text x="555.2" y="358.0" fill="#506653" font-weight="700">working in</text>
-<text x="661.2" y="358.0" fill="#7D8778">.....</text>
-<text x="717.2" y="358.0" fill="#3D5143">SuperJogoDaVelha</text>
-<rect x="555.2" y="381.0" width="3" height="14" fill="#3D5143"/>
-<text x="565.2" y="392.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">activity</text>
+<text x="723.6" y="102.0" fill="#3D5143">Computer science student — backend Java</text>
+<text x="555.2" y="120.0" fill="#506653" font-weight="700">editor</text>
+<text x="622.8" y="120.0" fill="#7D8778">.........</text>
+<text x="723.6" y="120.0" fill="#3D5143">VS Code, Neovim, Zed</text>
+<rect x="555.2" y="143.0" width="3" height="14" fill="#3D5143"/>
+<text x="565.2" y="154.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">projects</text>
+<text x="555.2" y="176.0" fill="#506653" font-weight="700">Study-Simplifier</text>
+<text x="716.8" y="176.0" fill="#7D8778" font-size="14px">— AI study planner — LLM + RAG · Spring Boot + React</text>
+<text x="555.2" y="194.0" fill="#506653" font-weight="700">SiteBlock</text>
+<text x="649.6" y="194.0" fill="#7D8778" font-size="14px">— Cross-platform CLI to block domains — hosts file + DNS</text>
+<text x="555.2" y="212.0" fill="#506653" font-weight="700">Nothing-Launcher</text>
+<text x="716.8" y="212.0" fill="#7D8778" font-size="14px">— Single-screen Android launcher — no icons, no widgets</text>
+<rect x="555.2" y="235.0" width="3" height="14" fill="#3D5143"/>
+<text x="565.2" y="246.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">stack</text>
+<text x="555.2" y="268.0" fill="#506653" font-weight="700">languages</text>
+<text x="651.6" y="268.0" fill="#7D8778">......</text>
+<text x="723.6" y="268.0" fill="#3D5143">Java, Python, SQL</text>
+<text x="555.2" y="286.0" fill="#506653" font-weight="700">frameworks</text>
+<text x="661.2" y="286.0" fill="#7D8778">.....</text>
+<text x="723.6" y="286.0" fill="#3D5143">Spring Boot, Android</text>
+<text x="555.2" y="304.0" fill="#506653" font-weight="700">databases</text>
+<text x="651.6" y="304.0" fill="#7D8778">......</text>
+<text x="723.6" y="304.0" fill="#3D5143">PostgreSQL, MongoDB, MySQL</text>
+<text x="555.2" y="322.0" fill="#506653" font-weight="700">tools</text>
+<text x="613.2" y="322.0" fill="#7D8778">..........</text>
+<text x="723.6" y="322.0" fill="#3D5143">Gradle, Maven, Docker, Kafka, Git</text>
+<rect x="555.2" y="345.0" width="3" height="14" fill="#3D5143"/>
+<text x="565.2" y="356.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">activity</text>
+<text x="555.2" y="378.0" fill="#506653" font-weight="700">Commits (12mo)</text>
+<text x="699.6" y="378.0" fill="#7D8778">..</text>
+<text x="723.6" y="378.0" fill="#3D5143">143</text>
+<text x="555.2" y="396.0" fill="#506653" font-weight="700">Repos</text>
+<text x="613.2" y="396.0" fill="#7D8778">..........</text>
+<text x="723.6" y="396.0" fill="#3D5143">5</text>
 <text x="555.2" y="414.0" fill="#506653" font-weight="700">Streak</text>
 <text x="622.8" y="414.0" fill="#7D8778">.........</text>
-<text x="717.2" y="414.0" fill="#3D5143">12 days</text>
-<text x="555.2" y="432.0" fill="#506653" font-weight="700">Longest</text>
-<text x="632.4" y="432.0" fill="#7D8778">........</text>
-<text x="717.2" y="432.0" fill="#3D5143">27 days</text>
-<text x="555.2" y="450.0" fill="#506653" font-weight="700">Commits (1y)</text>
-<text x="680.4" y="450.0" fill="#7D8778">...</text>
-<text x="717.2" y="450.0" fill="#3D5143">143</text>
-<text x="555.2" y="468.0" fill="#506653" font-weight="700">Lines of Code</text>
-<text x="690.0" y="468.0" fill="#7D8778">..</text>
-<text x="717.2" y="468.0" fill="#3D5143">7,217 ( +8,421, -1,204 )</text>
-<text x="555.2" y="486.0" fill="#506653" font-weight="700">Repos</text>
-<text x="613.2" y="486.0" fill="#7D8778">..........</text>
-<text x="717.2" y="486.0" fill="#3D5143">5</text>
-<text x="555.2" y="504.0" fill="#506653" font-weight="700">Open PRs/Issues</text>
-<text x="709.2" y="504.0" fill="#7D8778">..</text>
-<text x="717.2" y="504.0" fill="#3D5143">2 / 1</text>
-<rect x="555.2" y="527.0" width="3" height="14" fill="#3D5143"/>
-<text x="565.2" y="538.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">contact</text>
-<text x="555.2" y="560.0" fill="#506653" font-weight="700">email</text>
-<text x="613.2" y="560.0" fill="#7D8778">..........</text>
-<text x="717.2" y="560.0" fill="#3D5143">gustavocampeol28@gmail.com</text>
-<text x="555.2" y="578.0" fill="#506653" font-weight="700">leetcode</text>
-<text x="642.0" y="578.0" fill="#7D8778">.......</text>
-<text x="717.2" y="578.0" fill="#3D5143">Chicolinguica</text>
-<text x="555.2" y="596.0" fill="#506653" font-weight="700">discord</text>
-<text x="632.4" y="596.0" fill="#7D8778">........</text>
-<text x="717.2" y="596.0" fill="#3D5143">Chicolinguica</text>
-<line x1="26.0" y1="630.0" x2="1045.6" y2="630.0" stroke="#D0D5C9" stroke-width="1"/>
-<text x="26.0" y="652.0" fill="#7D8778" font-size="13px">─</text>
-<text x="35.0" y="652.0" fill="#7D8778" font-size="13px">[</text>
-<text x="43.0" y="652.0" fill="#7D8778" font-size="13px">java </text>
-<text x="82.0" y="652.0" fill="#506653" font-size="13px">█████████</text>
-<text x="152.2" y="652.0" fill="#7D8778" font-size="13px">░</text>
-<text x="160.0" y="652.0" fill="#7D8778" font-size="13px"> 86%</text>
-<text x="191.2" y="652.0" fill="#7D8778" font-size="13px">]</text>
-<text x="207.2" y="652.0" fill="#7D8778" font-size="13px">─</text>
-<text x="216.2" y="652.0" fill="#7D8778" font-size="13px">[</text>
-<text x="224.2" y="652.0" fill="#7D8778" font-size="13px">up 17y</text>
-<text x="271.0" y="652.0" fill="#7D8778" font-size="13px">]</text>
-<text x="287.0" y="652.0" fill="#7D8778" font-size="13px">─</text>
-<text x="296.0" y="652.0" fill="#7D8778" font-size="13px">[</text>
-<text x="304.0" y="652.0" fill="#7D8778" font-size="13px">streak 12d</text>
-<text x="382.0" y="652.0" fill="#7D8778" font-size="13px">]</text>
-<text x="398.0" y="652.0" fill="#7D8778" font-size="13px">─</text>
-<text x="407.0" y="652.0" fill="#7D8778" font-size="13px">[</text>
-<text x="415.0" y="652.0" fill="#7D8778" font-size="13px">repos 5</text>
-<text x="469.6" y="652.0" fill="#7D8778" font-size="13px">]</text>
+<text x="723.6" y="414.0" fill="#3D5143">12 days</text>
+<text x="555.2" y="432.0" fill="#506653" font-weight="700">Lines of Code</text>
+<text x="690.0" y="432.0" fill="#7D8778">..</text>
+<text x="723.6" y="432.0" fill="#3D5143">7,217  ( +8,421 / -1,204 )</text>
+<text x="555.2" y="450.0" fill="#506653" font-weight="700">working in</text>
+<text x="661.2" y="450.0" fill="#7D8778">.....</text>
+<text x="723.6" y="450.0" fill="#3D5143">SuperJogoDaVelha</text>
+<rect x="555.2" y="473.0" width="3" height="14" fill="#3D5143"/>
+<text x="565.2" y="484.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">about</text>
+<text x="555.2" y="506.0" fill="#506653" font-weight="700">spoken</text>
+<text x="622.8" y="506.0" fill="#7D8778">.........</text>
+<text x="723.6" y="506.0" fill="#3D5143">Portuguese (native) · English (conversational)</text>
+<text x="555.2" y="524.0" fill="#506653" font-weight="700">into</text>
+<text x="603.6" y="524.0" fill="#7D8778">...........</text>
+<text x="723.6" y="524.0" fill="#3D5143">Applied AI, distributed systems, Android, CLI &amp; TUI</text>
+<text x="555.2" y="542.0" fill="#506653" font-weight="700">uptime</text>
+<text x="622.8" y="542.0" fill="#7D8778">.........</text>
+<text x="723.6" y="542.0" fill="#3D5143">17 years, 4 months, 4 days</text>
+<rect x="555.2" y="565.0" width="3" height="14" fill="#3D5143"/>
+<text x="565.2" y="576.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">contact</text>
+<text x="555.2" y="598.0" fill="#506653" font-weight="700">email</text>
+<text x="613.2" y="598.0" fill="#7D8778">..........</text>
+<text x="723.6" y="598.0" fill="#3D5143">gustavocampeol28@gmail.com</text>
+<text x="555.2" y="616.0" fill="#506653" font-weight="700">leetcode</text>
+<text x="642.0" y="616.0" fill="#7D8778">.......</text>
+<text x="723.6" y="616.0" fill="#3D5143">Chicolinguica</text>
+<text x="555.2" y="634.0" fill="#506653" font-weight="700">discord</text>
+<text x="632.4" y="634.0" fill="#7D8778">........</text>
+<text x="723.6" y="634.0" fill="#3D5143">Chicolinguica</text>
+<line x1="26.0" y1="668.0" x2="1101.8" y2="668.0" stroke="#D0D5C9" stroke-width="1"/>
+<text x="26.0" y="690.0" fill="#7D8778" font-size="13px">─</text>
+<text x="35.0" y="690.0" fill="#7D8778" font-size="13px">[</text>
+<text x="43.0" y="690.0" fill="#7D8778" font-size="13px">java </text>
+<text x="82.0" y="690.0" fill="#506653" font-size="13px">█████████</text>
+<text x="152.2" y="690.0" fill="#7D8778" font-size="13px">░</text>
+<text x="160.0" y="690.0" fill="#7D8778" font-size="13px"> 86%</text>
+<text x="191.2" y="690.0" fill="#7D8778" font-size="13px">]</text>
+<text x="207.2" y="690.0" fill="#7D8778" font-size="13px">─</text>
+<text x="216.2" y="690.0" fill="#7D8778" font-size="13px">[</text>
+<text x="224.2" y="690.0" fill="#7D8778" font-size="13px">up 17y</text>
+<text x="271.0" y="690.0" fill="#7D8778" font-size="13px">]</text>
+<text x="287.0" y="690.0" fill="#7D8778" font-size="13px">─</text>
+<text x="296.0" y="690.0" fill="#7D8778" font-size="13px">[</text>
+<text x="304.0" y="690.0" fill="#7D8778" font-size="13px">streak 12d</text>
+<text x="382.0" y="690.0" fill="#7D8778" font-size="13px">]</text>
+<text x="398.0" y="690.0" fill="#7D8778" font-size="13px">─</text>
+<text x="407.0" y="690.0" fill="#7D8778" font-size="13px">[</text>
+<text x="415.0" y="690.0" fill="#7D8778" font-size="13px">repos 5</text>
+<text x="469.6" y="690.0" fill="#7D8778" font-size="13px">]</text>
+<text class="cursor" x="494.6" y="690.0" fill="#3D5143" font-size="13px">█</text>
 <g>
-<rect x="1130.6" y="636.0" width="15.0" height="15.0" fill="#506653"/>
-<rect x="1148.6" y="636.0" width="15.0" height="15.0" fill="#86A79B"/>
-<rect x="1166.6" y="636.0" width="15.0" height="15.0" fill="#3D5143"/>
-<rect x="1184.6" y="636.0" width="15.0" height="15.0" fill="#7D8778"/>
-<rect x="1202.6" y="636.0" width="15.0" height="15.0" fill="#D8DFD0"/>
-<rect x="1220.6" y="636.0" width="15.0" height="15.0" fill="#A18F7B"/>
+<rect x="1186.8" y="674.0" width="15.0" height="15.0" fill="#506653"/>
+<rect x="1204.8" y="674.0" width="15.0" height="15.0" fill="#86A79B"/>
+<rect x="1222.8" y="674.0" width="15.0" height="15.0" fill="#3D5143"/>
+<rect x="1240.8" y="674.0" width="15.0" height="15.0" fill="#7D8778"/>
+<rect x="1258.8" y="674.0" width="15.0" height="15.0" fill="#D8DFD0"/>
+<rect x="1276.8" y="674.0" width="15.0" height="15.0" fill="#A18F7B"/>
 </g>
 </svg>

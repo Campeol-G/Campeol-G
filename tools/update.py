@@ -100,6 +100,9 @@ query($login: String!, $cursor: String) {
       pageInfo { endCursor hasNextPage }
       nodes {
         nameWithOwner
+        name
+        description
+        isFork
         pushedAt
         defaultBranchRef {
           target { ... on Commit { history(first: 1) { totalCount } } }
@@ -381,6 +384,28 @@ def main():
     with open(DATA_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
+    # Bloco de projetos: os que tem mais trabalho seu (commits proprios).
+    fallback = data.get("project_descriptions", {})
+    excluded = set(data.get("exclude_projects", []))
+    limit = int(data.get("projects_limit", 4))
+    ranked = []
+    for node in repos:
+        full = node["nameWithOwner"]
+        name = node.get("name") or full.split("/", 1)[1]
+        if name in excluded or full in excluded:
+            continue
+        entry = cache.get(full) or {}
+        mine = entry.get("my_commits", 0)
+        desc = node.get("description") or fallback.get(name, "")
+        if not desc:
+            continue
+        label = name + (" (fork)" if node.get("isFork") else "")
+        ranked.append((mine, node.get("pushedAt") or "", label, desc))
+    ranked.sort(key=lambda r: (r[0], r[1]), reverse=True)
+    projects = [{"name": r[2], "description": r[3]} for r in ranked[:limit]]
+    if projects:
+        print("   projetos: " + ", ".join(p["name"] for p in projects))
+
     data["activity"] = {
         "streak": streak,
         "longest_streak": longest,
@@ -392,6 +417,7 @@ def main():
         "open_issues": open_issues,
         "languages": languages,
         "working_on": working_on,
+        "projects": projects,
     }
     dump_json(DATA_FILE, data)
     print(f"-> {DATA_FILE} atualizado.")

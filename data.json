@@ -1,48 +1,43 @@
 {
   "handle": "Gustavo Campeol",
   "host": "Campeol-G",
-  "subtitle": "Java · Spring Boot · Android",
+  "subtitle": "Java Backend · Android · Applied AI",
   "birthday": "2009-06-16",
   "logo": "logo.txt",
+  "projects_limit": 4,
+  "exclude_projects": [
+    "SuperJogoDaVelha"
+  ],
+  "project_descriptions": {
+    "Study-Simplifier": "AI study planner — LLM + RAG · Spring Boot + React",
+    "SiteBlock": "Cross-platform CLI to block domains — hosts file + DNS",
+    "Nothing-Launcher": "Single-screen Android launcher — no icons, no widgets",
+    "akhq": "Apache Kafka GUI — Java + React"
+  },
   "modules": [
     {
       "title": "system",
-      "rows": [
-        ["os", "Arch Linux, Windows 11, Android"],
-        ["host", "estudante · aspirante a backend developer"],
-        ["shell", "fish"],
-        ["editor", "Neovim, Zed"]
-      ]
+      "rows": [["os", "Arch Linux, Windows 11, Android"], ["host", "Computer science student — backend Java"], ["editor", "VS Code, Neovim, Zed"]]
+    },
+    {
+      "title": "projects",
+      "type": "projects"
     },
     {
       "title": "stack",
-      "rows": [
-        ["languages", "Java, Python"],
-        ["databases", "PostgreSQL, MongoDB, MySQL"],
-        ["frameworks", "Spring Boot, Android"],
-        ["tools", "Gradle, Maven, Docker, Kubernetes, Git"]
-      ]
-    },
-    {
-      "title": "about",
-      "rows": [
-        ["spoken", "Português (nativo), Inglês (intermediário)"],
-        ["uptime", ""],
-        ["into", "IA aplicada, Android, CLI & TUI, sistemas distribuídos"],
-        ["working in", ""]
-      ]
+      "rows": [["languages", "Java, Python, SQL"], ["frameworks", "Spring Boot, Android"], ["databases", "PostgreSQL, MongoDB, MySQL"], ["tools", "Gradle, Maven, Docker, Kafka, Git"]]
     },
     {
       "title": "activity",
-      "auto": "stats"
+      "rows": [["Commits (12mo)", "143"], ["Repos", "5"], ["Streak", "12 days"], ["Lines of Code", "7,217  ( +8,421 / -1,204 )"], ["working in", ""]]
+    },
+    {
+      "title": "about",
+      "rows": [["spoken", "Portuguese (native) · English (conversational)"], ["into", "Applied AI, distributed systems, Android, CLI & TUI"], ["uptime", ""]]
     },
     {
       "title": "contact",
-      "rows": [
-        ["email", "gustavocampeol28@gmail.com"],
-        ["leetcode", "Chicolinguica"],
-        ["discord", "Chicolinguica"]
-      ]
+      "rows": [["email", "gustavocampeol28@gmail.com"], ["leetcode", "Chicolinguica"], ["discord", "Chicolinguica"]]
     }
   ],
   "activity": {
@@ -55,6 +50,26 @@
     "open_prs": 2,
     "open_issues": 1,
     "working_on": "SuperJogoDaVelha",
-    "languages": { "Java": 0.86, "TypeScript": 0.05, "Python": 0.04, "Shell": 0.03, "SCSS": 0.02 }
+    "languages": {
+      "Java": 0.86,
+      "TypeScript": 0.05,
+      "Python": 0.04,
+      "Shell": 0.03,
+      "SCSS": 0.02
+    },
+    "projects": [
+      {
+        "name": "Study-Simplifier",
+        "description": "AI study planner — LLM + RAG · Spring Boot + React"
+      },
+      {
+        "name": "SiteBlock",
+        "description": "Cross-platform CLI to block domains — hosts file + DNS"
+      },
+      {
+        "name": "Nothing-Launcher",
+        "description": "Single-screen Android launcher — no icons, no widgets"
+      }
+    ]
   }
 }

@@ -107,6 +107,19 @@ def svg_header(width, height, extra_css=""):
   font-display: swap;
 }}
 text, tspan {{ white-space: pre; }}
+
+/* Cursor piscando, como um terminal esperando comando.
+   CSS dentro de um SVG referenciado como imagem roda no GitHub (mesmo
+   mecanismo dos badges animados). O prefers-reduced-motion desliga
+   pra quem pediu. */
+.cursor {{ animation: blink 1.15s steps(1, end) infinite; }}
+@keyframes blink {{
+  0%, 49% {{ opacity: 1; }}
+  50%, 100% {{ opacity: 0; }}
+}}
+@media (prefers-reduced-motion: reduce) {{
+  .cursor {{ animation: none; opacity: 1; }}
+}}
 {extra_css}
 </style>
 """
@@ -233,12 +246,39 @@ STATUS_H = 40   # altura reservada para a barra de status
 
 
 def header_width(data):
-    """Largura necessaria do cabecalho em pixels."""
+    """Largura necessaria do cabecalho (tudo numa linha so)."""
     handle = data.get("handle", "")
     host = data.get("host", "")
-    prompt_w = 16 + text_width(handle, 20) + text_width(f"@{host}", 18)
-    sub_w = text_width(data.get("subtitle", ""), 15) + 18
-    return max(prompt_w, sub_w)
+    subtitle = data.get("subtitle", "")
+    w = 16 + text_width(handle, 20)
+    if host:
+        w += text_width(" · ", 17) + text_width(f"@{host}", 17)
+    if subtitle:
+        w += text_width("  ·  ", 17) + text_width(subtitle, 17)
+    return w
+
+
+def project_lines(data, mod):
+    """Linhas do bloco de projetos: nome + descricao, vindos do activity."""
+    projects = (data.get("activity") or {}).get("projects") or []
+    lines = []
+    for p in projects:
+        name = p.get("name", "")
+        desc = p.get("description", "")
+        if not name:
+            continue
+        lines.append((name, desc))
+    return lines
+
+
+def project_width(name, desc):
+    """Largura real de uma linha de projeto (nome em 16px, resto em 14px)."""
+    return (
+        len(name) * CHAR_W
+        + 8
+        + 3 * CHAR_W * (14.0 / FONT_SIZE)
+        + len(desc) * CHAR_W * (14.0 / FONT_SIZE)
+    )
 
 
 def measure(data, style):
@@ -249,12 +289,19 @@ def measure(data, style):
     logo_h = len(logo) * CHAR_H * logo_scale
 
     key_w = val_w = 0
+    proj_w = 0
     for mod in data.get("modules", []):
+        if mod.get("type") == "projects":
+            for name, desc in project_lines(data, mod):
+                proj_w = max(proj_w, project_width(name, desc))
+            continue
         for k, v in module_rows(data, mod):
             key_w = max(key_w, len(k))
             val_w = max(val_w, len(v))
-    key_w = key_w * CHAR_W + 18
+    # +34 px deixa espaco para pelo menos tres pontinhos de leader
+    key_w = key_w * CHAR_W + 34
     val_w = val_w * CHAR_W
+    proj_w = proj_w + 8
 
     mods = data.get("modules", [])
 
@@ -265,7 +312,10 @@ def measure(data, style):
                 h += 16
             if mod.get("title"):
                 h += CHAR_H + 4
-            h += len(module_rows(data, mod)) * CHAR_H
+            if mod.get("type") == "projects":
+                h += len(project_lines(data, mod)) * CHAR_H
+            else:
+                h += len(module_rows(data, mod)) * CHAR_H
         return h
 
     if style == "panel":
@@ -280,7 +330,7 @@ def measure(data, style):
         return w, h, logo_w, logo_h, key_w, val_w, content_h
 
     right_h = TITLE_LINES * CHAR_H + 14 + block_height(mods)
-    content_w = key_w + val_w
+    content_w = max(key_w + val_w, proj_w)
     text_x = PAD + logo_w + LOGO_GAP
     w = text_x + max(content_w, header_width(data)) + PAD
     if style == "cli":
@@ -359,6 +409,9 @@ def render_sections(t, data, out, x, y, key_w, val_w, bar=True):
                 f'font-weight="700" letter-spacing="0.8">{esc(mod["title"])}</text>'
             )
             y += CHAR_H + 4
+        if mod.get("type") == "projects":
+            y = render_projects(t, data, out, x, y)
+            continue
         for key, value in module_rows(data, mod):
             out.append(
                 f'<text x="{x:.1f}" y="{y:.1f}" fill="{t["key"]}" font-weight="700">'
@@ -384,6 +437,23 @@ def render_sections(t, data, out, x, y, key_w, val_w, bar=True):
                     )
                 cx += text_width(chunk, FONT_SIZE)
             y += CHAR_H
+    return y
+
+
+def render_projects(t, data, out, x, y):
+    """Bloco de projetos: nome em destaque + descricao, na mesma linha."""
+    for name, desc in project_lines(data, {}):
+        out.append(
+            f'<text x="{x:.1f}" y="{y:.1f}" fill="{t["key"]}" font-weight="700">'
+            f'{esc(name)}</text>'
+        )
+        cx = x + text_width(name, FONT_SIZE) + 8
+        if desc:
+            out.append(
+                f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="14px">'
+                f'— {esc(desc)}</text>'
+            )
+        y += CHAR_H
     return y
 
 
@@ -453,6 +523,11 @@ def render_statusbar(t, data, out, x, y, w):
             cx += text_width(text, 13)
         out.append(f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="13px">]</text>')
         cx += 16
+    # cursor piscando no fim da linha (parece terminal esperando comando)
+    out.append(
+        f'<text class="cursor" x="{cx + 9:.1f}" y="{y:.1f}" fill="{t["cursor"]}" '
+        f'font-size="13px">█</text>'
+    )
     return y + 14
 
 
