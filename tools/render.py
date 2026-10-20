@@ -31,39 +31,45 @@ PAD = 26.0            # padding interno
 LOGO_GAP = 30.0       # espaco entre logo e coluna de texto
 TITLE_LINES = 3.0     # altura do cabecalho em linhas
 
-THEMES = {
-    # Paleta "retro terminal" (inspirada nas cores do logo do fastfetch):
-    # ambar, sage, laranja queimado, creme, steel e slate. Tudo sai da
-    # mesma familia, entao nada no card grita sozinho.
-    "dark": {
-        "bg": "#14120f",
-        "frame": "#3a352d",
-        "rule": "#3a352d",
-        "dim": "#6f6653",
-        "title": "#e3b341",      # ambar -> acento principal
-        "key": "#a3be8c",        # sage
-        "value": "#ebdbb9",      # creme
-        "highlight": "#d2704a",  # laranja queimado
-        "logo": "#e3b341",
-        "cursor": "#e3b341",
-        "strip": ["#d2704a", "#a3be8c", "#e3b341", "#3a352d", "#b5c78f", "#7d9cb8", "#ebdbb9"],
-        "band": "#1f1c17",
+# Duas paletas de verdade, tiradas de temas de terminal classics.
+# Cada uma define: fundo, texto, chaves, valores, comentarios e destaque.
+PALETTES = {
+    "gruvbox": {
+        "label": "Gruvbox claro",
+        "bg": "#fbf1c7",       # fundo
+        "value": "#076678",    # valores
+        "title": "#b57614",    # destaque
+        "key": "#af3a03",      # chaves
+        "dim": "#7c6f64",      # comentarios
+        "text": "#3c3836",     # texto
+        "frame": "#ebdbb2",
+        "neutral": "#928374",
+        "strip": ["#b57614", "#af3a03", "#076678", "#3c3836", "#7c6f64", "#928374"],
     },
-    "light": {
-        "bg": "#faf6ec",
-        "frame": "#ded4c0",
-        "rule": "#ded4c0",
-        "dim": "#8d8371",
-        "title": "#a5711a",
-        "key": "#5c7a3f",
-        "value": "#332e24",
-        "highlight": "#b0512f",
-        "logo": "#8a5f14",
-        "cursor": "#a5711a",
-        "strip": ["#b0512f", "#5c7a3f", "#a5711a", "#ded4c0", "#8fa86a", "#4a6b8a", "#332e24"],
-        "band": "#f0ead9",
+    "everforest": {
+        "label": "Everforest (sem verde)",
+        "bg": "#2d353b",       # fundo
+        "value": "#7fbbb3",    # valores
+        "title": "#dbbc7f",    # destaque
+        "key": "#e69875",      # chaves
+        "dim": "#859289",      # comentarios
+        "text": "#d3c6aa",     # texto
+        "frame": "#3e484e",
+        "neutral": "#586e75",
+        "strip": ["#dbbc7f", "#e69875", "#7fbbb3", "#d3c6aa", "#859289", "#586e75"],
     },
 }
+
+
+def theme_from(palette_name):
+    """Monta o dicionario de cores de uma paleta, ja com as cores derivadas."""
+    p = dict(PALETTES[palette_name])
+    p["rule"] = p["frame"]
+    p["band"] = p["frame"]
+    p["cursor"] = p["title"]
+    p["highlight"] = p["title"]
+    p.setdefault("logo", p["title"])
+    return p
 
 
 def esc(text):
@@ -442,8 +448,8 @@ def render_statusbar(t, data, out, x, y, w):
     return y + 14
 
 
-def render(data, style, theme_name):
-    t = THEMES[theme_name]
+def render(data, style, palette_name):
+    t = theme_from(palette_name)
     logo = data.get("logo_lines", [])
     w, h, logo_w, logo_h, key_w, val_w, right_h = measure(data, style)
 
@@ -646,20 +652,32 @@ def main():
     ap.add_argument("--data", default="data.json")
     ap.add_argument("--style", default="cli",
                     choices=["cli", "box", "dots", "panel", "accent"])
-    ap.add_argument("--theme", default="both", choices=["dark", "light", "both"])
+    ap.add_argument("--theme", default="both", choices=list(PALETTES) + ["both"],
+                    help="paleta a renderizar (ou 'both')")
+    ap.add_argument("--assign", default="light", choices=["light", "dark"],
+                    help="qual paleta vai para o SVG de tema claro")
     ap.add_argument("--outdir", default=".")
     ap.add_argument("--name", default="")
     args = ap.parse_args()
 
     data = load_data(args.data)
-    themes = ["dark", "light"] if args.theme == "both" else [args.theme]
-    for theme in themes:
-        svg = render(data, args.style, theme)
-        name = args.name or ("dark_mode" if theme == "dark" else "light_mode")
+    palettes = list(PALETTES) if args.theme == "both" else [args.theme]
+
+    # '--assign' diz qual paleta ocupa o SVG de tema claro.
+    # Padrao: Gruvbox no claro, Everforest no escuro.
+    pairs = {"light": ("gruvbox", "everforest"), "dark": ("everforest", "gruvbox")}
+    light_palette, dark_palette = pairs[args.assign]
+
+    for palette in palettes:
+        svg = render(data, args.style, palette)
+        if len(palettes) == 1 and args.name:
+            name = args.name
+        else:
+            name = "light_mode" if palette == light_palette else "dark_mode"
         out = os.path.join(args.outdir, f"{name}.svg")
         with open(out, "w", encoding="utf-8") as f:
             f.write(svg)
-        print(f"-> {out}  ({len(svg)} bytes)")
+        print(f"-> {out}  ({len(svg)} bytes, {PALETTES[palette]['label']})")
 
 
 if __name__ == "__main__":

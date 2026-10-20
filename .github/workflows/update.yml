@@ -38,7 +38,7 @@ jobs:
         run: python tools/update.py
 
       - name: Render SVG
-        run: python tools/render.py --data data.json --style cli --theme both --outdir .
+        run: python tools/render.py --data data.json --style cli --theme both --assign light --outdir .
 
       - name: Commit
         run: |

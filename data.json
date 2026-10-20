@@ -16,7 +16,6 @@
     },
     {
       "title": "stack",
-      "highlight": ["Java"],
       "rows": [
         ["languages", "Java, Python"],
         ["databases", "PostgreSQL, MongoDB, MySQL"],
@@ -29,7 +28,7 @@
       "rows": [
         ["spoken", "Português (nativo), Inglês (intermediário)"],
         ["uptime", ""],
-        ["into", "IA, CLI & TUI, jogos de terminal, Android, Kafka"],
+        ["into", "IA aplicada, Android, CLI & TUI, sistemas distribuídos"],
         ["working in", ""]
       ]
     },
