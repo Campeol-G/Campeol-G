@@ -32,49 +32,36 @@ LOGO_GAP = 30.0       # espaco entre logo e coluna de texto
 TITLE_LINES = 3.0     # altura do cabecalho em linhas
 
 THEMES = {
+    # Paleta "retro terminal" (inspirada nas cores do logo do fastfetch):
+    # ambar, sage, laranja queimado, creme, steel e slate. Tudo sai da
+    # mesma familia, entao nada no card grita sozinho.
     "dark": {
-        "bg": "#0d1117",
-        "frame": "#30363d",
-        "frame_soft": "#21262d",
-        "header_bg": "#161b22",
-        "title": "#e6edf3",
-        "handle": "#58a6ff",
-        "subtitle": "#8b949e",
-        "key": "#39c5cf",
-        "value": "#c9d1d9",
-        "dim": "#6e7681",
-        "rule": "#30363d",
-        "green": "#3fb950",
-        "green_strong": "#56d364",
-        "green_mid": "#2ea043",
-        "green_dim": "#1a7f37",
-        "yellow": "#d29922",
-        "magenta": "#bc8cff",
-        "red": "#f85149",
-        "cyan": "#39c5cf",
-        "logo": "#39c5cf",
+        "bg": "#14120f",
+        "frame": "#3a352d",
+        "rule": "#3a352d",
+        "dim": "#6f6653",
+        "title": "#e3b341",      # ambar -> acento principal
+        "key": "#a3be8c",        # sage
+        "value": "#ebdbb9",      # creme
+        "highlight": "#d2704a",  # laranja queimado
+        "logo": "#e3b341",
+        "cursor": "#e3b341",
+        "strip": ["#d2704a", "#a3be8c", "#e3b341", "#3a352d", "#b5c78f", "#7d9cb8", "#ebdbb9"],
+        "band": "#1f1c17",
     },
     "light": {
-        "bg": "#ffffff",
-        "frame": "#d0d7de",
-        "frame_soft": "#eaeef2",
-        "header_bg": "#f6f8fa",
-        "title": "#1f2328",
-        "handle": "#0969da",
-        "subtitle": "#59636e",
-        "key": "#0a7d8a",
-        "value": "#1f2328",
-        "dim": "#818b98",
-        "rule": "#d8dee4",
-        "green": "#1a7f37",
-        "green_strong": "#0f5322",
-        "green_mid": "#2ea043",
-        "green_dim": "#a7d3b0",
-        "yellow": "#9a6700",
-        "magenta": "#8250df",
-        "red": "#cf222e",
-        "cyan": "#0a7d8a",
-        "logo": "#1f2328",
+        "bg": "#faf6ec",
+        "frame": "#ded4c0",
+        "rule": "#ded4c0",
+        "dim": "#8d8371",
+        "title": "#a5711a",
+        "key": "#5c7a3f",
+        "value": "#332e24",
+        "highlight": "#b0512f",
+        "logo": "#8a5f14",
+        "cursor": "#a5711a",
+        "strip": ["#b0512f", "#5c7a3f", "#a5711a", "#ded4c0", "#8fa86a", "#4a6b8a", "#332e24"],
+        "band": "#f0ead9",
     },
 }
 
@@ -208,21 +195,23 @@ def module_rows(data, mod):
         return [["Uptime", value]] if value else []
     rows = []
     for key, value in mod.get("rows", []):
-        # "uptime" com valor vazio e' preenchido com a idade real.
+        # "uptime" e "working in" com valor vazio sao preenchidos automaticamente.
         if key == "uptime" and not value:
             value = age_string(data.get("birthday", ""))
+        if key.lower() == "working in" and not value:
+            value = (data.get("activity") or {}).get("working_on", "")
         rows.append((key, value))
     return rows
 
 
 def prompt_height(data):
-    """Altura do cabecalho (prompt): 1 ou 2 linhas + regua."""
-    return CHAR_H + (CHAR_H if data.get("subtitle") else 0) + 6
+    """Altura do cabecalho (prompt): uma linha."""
+    return CHAR_H
 
 
 def content_top(data):
     """Y onde comeca o conteudo (mesma fonte de verdade do render)."""
-    return PAD + CHAR_H + prompt_height(data) + 12
+    return PAD + prompt_height(data) + 18
 
 
 STATUS_H = 40   # altura reservada para a barra de status
@@ -265,13 +254,14 @@ def measure(data, style):
         return h
 
     if style == "panel":
-        head_h = 78.0
+        head_h = 74.0
         half = (len(mods) + 1) // 2
         cols = [mods[:half], mods[half:]]
         content_h = max(block_height(c) for c in cols) if cols else 0
         col_w = key_w + val_w
         w = PAD * 2 + logo_w + LOGO_GAP + col_w * 2 + 44
-        h = head_h + PAD + max(content_h + CHAR_H, logo_h) + PAD
+        w = max(w, PAD * 2 + header_width(data) + logo_w * 0.62 + LOGO_GAP)
+        h = head_h + PAD + max(content_h + CHAR_H, logo_h) + PAD + STATUS_H
         return w, h, logo_w, logo_h, key_w, val_w, content_h
 
     right_h = TITLE_LINES * CHAR_H + 14 + block_height(mods)
@@ -288,34 +278,30 @@ def measure(data, style):
 
 # ------------------------------------------------------------- renderizacao
 def render_prompt(t, data, out, x, y, w):
-    """Cabecalho no estilo prompt de shell: '❯ nome@host' + subtitulo."""
+    """Titulo e subtitulo na mesma linha, no estilo prompt de shell."""
     handle = data.get("handle", "")
     host = data.get("host", "")
     out.append(
-        f'<text x="{x:.1f}" y="{y:.1f}" fill="{t["green"]}" font-size="18px" '
+        f'<text x="{x:.1f}" y="{y:.1f}" fill="{t["title"]}" font-size="18px" '
         f'font-weight="700">❯</text>'
     )
     out.append(
-        f'<text x="{x + 16:.1f}" y="{y:.1f}" fill="{t["handle"]}" font-size="20px" '
+        f'<text x="{x + 16:.1f}" y="{y:.1f}" fill="{t["title"]}" font-size="20px" '
         f'font-weight="700">{esc(handle)}</text>'
     )
-    px = x + 20 + text_width(handle, 20)
+    cx = x + 20 + text_width(handle, 20)
     if host:
         out.append(
-            f'<text x="{px:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="18px">'
+            f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="17px">'
             f'@{esc(host)}</text>'
         )
+        cx += text_width(f"@{host}", 17)
     if data.get("subtitle"):
         out.append(
-            f'<text x="{x + 18:.1f}" y="{y + CHAR_H:.1f}" fill="{t["subtitle"]}" '
-            f'font-size="15px">{esc(data["subtitle"])}</text>'
+            f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="17px">'
+            f'  ·  {esc(data["subtitle"])}</text>'
         )
-    y += CHAR_H + (CHAR_H if data.get("subtitle") else 0)
-    out.append(
-        f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{x + w:.1f}" y2="{y:.1f}" '
-        f'stroke="{t["rule"]}" stroke-width="1"/>'
-    )
-    return y + 6
+    return y
 
 
 def split_highlight(value, terms):
@@ -347,7 +333,7 @@ def render_sections(t, data, out, x, y, key_w, val_w, bar=True):
             if bar:
                 out.append(
                     f'<rect x="{x:.1f}" y="{y - 11:.1f}" width="3" height="14" '
-                    f'fill="{t["handle"]}"/>'
+                    f'fill="{t["title"]}"/>'
                 )
             out.append(
                 f'<text x="{x + 10:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="13px" '
@@ -369,7 +355,7 @@ def render_sections(t, data, out, x, y, key_w, val_w, bar=True):
             for chunk, hot in split_highlight(value, terms):
                 if hot:
                     out.append(
-                        f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["green"]}" '
+                        f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["highlight"]}" '
                         f'font-weight="700">{esc(chunk)}</text>'
                     )
                 else:
@@ -380,6 +366,22 @@ def render_sections(t, data, out, x, y, key_w, val_w, bar=True):
                 cx += text_width(chunk, FONT_SIZE)
             y += CHAR_H
     return y
+
+
+def render_strip(t, out, right_x, y, size=15.0, gap=3.0):
+    """Quadradinhos com as cores da paleta, no canto inferior direito
+    (como a faixa de cores do fastfetch)."""
+    colors = t.get("strip", [])
+    total = len(colors) * size + (len(colors) - 1) * gap
+    x = right_x - total
+    out.append(f'<g>')
+    for i, c in enumerate(colors):
+        out.append(
+            f'<rect x="{x + i * (size + gap):.1f}" y="{y:.1f}" width="{size:.1f}" '
+            f'height="{size:.1f}" fill="{c}"/>'
+        )
+    out.append("</g>")
+    return total
 
 
 def render_statusbar(t, data, out, x, y, w):
@@ -396,19 +398,19 @@ def render_statusbar(t, data, out, x, y, w):
         cells = 10
         filled = max(1, round(pct / 100 * cells))
         segs.append([
-            (f"{name.lower()} ", t["subtitle"]),
-            ("█" * filled, t["green"]),
+            (f"{name.lower()} ", t["dim"]),
+            ("█" * filled, t["key"]),
             ("░" * (cells - filled), t["dim"]),
-            (f" {pct}%", t["subtitle"]),
+            (f" {pct}%", t["dim"]),
         ])
 
     up = age_string(data.get("birthday", ""))
     if up:
-        segs.append([(f"up {up.split(' years')[0]}y", t["subtitle"])])
+        segs.append([(f"up {up.split(' years')[0]}y", t["dim"])])
     if "streak" in activity:
-        segs.append([(f"streak {activity['streak']}d", t["subtitle"])])
+        segs.append([(f"streak {activity['streak']}d", t["dim"])])
     if "repos" in activity:
-        segs.append([(f"repos {activity['repos']}", t["subtitle"])])
+        segs.append([(f"repos {activity['repos']}", t["dim"])])
 
     if not segs:
         return y
@@ -435,7 +437,7 @@ def render_statusbar(t, data, out, x, y, w):
     # cursor piscando no fim da linha
     out.append(f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="13px">─</text>')
     out.append(
-        f'<text x="{cx + 9:.1f}" y="{y:.1f}" fill="{t["green"]}" font-size="13px">█</text>'
+        f'<text x="{cx + 9:.1f}" y="{y:.1f}" fill="{t["cursor"]}" font-size="13px">█</text>'
     )
     return y + 14
 
@@ -463,20 +465,22 @@ def render(data, style, theme_name):
             logo_top = top + max(0, (body_h - logo_h) / 2)
             out.append(ascii_block(logo, PAD, logo_top + CHAR_H - 4, t["logo"]))
         y = render_prompt(t, data, out, text_x, PAD + CHAR_H, key_w + val_w)
-        y = render_sections(t, data, out, text_x, y + 12, key_w, val_w, bar=True)
-        render_statusbar(t, data, out, PAD, y + 16, w - PAD * 2)
+        y = render_sections(t, data, out, text_x, content_top(data), key_w, val_w, bar=True)
+        bar_y = y + 16
+        render_statusbar(t, data, out, PAD, bar_y, w - PAD * 2 - 190)
+        render_strip(t, out, w - PAD, bar_y + 6)
     elif style == "box":
         if logo:
             logo_top = PAD + max(0, (right_h - logo_h) / 2)
             out.append(ascii_block(logo, PAD, logo_top + CHAR_H - 4, t["logo"]))
         y = PAD + CHAR_H
         out.append(
-            f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["handle"]}" font-size="22px" '
+            f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["title"]}" font-size="22px" '
             f'font-weight="700">{esc(data.get("handle", ""))}</text>'
         )
         if data.get("subtitle"):
             out.append(
-                f'<text x="{text_x:.1f}" y="{y + CHAR_H:.1f}" fill="{t["subtitle"]}" '
+                f'<text x="{text_x:.1f}" y="{y + CHAR_H:.1f}" fill="{t["dim"]}" '
                 f'font-size="14px">{esc(data["subtitle"])}</text>'
             )
         y = render_sections(t, data, out, text_x, PAD + TITLE_LINES * CHAR_H + 14,
@@ -486,12 +490,12 @@ def render(data, style, theme_name):
             out.append(ascii_block(logo, PAD, PAD + CHAR_H - 4, t["logo"]))
         y = PAD + CHAR_H
         out.append(
-            f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["handle"]}" font-size="22px" '
+            f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["title"]}" font-size="22px" '
             f'font-weight="700">{esc(data.get("handle", ""))}</text>'
         )
         if data.get("subtitle"):
             out.append(
-                f'<text x="{text_x:.1f}" y="{y + CHAR_H:.1f}" fill="{t["subtitle"]}" '
+                f'<text x="{text_x:.1f}" y="{y + CHAR_H:.1f}" fill="{t["dim"]}" '
                 f'font-size="14px">{esc(data["subtitle"])}</text>'
             )
         out.append(
@@ -506,12 +510,12 @@ def render(data, style, theme_name):
             out.append(ascii_block(logo, PAD, PAD + CHAR_H - 4, t["logo"]))
         y = PAD + CHAR_H
         out.append(
-            f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["handle"]}" font-size="22px" '
+            f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["title"]}" font-size="22px" '
             f'font-weight="700">{esc(data.get("handle", ""))}</text>'
         )
         if data.get("subtitle"):
             out.append(
-                f'<text x="{text_x:.1f}" y="{y + CHAR_H:.1f}" fill="{t["subtitle"]}" '
+                f'<text x="{text_x:.1f}" y="{y + CHAR_H:.1f}" fill="{t["dim"]}" '
                 f'font-size="14px">{esc(data["subtitle"])}</text>'
             )
         y = PAD + TITLE_LINES * CHAR_H + 14
@@ -547,17 +551,43 @@ def render(data, style, theme_name):
                 )
                 y += CHAR_H
     elif style == "panel":
-        head_h = 78.0
+        head_h = 74.0
         out.append(
             f'<path d="M 0 14 A 14 14 0 0 1 14 0 L {w-14:.0f} 0 A 14 14 0 0 1 {w:.0f} 14 '
-            f'L {w:.0f} {head_h:.0f} L 0 {head_h:.0f} Z" fill="{t["header_bg"]}"/>'
+            f'L {w:.0f} {head_h:.0f} L 0 {head_h:.0f} Z" fill="{t["band"]}"/>'
         )
         out.append(
             f'<line x1="0" y1="{head_h:.0f}" x2="{w:.0f}" y2="{head_h:.0f}" '
             f'stroke="{t["frame"]}" stroke-width="1"/>'
         )
+        # cabecalho na faixa
+        hx = PAD + logo_w * 0.62 + LOGO_GAP
+        out.append(
+            f'<text x="{hx:.1f}" y="{head_h / 2 + 6:.1f}" fill="{t["title"]}" font-size="18px" '
+            f'font-weight="700">❯</text>'
+        )
+        out.append(
+            f'<text x="{hx + 16:.1f}" y="{head_h / 2 + 6:.1f}" fill="{t["title"]}" '
+            f'font-size="20px" font-weight="700">{esc(data.get("handle", ""))}</text>'
+        )
+        cx = hx + 20 + text_width(data.get("handle", ""), 20)
+        if data.get("host"):
+            out.append(
+                f'<text x="{cx:.1f}" y="{head_h / 2 + 6:.1f}" fill="{t["dim"]}" font-size="17px">'
+                f'@{esc(data["host"])}</text>'
+            )
+            cx += text_width(f"@{data['host']}", 17)
+        if data.get("subtitle"):
+            out.append(
+                f'<text x="{cx:.1f}" y="{head_h / 2 + 6:.1f}" fill="{t["dim"]}" font-size="17px">'
+                f'  ·  {esc(data["subtitle"])}</text>'
+            )
+
         if logo:
-            out.append(ascii_block(logo, PAD, head_h + PAD + CHAR_H - 4, t["logo"]))
+            out.append(ascii_block(logo, PAD, head_h + PAD + CHAR_H - 4, t["logo"],
+                                   char_h=13.0, scale=0.78))
+
+        # modulos em duas colunas, divididas por altura
         mods = data.get("modules", [])
         half = (len(mods) + 1) // 2
         cols = [mods[:half], mods[half:]]
@@ -571,9 +601,12 @@ def render(data, style, theme_name):
                     y += 16
                 if mod.get("title"):
                     out.append(
-                        f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="12px" '
-                        f'font-weight="700" letter-spacing="1.4">'
-                        f'{esc(mod["title"].upper())}</text>'
+                        f'<rect x="{cx:.1f}" y="{y - 11:.1f}" width="3" height="14" '
+                        f'fill="{t["title"]}"/>'
+                    )
+                    out.append(
+                        f'<text x="{cx + 10:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="13px" '
+                        f'font-weight="700" letter-spacing="0.8">{esc(mod["title"])}</text>'
                     )
                     y += CHAR_H + 4
                 for key, value in module_rows(data, mod):
@@ -586,6 +619,9 @@ def render(data, style, theme_name):
                         f'{esc(value)}</text>'
                     )
                     y += CHAR_H
+        bar_y = h - PAD - 12
+        render_statusbar(t, data, out, PAD, bar_y, w - PAD * 2 - 190)
+        render_strip(t, out, w - PAD, bar_y + 6)
 
     out.append("</svg>")
     return "\n".join(out)

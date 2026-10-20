@@ -100,6 +100,7 @@ query($login: String!, $cursor: String) {
       pageInfo { endCursor hasNextPage }
       nodes {
         nameWithOwner
+        pushedAt
         defaultBranchRef {
           target { ... on Commit { history(first: 1) { totalCount } } }
         }
@@ -315,6 +316,20 @@ def main():
             break
         cursor = data["pageInfo"]["endCursor"]
 
+    # Projeto mais recente (para a linha "working in")
+    working_on = ""
+    pushed = [
+        (node.get("pushedAt") or "", node["nameWithOwner"].split("/", 1)[1])
+        for node in repos
+    ]
+    pushed.sort(reverse=True)
+    for _, name in pushed:
+        if name.lower() != handle.lower():
+            working_on = name
+            break
+    if working_on:
+        print(f"   working in: {working_on}")
+
     # Bytes por linguagem (para a barra de status)
     lang_bytes = {}
     for node in repos:
@@ -376,6 +391,7 @@ def main():
         "open_prs": open_prs,
         "open_issues": open_issues,
         "languages": languages,
+        "working_on": working_on,
     }
     dump_json(DATA_FILE, data)
     print(f"-> {DATA_FILE} atualizado.")

@@ -1,6 +1,6 @@
 {
   "handle": "Gustavo Campeol",
-  "host": "campeol",
+  "host": "Campeol-G",
   "subtitle": "Java · Spring Boot · Android",
   "birthday": "2009-06-16",
   "logo": "logo.txt",
@@ -8,7 +8,7 @@
     {
       "title": "system",
       "rows": [
-        ["os", "Android"],
+        ["os", "Arch Linux, Windows 11, Android"],
         ["host", "estudante · aspirante a backend developer"],
         ["shell", "fish"],
         ["editor", "Neovim, Zed"]
@@ -20,7 +20,7 @@
       "rows": [
         ["languages", "Java, Python"],
         ["databases", "PostgreSQL, MongoDB, MySQL"],
-        ["frameworks", "Spring Boot, Micronaut, Android"],
+        ["frameworks", "Spring Boot, Android"],
         ["tools", "Gradle, Maven, Docker, Kubernetes, Git"]
       ]
     },
@@ -29,8 +29,8 @@
       "rows": [
         ["spoken", "Português (nativo), Inglês (intermediário)"],
         ["uptime", ""],
-        ["into", "CLI & TUI, Android, Kafka, jogos de tabuleiro"],
-        ["building", "ferramentas de terminal e apps Android"]
+        ["into", "IA, CLI & TUI, jogos de terminal, Android, Kafka"],
+        ["working in", ""]
       ]
     },
     {
@@ -41,7 +41,7 @@
       "title": "contact",
       "rows": [
         ["email", "gustavocampeol28@gmail.com"],
-        ["leetcode", "leetcode.com/u/Chicolinguica"],
+        ["leetcode", "Chicolinguica"],
         ["discord", "Chicolinguica"]
       ]
     }
@@ -55,6 +55,7 @@
     "repos": 5,
     "open_prs": 2,
     "open_issues": 1,
+    "working_on": "SuperJogoDaVelha",
     "languages": { "Java": 0.86, "TypeScript": 0.05, "Python": 0.04, "Shell": 0.03, "SCSS": 0.02 }
   }
 }
