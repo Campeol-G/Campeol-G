@@ -125,6 +125,43 @@ def ascii_block(lines, x, y, color, char_w=CHAR_W, char_h=CHAR_H, opacity=1.0, s
     return "\n".join(out)
 
 
+def stats_rows(activity):
+    """Linhas do modulo de stats, montadas a partir dos dados automaticos."""
+    if not activity:
+        return []
+    rows = []
+
+    def num(v):
+        return f"{v:,}"
+
+    if "streak" in activity:
+        rows.append(["Streak", f"{activity['streak']} days"])
+    if "longest_streak" in activity:
+        rows.append(["Longest", f"{activity['longest_streak']} days"])
+    if "commits" in activity:
+        rows.append(["Commits (1y)", num(activity["commits"])])
+    if "lines_added" in activity:
+        added = num(activity["lines_added"])
+        deleted = num(activity.get("lines_deleted", 0))
+        total = num(activity["lines_added"] - activity.get("lines_deleted", 0))
+        rows.append(["Lines of Code", f"{total} ( +{added}, -{deleted} )"])
+    if "repos" in activity:
+        rows.append(["Repos", num(activity["repos"])])
+    if "open_prs" in activity or "open_issues" in activity:
+        rows.append([
+            "Open PRs/Issues",
+            f"{activity.get('open_prs', 0)} / {activity.get('open_issues', 0)}",
+        ])
+    return rows
+
+
+def module_rows(data, mod):
+    """Linhas de um modulo: fixas ou geradas automaticamente ('auto': 'stats')."""
+    if mod.get("auto") == "stats":
+        return stats_rows(data.get("activity"))
+    return mod.get("rows", [])
+
+
 def measure(data, style):
     """Calcula a geometria do layout e devolve (w, h, logo_w, logo_h, key_w, val_w, right_h)."""
     logo = data.get("logo_lines", [])
@@ -135,7 +172,7 @@ def measure(data, style):
     key_w = 0
     val_w = 0
     for mod in data.get("modules", []):
-        for k, v in mod.get("rows", []):
+        for k, v in module_rows(data, mod):
             key_w = max(key_w, len(k))
             val_w = max(val_w, len(v))
     key_w = key_w * CHAR_W + 18
@@ -150,7 +187,7 @@ def measure(data, style):
                 h += 14
             if mod.get("title"):
                 h += CHAR_H
-            h += len(mod.get("rows", [])) * CHAR_H
+            h += len(module_rows(data, mod)) * CHAR_H
         return h
 
     # rodape: mapa de contribuicoes + faixa de paleta
@@ -213,7 +250,7 @@ def render_box(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h, 
                 f'font-weight="700" letter-spacing="1.4">{esc(mod["title"].upper())}</text>'
             )
             y += CHAR_H
-        for key, value in mod.get("rows", []):
+        for key, value in module_rows(data, mod):
             out.append(
                 f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["key"]}" '
                 f'font-weight="700">{esc(key)}</text>'
@@ -260,7 +297,7 @@ def render_dots(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h,
                 f'stroke="{t["rule"]}" stroke-width="1"/>'
             )
             y += CHAR_H
-        for key, value in mod.get("rows", []):
+        for key, value in module_rows(data, mod):
             out.append(
                 f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["key"]}" '
                 f'font-weight="700">{esc(key)}</text>'
@@ -332,7 +369,7 @@ def render_panel(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h
                     f'stroke="{t["rule"]}" stroke-width="1"/>'
                 )
                 y += CHAR_H + 4
-            for key, value in mod.get("rows", []):
+            for key, value in module_rows(data, mod):
                 out.append(
                     f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["key"]}" font-weight="700">'
                     f'{esc(key)}</text>'
@@ -384,7 +421,7 @@ def render_hybrid(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_
                 f'stroke="{t["rule"]}" stroke-width="1"/>'
             )
             y += CHAR_H
-        for key, value in mod.get("rows", []):
+        for key, value in module_rows(data, mod):
             out.append(
                 f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["key"]}" '
                 f'font-weight="700">{esc(key)}</text>'
@@ -445,7 +482,7 @@ def render_accent(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_
                 f'stroke="{t["rule"]}" stroke-width="1"/>'
             )
             y += CHAR_H
-        for key, value in mod.get("rows", []):
+        for key, value in module_rows(data, mod):
             out.append(
                 f'<text x="{text_x:.1f}" y="{y:.1f}" fill="{t["key"]}" '
                 f'font-weight="700">{esc(key)}</text>'
