@@ -39,10 +39,14 @@ THEMES = {
         "dim": "#6e7681",
         "rule": "#30363d",
         "green": "#3fb950",
+        "green_strong": "#56d364",
+        "green_mid": "#2ea043",
+        "green_dim": "#1a7f37",
         "yellow": "#d29922",
         "magenta": "#bc8cff",
         "red": "#f85149",
         "cyan": "#39c5cf",
+        "logo": "#39c5cf",
     },
     "light": {
         "bg": "#ffffff",
@@ -57,10 +61,14 @@ THEMES = {
         "dim": "#818b98",
         "rule": "#d8dee4",
         "green": "#1a7f37",
+        "green_strong": "#0f5322",
+        "green_mid": "#2ea043",
+        "green_dim": "#a7d3b0",
         "yellow": "#9a6700",
         "magenta": "#8250df",
         "red": "#cf222e",
         "cyan": "#0a7d8a",
+        "logo": "#1f2328",
     },
 }
 
@@ -145,6 +153,15 @@ def measure(data, style):
             h += len(mod.get("rows", [])) * CHAR_H
         return h
 
+    # rodape: mapa de contribuicoes + faixa de paleta
+    act = data.get("activity")
+    footer_h = 0
+    heat_w = 0
+    if act:
+        weeks = act.get("weeks", [])
+        heat_w = len(weeks) * 9.5
+        footer_h = 16 + (7 * 9.5 + 6 if weeks else 0) + 13
+
     if style == "panel":
         head_h = 78.0
         half = (len(mods) + 1) // 2
@@ -153,12 +170,15 @@ def measure(data, style):
         col_w = key_w + val_w
         w = PAD * 2 + logo_w + LOGO_GAP + col_w * 2 + 44
         h = head_h + PAD + max(content_h + CHAR_H, logo_h) + PAD
+        w = max(w, PAD * 2 + heat_w)
+        h += footer_h
         return w, h, logo_w, logo_h, key_w, val_w, content_h
 
     right_h = TITLE_LINES * CHAR_H + 14 + block_height(mods)
     content_w = key_w + val_w
     w = PAD + logo_w + LOGO_GAP + content_w + PAD
-    h = PAD + max(logo_h, right_h) + PAD
+    w = max(w, PAD * 2 + heat_w)
+    h = PAD + max(logo_h, right_h) + PAD + footer_h
     return w, h, logo_w, logo_h, key_w, val_w, right_h
 
 
@@ -170,7 +190,7 @@ def render_box(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h, 
     )
     if logo:
         logo_top = PAD + max(0, (right_h - logo_h) / 2)
-        out.append(ascii_block(logo, PAD, logo_top + CHAR_H - 4, t["cyan"]))
+        out.append(ascii_block(logo, PAD, logo_top + CHAR_H - 4, t["logo"]))
 
     y = PAD + CHAR_H
     out.append(
@@ -204,11 +224,13 @@ def render_box(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h, 
             )
             y += CHAR_H
 
+    render_footer(t, data, out, PAD, h - PAD - footer_height(data), w - PAD * 2)
+
 
 def render_dots(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h, text_x):
     """Sem moldura: leaders de pontos e reguas de secao (estilo Andrew6rant)."""
     if logo:
-        out.append(ascii_block(logo, PAD, PAD + CHAR_H - 4, t["cyan"]))
+        out.append(ascii_block(logo, PAD, PAD + CHAR_H - 4, t["logo"]))
 
     y = PAD + CHAR_H
     out.append(
@@ -254,6 +276,8 @@ def render_dots(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h,
             )
             y += CHAR_H
 
+    render_footer(t, data, out, PAD, h - PAD - footer_height(data), w - PAD * 2)
+
 
 def render_panel(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h, text_x):
     """Faixa de cabecalho + logo a esquerda + modulos em duas colunas."""
@@ -284,7 +308,7 @@ def render_panel(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h
         )
 
     if logo:
-        out.append(ascii_block(logo, PAD, head_h + PAD + CHAR_H - 4, t["cyan"]))
+        out.append(ascii_block(logo, PAD, head_h + PAD + CHAR_H - 4, t["logo"]))
 
     mods = data.get("modules", [])
     half = (len(mods) + 1) // 2
@@ -319,6 +343,8 @@ def render_panel(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h
                 )
                 y += CHAR_H
 
+    render_footer(t, data, out, PAD, h - PAD - footer_height(data), w - PAD * 2)
+
 
 def render_hybrid(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h, text_x):
     """A + B: moldura do fastfetch por fora, leaders de pontos e reguas por dentro."""
@@ -328,7 +354,7 @@ def render_hybrid(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_
     )
     if logo:
         logo_top = PAD + max(0, (right_h - logo_h) / 2)
-        out.append(ascii_block(logo, PAD, logo_top + CHAR_H - 4, t["cyan"]))
+        out.append(ascii_block(logo, PAD, logo_top + CHAR_H - 4, t["logo"]))
 
     y = PAD + CHAR_H
     out.append(
@@ -374,11 +400,13 @@ def render_hybrid(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_
             )
             y += CHAR_H
 
+    render_footer(t, data, out, PAD, h - PAD - footer_height(data), w - PAD * 2)
+
 
 def render_accent(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_h, text_x):
     """A + B, versao leve: sem moldura, mas com barra de acento e reguas."""
     if logo:
-        out.append(ascii_block(logo, PAD, PAD + CHAR_H - 4, t["cyan"]))
+        out.append(ascii_block(logo, PAD, PAD + CHAR_H - 4, t["logo"]))
 
     y = PAD + CHAR_H
     out.append(
@@ -432,6 +460,66 @@ def render_accent(t, data, out, w, h, logo, logo_w, logo_h, key_w, val_w, right_
                 f'{esc(value)}</text>'
             )
             y += CHAR_H
+
+    render_footer(t, data, out, PAD, h - PAD - footer_height(data), w - PAD * 2)
+
+
+def render_palette(t, x, y, size=13.0, gap=4.0):
+    """Faixa de blocos coloridos no rodape, no estilo fastfetch."""
+    colors = [t["handle"], t["key"], t["green"], t["yellow"], t["magenta"], t["red"], t["cyan"], t["dim"]]
+    out = ['<g>']
+    for i, c in enumerate(colors):
+        out.append(
+            f'<rect x="{x + i * (size + gap):.1f}" y="{y:.1f}" width="{size:.1f}" '
+            f'height="{size:.1f}" rx="2" fill="{c}"/>'
+        )
+    out.append("</g>")
+    return "\n".join(out)
+
+
+def render_heatmap(t, x, y, weeks, cell=7.0, gap=2.5, days=("D","S","T","Q","Q","S","S")):
+    """Mapa de contribuicoes: 1 quadrado por dia, 53 semanas."""
+    shades = [t["frame_soft"], t["green_dim"], t["green_mid"], t["green"], t["green_strong"]]
+    out = ['<g>']
+    for wi, week in enumerate(weeks):
+        for di, level in enumerate(week):
+            if level is None:
+                continue
+            cx = x + wi * (cell + gap)
+            cy = y + di * (cell + gap)
+            out.append(
+                f'<rect x="{cx:.1f}" y="{cy:.1f}" width="{cell:.1f}" height="{cell:.1f}" '
+                f'rx="2" fill="{shades[min(len(shades) - 1, max(0, level))]}"/>'
+            )
+    out.append("</g>")
+    return "\n".join(out)
+
+
+def footer_height(data):
+    act = data.get("activity")
+    if not act:
+        return 0
+    weeks = act.get("weeks", [])
+    return 16 + (7 * 9.5 + 6 if weeks else 0) + 13
+
+
+def render_footer(t, data, out, x, y, width):
+    """Rodape: mapa de contribuicoes + faixa de paleta."""
+    act = data.get("activity")
+    if not act:
+        return y
+    out.append(
+        f'<line x1="{x:.1f}" y1="{y:.1f}" x2="{x + width:.1f}" y2="{y:.1f}" '
+        f'stroke="{t["rule"]}" stroke-width="1"/>'
+    )
+    y += 16
+    weeks = act.get("weeks", [])
+    if weeks:
+        out.append(render_heatmap(t, x, y, weeks))
+        y += 7 * 9.5 + 6
+    out.append(render_palette(t, x, y))
+    y += 13
+    return y
 
 
 def render(data, style, theme_name):

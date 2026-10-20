@@ -18,12 +18,28 @@ from PIL import Image
 
 # Ramp de brightness -> caractere. Do mais claro (fundo) ao mais escuro.
 RAMP = " .:-=+*#%@"
-# Ramp "bloco": daspace (fundo) ao bloco cheio.
+# Ramp "bloco": do espaco (fundo) ao bloco cheio.
 BLOCKS = " ░▒▓█"
+# Ramp "blocos de meio": 8 blocos + cheio -> mais tons, melhor legibilidade.
+BLOCKS8 = " ▘▝▗▖▌▐▞▚█"
+# Ramp "blocos forte": menos niveis -> mais tinta, melhor leitura em fundo claro.
+BLOCKS_STRONG = " ▒▓█"
+# Ramp "blocos medio": 3 niveis, sem o mais leve.
+BLOCKS_MED = " ░▓█"
+# Ramp "pesada": sem espaco no topo, todo pixel desenhado (boa leitura em claro).
+HEAVY = ".:-=+*#%@"
 # Ramp para imagens coloridas/flat (identicon do GitHub, por exemplo).
 DUO = " #"
 
-RAMPS = {"gray": RAMP, "blocks": BLOCKS, "duo": DUO}
+RAMPS = {
+    "gray": RAMP,
+    "blocks": BLOCKS,
+    "blocks8": BLOCKS8,
+    "blocks_strong": BLOCKS_STRONG,
+    "blocks_med": BLOCKS_MED,
+    "heavy": HEAVY,
+    "duo": DUO,
+}
 
 
 def load_gray(path, cols):
@@ -84,13 +100,15 @@ def to_dual_matrix(path, cols):
     return mat, img.size[0], img.size[1]
 
 
-def render(path, cols, mode, gamma=1.0, levels=False):
+def render(path, cols, mode, gamma=1.0, levels=False, invert=False):
     if mode == "duo":
         mat, w, h = to_dual_matrix(path, cols)
         ramp = DUO
     else:
         mat, w, h = to_gray_matrix(path, cols, gamma, levels)
         ramp = RAMPS[mode]
+    if invert:
+        mat = [255 - v for v in mat]
     lines = []
     for y in range(h):
         row = "".join(ramp[min(len(ramp) - 1, mat[y * w + x] * len(ramp) // 256)] for x in range(w))
@@ -102,13 +120,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("image")
     ap.add_argument("--cols", type=int, default=44)
-    ap.add_argument("--mode", choices=["gray", "blocks", "duo"], default="gray")
+    ap.add_argument("--mode", choices=list(RAMPS), default="gray")
     ap.add_argument("--gamma", type=float, default=1.0)
     ap.add_argument("--levels", action="store_true", help="estica o contraste automaticamente")
+    ap.add_argument("--invert", action="store_true", help="inverte o brilho")
     ap.add_argument("--out", default="-")
     args = ap.parse_args()
 
-    lines = render(args.image, args.cols, args.mode, args.gamma, args.levels)
+    lines = render(args.image, args.cols, args.mode, args.gamma, args.levels, args.invert)
     # Todas as linhas com o mesmo numero de caracteres (espacos a direita),
     # para o SVG poder forcar a largura via textLength sem quebrar a grade.
     width = max(len(l) for l in lines)
