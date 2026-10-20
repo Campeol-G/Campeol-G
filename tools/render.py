@@ -31,32 +31,41 @@ PAD = 26.0            # padding interno
 LOGO_GAP = 30.0       # espaco entre logo e coluna de texto
 TITLE_LINES = 3.0     # altura do cabecalho em linhas
 
-# Duas paletas de verdade, tiradas de temas de terminal classics.
-# Cada uma define: fundo, texto, chaves, valores, comentarios e destaque.
+# Duas paletas de verdade, com as cores exatas de um terminal.
 PALETTES = {
-    "gruvbox": {
-        "label": "Gruvbox claro",
-        "bg": "#fbf1c7",       # fundo
-        "value": "#076678",    # valores
-        "title": "#b57614",    # destaque
-        "key": "#af3a03",      # chaves
-        "dim": "#7c6f64",      # comentarios
-        "text": "#3c3836",     # texto
-        "frame": "#ebdbb2",
-        "neutral": "#928374",
-        "strip": ["#b57614", "#af3a03", "#076678", "#3c3836", "#7c6f64", "#928374"],
+    # ---- modo escuro
+    "forest": {
+        "label": "Forest (escuro)",
+        "bg": "#2D3533",        # Forest Night
+        "frame": "#46564A",     # Sage Forest
+        "rule": "#343F3A",      # Moss Shadow
+        "key": "#A3B8B0",       # Eucalyptus
+        "value": "#D8C7A5",     # Oat Milk
+        "dim": "#A7B69B",       # Soft Sage
+        "title": "#D6A85E",     # Honey Glow
+        "logo": "#D6A85E",      # Honey Glow
+        "accent": "#D6A85E",    # Honey Glow
+        "text": "#D8C7A5",      # Oat Milk
+        "surface": "#343F3A",   # Moss Shadow
+        "neutral": "#B8A08A",   # Mushroom
+        "strip": ["#D6A85E", "#A3B8B0", "#D8C7A5", "#A7B69B", "#46564A", "#B8A08A"],
     },
-    "everforest": {
-        "label": "Everforest (sem verde)",
-        "bg": "#2d353b",       # fundo
-        "value": "#7fbbb3",    # valores
-        "title": "#dbbc7f",    # destaque
-        "key": "#e69875",      # chaves
-        "dim": "#859289",      # comentarios
-        "text": "#d3c6aa",     # texto
-        "frame": "#3e484e",
-        "neutral": "#586e75",
-        "strip": ["#dbbc7f", "#e69875", "#7fbbb3", "#d3c6aa", "#859289", "#586e75"],
+    # ---- modo claro
+    "linen": {
+        "label": "Linen (claro)",
+        "bg": "#F2EFE5",        # Background
+        "frame": "#D0D5C9",     # Border
+        "rule": "#D0D5C9",      # Border
+        "key": "#506653",       # Primary
+        "value": "#3D5143",     # Text
+        "dim": "#7D8778",       # Text Secondary
+        "title": "#3D5143",     # Primary Dark
+        "logo": "#506653",      # Primary
+        "accent": "#86A79B",    # Accent
+        "text": "#3D5143",      # Text
+        "surface": "#E8E4D8",   # Surface
+        "neutral": "#A18F7B",   # Muted
+        "strip": ["#506653", "#86A79B", "#3D5143", "#7D8778", "#D8DFD0", "#A18F7B"],
     },
 }
 
@@ -288,7 +297,7 @@ def render_prompt(t, data, out, x, y, w):
     handle = data.get("handle", "")
     host = data.get("host", "")
     out.append(
-        f'<text x="{x:.1f}" y="{y:.1f}" fill="{t["title"]}" font-size="18px" '
+        f'<text x="{x:.1f}" y="{y:.1f}" fill="{t["accent"]}" font-size="18px" '
         f'font-weight="700">❯</text>'
     )
     out.append(
@@ -297,6 +306,10 @@ def render_prompt(t, data, out, x, y, w):
     )
     cx = x + 20 + text_width(handle, 20)
     if host:
+        out.append(
+            f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="17px">·</text>'
+        )
+        cx += text_width("·", 17) + 6
         out.append(
             f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="17px">'
             f'@{esc(host)}</text>'
@@ -440,11 +453,6 @@ def render_statusbar(t, data, out, x, y, w):
             cx += text_width(text, 13)
         out.append(f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="13px">]</text>')
         cx += 16
-    # cursor piscando no fim da linha
-    out.append(f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="13px">─</text>')
-    out.append(
-        f'<text x="{cx + 9:.1f}" y="{y:.1f}" fill="{t["cursor"]}" font-size="13px">█</text>'
-    )
     return y + 14
 
 
@@ -665,7 +673,7 @@ def main():
 
     # '--assign' diz qual paleta ocupa o SVG de tema claro.
     # Padrao: Gruvbox no claro, Everforest no escuro.
-    pairs = {"light": ("gruvbox", "everforest"), "dark": ("everforest", "gruvbox")}
+    pairs = {"light": ("linen", "forest"), "dark": ("forest", "linen")}
     light_palette, dark_palette = pairs[args.assign]
 
     for palette in palettes:
