@@ -542,6 +542,26 @@ def render_statusbar(t, data, out, x, y, w):
     return y + 14
 
 
+def render_logo_only(data, palette_name):
+    """So o desenho do logo (sem o card), pra usar como imagem no README.
+
+    O logo e' desenho, nao texto: encolhe bem e continua reconhecivel.
+    Usa "logo_image" (arte em blocos) porque bloco encolhe preservando a
+    forma; caractere fino vira ruido quando a imagem diminui.
+    """
+    t = theme_from(palette_name)
+    logo = data.get("logo_image_lines") or data.get("logo_lines", [])
+    sc = float(data.get("logo_scale", 1.0))
+    w = max((len(l) for l in logo), default=0) * CHAR_W * sc + PAD * 2
+    h = len(logo) * CHAR_H * sc + PAD * 2
+    out = [svg_header(w, h)]
+    out.append(f'<rect width="{w:.0f}" height="{h:.0f}" fill="{t["bg"]}" rx="14"/>')
+    out.append(ascii_block(logo, PAD, PAD + CHAR_H * sc - 4, t["logo"],
+                           char_w=CHAR_W * sc, char_h=CHAR_H * sc, scale=sc))
+    out.append("</svg>")
+    return "\n".join(out)
+
+
 def render(data, style, palette_name):
     t = theme_from(palette_name)
     logo = data.get("logo_lines", [])
@@ -735,14 +755,16 @@ def render(data, style, palette_name):
 def load_data(path):
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
-    logo_path = data.get("logo")
-    if logo_path and os.path.exists(logo_path):
-        with open(logo_path, encoding="utf-8") as f:
+    for key, path_key in (("logo_lines", "logo"), ("logo_image_lines", "logo_image")):
+        path = data.get(path_key)
+        if not path or not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as f:
             lines = f.read().split("\n")
         while lines and not lines[-1].strip():
             lines.pop()
         width = max((len(l) for l in lines), default=0)
-        data["logo_lines"] = [l.ljust(width) for l in lines]
+        data[key] = [l.ljust(width) for l in lines]
     return data
 
 
@@ -757,20 +779,27 @@ def main():
                     help="qual paleta vai para o SVG de tema claro")
     ap.add_argument("--outdir", default=".")
     ap.add_argument("--name", default="")
+    ap.add_argument("--logo-only", action="store_true",
+                    help="gera so o desenho do logo (sem o card)")
     args = ap.parse_args()
 
     data = load_data(args.data)
     palettes = list(PALETTES) if args.theme == "both" else [args.theme]
 
     # '--assign' diz qual paleta ocupa o SVG de tema claro.
-    # Padrao: Gruvbox no claro, Everforest no escuro.
+    # Padrao: Linen no claro, Forest no escuro.
     pairs = {"light": ("linen", "forest"), "dark": ("forest", "linen")}
     light_palette, dark_palette = pairs[args.assign]
 
     for palette in palettes:
-        svg = render(data, args.style, palette)
+        if args.logo_only:
+            svg = render_logo_only(data, palette)
+        else:
+            svg = render(data, args.style, palette)
         if len(palettes) == 1 and args.name:
             name = args.name
+        elif args.logo_only:
+            name = "logo_dark" if palette == dark_palette else "logo_light"
         else:
             name = "light_mode" if palette == light_palette else "dark_mode"
         out = os.path.join(args.outdir, f"{name}.svg")

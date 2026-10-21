@@ -37,18 +37,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: python tools/update.py
 
-      - name: Render SVG
-        run: python tools/render.py --data data.json --style cli --theme both --assign light --outdir .
+      - name: Render logo and card
+        run: |
+          python tools/render.py --data data.json --style cli --theme both --assign light --logo-only --outdir .
+          python tools/render.py --data data.json --style cli --theme both --assign light --outdir .
+
+      - name: Render README
+        run: python tools/readme_text.py
 
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json dark_mode.svg light_mode.svg cache/
+          git add data.json dark_mode.svg light_mode.svg logo_dark.svg logo_light.svg README.md cache/
           git diff --staged --stat
           if git diff --staged --quiet; then
             echo "Nada mudou."
           else
-            git commit -m "chore: atualiza dados do README [skip ci]"
+            git commit -m "chore: atualiza o README [skip ci]"
             git push
           fi

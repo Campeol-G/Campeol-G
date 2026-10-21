@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="771px" height="726px"
+     viewBox="0 0 771 726" font-family="'Mono','DejaVu Sans Mono','Menlo','Liberation Mono',monospace" font-size="16px">
+<style>
+@font-face {
+  src: local('Consolas');
+  font-family: 'Mono';
+  size-adjust: 94.6%;
+  font-display: swap;
+}
+@font-face {
+  src: local('JetBrains Mono'), local('Fira Code'), local('Menlo'),
+       local('DejaVu Sans Mono'), local('Liberation Mono'), local('Courier New');
+  font-family: 'Mono';
+  font-display: swap;
+}
+text, tspan { white-space: pre; }
+
+/* Cursor piscando, como um terminal esperando comando.
+   CSS dentro de um SVG referenciado como imagem roda no GitHub (mesmo
+   mecanismo dos badges animados). O prefers-reduced-motion desliga
+   pra quem pediu. */
+.cursor { animation: blink 1.15s steps(1, end) infinite; }
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor { animation: none; opacity: 1; }
+}
+
+</style>
+
+<rect width="771" height="726" fill="#F2EFE5" rx="14"/>
+<g>
+<text x="26.0" y="36.0" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve"> ▓▓▓▓▓░▓░  ░░▓░░▓▓▓░       ░▓███▓░   ▓▓▓░▓████▓██▓░ ░▓░░░░ ░░▓░░░░░▓▓▓██▓▓██▓▓▓▓▓▓░      ░░  ░▓░</text>
+<text x="26.0" y="50.1" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓▓░▓░  ░▓▓▓░░▓██▓         ░▓▓▓   ░▓█████▓▓▓▓▓▓░░░▓▓█▓▓░░  ░░▓░░░   ░▓░ ░▓▓▓███▓▓▓░░       ░█░</text>
+<text x="26.0" y="64.1" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓██▓▓░▓░ ▓▓▓▓░  ░██▓          ░▓▓▓▓███▓▓░                      ░░░░░   ░░░░░░░░░░░░░░     ░░░▓█░</text>
+<text x="26.0" y="78.2" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓█▓░░░░░▓▓▓▓░░  ▓██░           ░▓▓▓░░        ░░     ░░   ░▓░░░░ ░░░░▓░  ░     ░        ░▓▓█▓░░░ </text>
+<text x="26.0" y="92.2" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓█▓▓░░ ░▓█▓▓▓▓░▓▓▓▓    ▓░░░░                ░▓▓▓░░  ░░ ░░░▓░░░░░ ░░░░░░░  ░░▓▓░      ░▓█▓▓▓░  ░░</text>
+<text x="26.0" y="106.2" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓██▓░   ░▓▓▓▓▓▓▓▓▓░   ░▓░░░░░               ░▓░ ░░░░▓▓░░▓▓▓▓▓▓░░░░░░░░▓▓█▓▓░░   ░▓  ░▓██▓░    ▓░</text>
+<text x="26.0" y="120.3" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓▓░  ░▓▓▓▓▓▓░░░▓░   ░░░░░▓░░              ░▓▓▓▓▓▓▓░░░░░░▓▓▓░           ▓▓░   ░░   ░███▓░    ▓░</text>
+<text x="26.0" y="134.3" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">██▓░  ░▓██▓░░░   ░▓    ░▓░░▓░     ░░░▓▓▓▓░    ▓▓▓░    ░░░░░░░      ▓▓▓░░░ ░░░░░░░   ░▓███▓░  ░█░</text>
+<text x="26.0" y="148.4" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓█░  ░▓█▓░     ░░▓░   ░▓▓▓▓▓   ░░▓██▓▓▓█▓▓░    ░                  ░████▓▓▓░   ░▓░   ░▓███▓▓  ░█░</text>
+<text x="26.0" y="162.4" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█░   ░██▓    ░▓▓▓░░ ░░▓▓▓▓░░   ░░░▓▓▓▓███▓░   ░  ░░    ░░  ░░     ░▓▓▓▓████▓░  ░▓░  ░▓█▓▓▓▓░ ▓█░</text>
+<text x="26.0" y="176.4" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓   ░░░▓░░ ░▓▓▓▓░░ ░░░░░        ░░░░░▓▓▓▓░  ░░   ░░               ░▓▓▓▓▓▓▓▓▓░  ░▓▓   ░▓███▓░ ▓█░</text>
+<text x="26.0" y="190.5" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓  ░▓▓█▓█▓▓▓░░    ▓██▓▓▓▓▓░░░    ░░░▓▓▓░░       ░░░░░░ ░░░░       ░░▓▓▓▓▓▓▓▓░   ░      ░▓██░ ░█░</text>
+<text x="26.0" y="204.5" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓▓▓▓▓░▓▓░░      ░░░░░░░░░▓█▓░                  ░░░░░░               ░░░░▓░░   ░  ░▓▓▓░ ░▓▓▓░▓█░</text>
+<text x="26.0" y="218.6" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓░            ░  ░░      ░█▓              ░░▓████▓████▓▓▓▓▓▓░░░            ░▓▓▓▓▓▓░░░   ░░▓██░</text>
+<text x="26.0" y="232.6" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░▓▓▓░▓░  ░░▓░    ▓▓▓░░░▓▓▓░  ▓░         ░▓▓███▓▓▓▓▓░░░░▓░▓▓▓▓▓▓████▓▓░░     ░▓▓▓▓░░░░░     ░▓██░</text>
+<text x="26.0" y="246.6" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░▓██▓   ░░    ▓█▓░ ░  ░▓▓▓▓░░░▓░░   ░▓▓▓▓░░  ░░░░ ░░░▓░   ░    ░▓▓▓██▓▓░░░▓▓░░░░░ ░░░░  ░▓▓██░</text>
+<text x="26.0" y="260.7" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░  ▓█▓         ▓▓▓░ ▓▓▓░      ▓▓░  ░▓▓▓░░░░░░░░▓▓▓░▓▓▓▓▓     ░░░░░░  ░░░░▓█▓   ▓▓   ░   ░░▓▓▓█░</text>
+<text x="26.0" y="274.7" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░  ░██▓       ░▓▓▓░░▓█▓░       ░░ ░█▓░░░░▓▓▓▓▓░▓▓▓▓███▓▓  ▓░░░  ░░░░░▓▓▓░▓▓▓               ▓██░</text>
+<text x="26.0" y="288.8" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓   ▓██▓      ░▓░░░ ░░     ░░░  ░▓█░░░░░▓░░░░░░░▓░░▓▓▓█▓░░▓░░░░▓▓▓▓▓▓▓███▓█▓░      ░▓▓░░░ ░▓██░</text>
+<text x="26.0" y="302.8" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░  ░▓█▓▓     ░▓▓░▓▓▓▓▓░▓▓▓▓█▓  ░▓█░ ░░░░       ░▓░  ░▓▓░░▓▓█▓░▓██▓░░ ░░▓▓███▓░     ░▓▓▓░  ░███░</text>
+<text x="26.0" y="316.8" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░   ░█▓      ▓█░░░░░▓▓░░▓▓░░   ▓█░   ░░░        ▓▓░ ░░░ ░░░▓▓▓█▓░        ░▓█▓▓▓▓▓░░ ░░░░  ░▓██░</text>
+<text x="26.0" y="330.9" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░▓░ ░█░      ▓█░ ░░░ ░        ░▓░░░░░▓▓▓    ░░  ▓█▓ ░░░░  ░░███░      ░░  ░█▓░░░░▓▓░░░   ░▓▓▓█░</text>
+<text x="26.0" y="344.9" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░░▓█░░▓░       ▓░  ░░░       ░▓█░░░░░░░░░        ░█▓ ░░░░  ░░██░   ░  ░▓▓░ ░▓█░    ░    ░▓██▓██░</text>
+<text x="26.0" y="359.0" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░▓░ ░░░      ░▓░         ░▓████▓░░             ░▓█▓░░░░░  ░▓██░       ░░  ░▓▓▓░░░▓░   ░███▓▓▓▓ </text>
+<text x="26.0" y="373.0" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░▓█░         ░▓░      ░▓█████▓▓▓▓▓░         ░░▓██▓░ ░░▓░░░░░█▓░    ░░░▓░     ░░      ░███▓░ ░▓░</text>
+<text x="26.0" y="387.0" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░▓█░        ░░  ░░▓▓▓▓▓▓██▓░▓▓░░▓▓▓░░ ░ ░░▓▓███▓░    ░░ ░░▓▓█▓░     ░░     ░▓█▓    ░██▓░   ▓▓░</text>
+<text x="26.0" y="401.1" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓░░░        ░▓░▓░▓▓▓▓▓▓▓▓░  ░▓░░ ░▓▓▓▓▓▓▓▓███▓▓░     ░    ░▓██▓▓░░      ░▓░░██▓▓   ░█▓░  ░▓█▓ </text>
+<text x="26.0" y="415.1" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓█▓░░        ▓▓▓▓▓░░▓▓▓▓▓░░░░▓▓▓   ░░▓▓▓░▓▓▓▓█▓▓░░  ░▓▓░    ░▓████▓▓░░░░▓▓░ ░█▓▓█▓░ ░▓░  ░░▓▓▓ </text>
+<text x="26.0" y="429.2" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓█▓░▓░       ░█▓▓▓▓▓▓░░▓▓░░░▓▓▓░   ░░░▓▓█▓█▓█▓▓     ░░░░░    ░▓██▓▓███▓░░   ▓█▓░▓██░░▓▓░░░░░▓▓░</text>
+<text x="26.0" y="443.2" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓░ ░░      ░▓▓▓░▓▓▓▓░░░░░  ░░░░░░ ░░▓░▓█▓▓▓░░      ░░ ░▓▓   ░░▓▓▓▓▓▓▓░    ▓██▓ ░▓▓░░▓▓▓▓▓▓▓▓▓ </text>
+<text x="26.0" y="457.2" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░░░▓░░▓░     ░▓▓░░░▓▓▓░  ░░░ ▓▓░░░░░░▓▓▓▓░░░     ░░░░░  ░░       ░░░▓▓░    ▓██▓ ░▓▓  ▓██▓▓░░ ░░ </text>
+<text x="26.0" y="471.3" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓▓░▓▓▓░     ░█▓░░▓▓▓░   ░░ ░░░░░░░░▓▓░░        ░░░░░░  ░░         ░░░░  ░▓▓█░  ░░░ ░▓██▓░░  ░▓░</text>
+<text x="26.0" y="485.3" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░▓░  ▓█▓     ▓▓░ ░░▓▓░░  ▓░░░░░ ░░░░▓█▓▓░░             ░░░             ░▓███▓  ░▓▓  ▓█▓▓░    ▓█░</text>
+<text x="26.0" y="499.4" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓░░░▓▓     ▓▓   ░▓▓▓░ ░▓▓░░▓▓  ░▓░░▓▓▓▓▓▓▓▓░░░░░░                 ░░▓▓███▓▓░░▓▓▓█░▓█▓░    ▓██░</text>
+<text x="26.0" y="513.4" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓░░▓▓     ░░    ░▓▓░░░▓▓░░▓░  ░▓░░▓▓▓▓▓▓▓▓▓▓▓▓▓░░   ░░░ ░░░░░░░░░░▓▓▓▓░░▓▓▓░░▓▓▓▓░░     ░███░</text>
+<text x="26.0" y="527.4" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓░░█▓     ░▓░░  ░▓░▓▓▓▓░░░   ░░▓░░░░   ░ ░▓░▓▓░░░░░░░▓░░▓▓▓▓▓░░▓░░▓▓▓░░░▓█▓  ░▓▓░░░░   ░▓███░</text>
+<text x="26.0" y="541.5" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓░  ▓▓     ░▓▓▓▓░▓░░▓▓▓▓░░░░░░░▓▓░▓▓░░░▓▓▓▓█▓▓▓▓░░░▓▓▓▓▓▓▓▓▓░  ░░░░░▓▓▓░░▓▓▓  ░▓░  ░   ░▓▓▓██░</text>
+<text x="26.0" y="555.5" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓░   █▓      ░▓▓▓░░░   ░░░░▓▓█▓▓▓▓░▓▓▓░░▓▓░░░░       ░░▓████▓░░░▓▓░░░░▓▓░▓▓▓░  ▓░   ░  ░▓▓▓▓██░</text>
+<text x="26.0" y="569.6" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░ ░ ░██░      ░▓▓░         ░░▓░     ░         ░░        ░░░▓▓▓▓░▓░░░▓▓▓▓▓▓▓    ░░   ░░▓▓▓▓▓▓██░</text>
+<text x="26.0" y="583.6" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░░░░▓█▓        ░▓▓▓░░░░    ░▓░    ▓▓▓▓▓▓▓▓░ ░░▓▓░▓▓▓▓▓░░  ░  ░░░░░░░░  ░░  ░▓▓▓░   ░░░█▓▓░▓██░</text>
+<text x="26.0" y="597.6" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░▓░░▓█▓░         ░▓▓███▓░  ░▓░░░░░░░░░ ░▓▓░   ░░░▓░░░░░░░░▓▓░            ░░▓██▓░   ░ ░▓▓   ▓█░</text>
+<text x="26.0" y="611.7" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓▓▓▓░░▓▓░ ░░          ░▓▓█▓▓░░▓░░░░░░░▓░  ░░ ░░   ░█░  ░▓░░▓█▓▓░░   ░░░░░░▓████▓░   ░░ ░██░  ▓█░</text>
+<text x="26.0" y="625.7" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">█▓▓░░░░░   █░ ░▓░░        ░▓▓█▓▓░░       ░░░ ░░    ░░      ░░      ░▓▓░▓▓███▓▓░    ▓▓░ ░▓░▓░ ▓█░</text>
+<text x="26.0" y="639.8" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">▓░░       ░▓  ▓▓██▓          ░░▓█▓▓░░░░ ░ ░░      ░  ░  ░░░░░  ░▓▓▓▓██████▓░░    ░▓▓░░░░▓░▓░░▓█░</text>
+<text x="26.0" y="653.8" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">       ░       ▓▓█▓░   ░░       ░▓▓▓▓▓░▓▓░░░░  ░░░░░░░░░░░░░░░▓▓██▓█████▓░      ░░▓░  ░░░░░░░▓█░</text>
+<text x="26.0" y="667.8" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">    ░     ░░    ░░    ░░░            ░░▓▓▓▓▓░░░░░   ░░░░░░▓█▓▓█████▓▓░░       ░░░░▓▓░░░▓░░░░░▓█░</text>
+<text x="26.0" y="681.9" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">░░ ▓█▓░ ░░         ░░▓░░░▓░              ░▓▓▓█████▓▓▓██▓▓▓▓█▓▓▓▓▓░░             ░▓█▓░░░░░░░░░▓█░</text>
+<text x="26.0" y="695.9" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">    ▓▓▓▓▓▓░░▓░░░░   ░░░  ░▓▓░░░░ ░▓░░       ░░░░▓▓▓▓▓▓░░░░░░░░         ░░░░░░░░▓▓██░░░░░░░░▓▓▓█░</text>
+</g>
+</svg>
