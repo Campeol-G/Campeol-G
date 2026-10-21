@@ -69,9 +69,10 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
     editor ............ VS Code, Neovim, Zed
 
   projects
-    Study-Simplifier
-    SiteBlock
     Nothing-Launcher
+    SiteBlock
+    Study-Simplifier
+    akhq (fork)
 
   stack
     languages ......... Java, Python, SQL
@@ -84,19 +85,19 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
     Repos ............. 5
     Streak ............ 12 days
     Lines of Code ..... 7,217  ( +8,421 / -1,204 )
-    working in ........ SuperJogoDaVelha
+    working in ........ SiteBlock
 
   about
     spoken ............ Portuguese (native) · English (conversational)
     into .............. Applied AI, distributed systems, Android, CLI & TUI
-    uptime ............ 17 years, 4 months, 4 days
+    uptime ............ 17 years, 4 months, 5 days
 
   contact
     email ............. gustavocampeol28@gmail.com
     leetcode .......... Chicolinguica
     discord ........... gustavo_.cl
 
-  [java █████████░ 86%]─[up 17y]─[streak 12d]─[repos 5]
+  [java ████████░░ 76%]─[up 17y]─[streak 1d]─[repos 6]
 ```
 <!-- readme:end -->
 
@@ -105,7 +106,8 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
 <!-- projects:start -->
 | Project | What it is |
 |---|---|
-| **[Study-Simplifier](https://github.com/Campeol-G/Study-Simplifier)** | AI study planner — LLM + RAG · Spring Boot + React |
-| **[SiteBlock](https://github.com/Campeol-G/SiteBlock)** | Cross-platform CLI to block domains — hosts file + DNS |
 | **[Nothing-Launcher](https://github.com/Campeol-G/Nothing-Launcher)** | Single-screen Android launcher — no icons, no widgets |
+| **[SiteBlock](https://github.com/Campeol-G/SiteBlock)** | Cross-platform CLI to block domains — hosts file + DNS |
+| **[Study-Simplifier](https://github.com/Campeol-G/Study-Simplifier)** | AI study planner — LLM + RAG · Spring Boot + React |
+| **[akhq (fork)](https://github.com/Campeol-G/akhq (fork))** | Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more... |
 <!-- projects:end -->
