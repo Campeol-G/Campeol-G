@@ -69,10 +69,9 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
     editor ............ VS Code, Neovim, Zed
 
   projects
-    Nothing-Launcher
-    SiteBlock
     Study-Simplifier
-    akhq (fork)
+    SiteBlock
+    Nothing-Launcher
 
   stack
     languages ......... Java, Python, SQL
@@ -81,23 +80,25 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
     tools ............. Gradle, Maven, Docker, Kafka, Git
 
   activity
-    Commits (12mo) .... 143
-    Repos ............. 5
     Streak ............ 12 days
-    Lines of Code ..... 7,217  ( +8,421 / -1,204 )
-    working in ........ SiteBlock
+    Longest ........... 27 days
+    Commits (1y) ...... 143
+    Lines of Code ..... 7,217 ( +8,421, -1,204 )
+    Repos ............. 5
+    Open PRs/Issues ... 2 / 1
+    working in ........ SuperJogoDaVelha
 
   about
     spoken ............ Portuguese (native) · English (conversational)
     into .............. Applied AI, distributed systems, Android, CLI & TUI
-    uptime ............ 17 years, 4 months, 5 days
+    uptime ............ 17 years, 4 months, 4 days
 
   contact
     email ............. gustavocampeol28@gmail.com
     leetcode .......... Chicolinguica
     discord ........... gustavo_.cl
 
-  [java ████████░░ 76%]─[up 17y]─[streak 1d]─[repos 6]
+  [java █████████░ 86%]─[up 17y]─[streak 12d]─[repos 5]
 ```
 <!-- readme:end -->
 
@@ -106,8 +107,7 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
 <!-- projects:start -->
 | Project | What it is |
 |---|---|
-| **[Nothing-Launcher](https://github.com/Campeol-G/Nothing-Launcher)** | Single-screen Android launcher — no icons, no widgets |
-| **[SiteBlock](https://github.com/Campeol-G/SiteBlock)** | Cross-platform CLI to block domains — hosts file + DNS |
 | **[Study-Simplifier](https://github.com/Campeol-G/Study-Simplifier)** | AI study planner — LLM + RAG · Spring Boot + React |
-| **[akhq (fork)](https://github.com/Campeol-G/akhq (fork))** | Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more... |
+| **[SiteBlock](https://github.com/Campeol-G/SiteBlock)** | Cross-platform CLI to block domains — hosts file + DNS |
+| **[Nothing-Launcher](https://github.com/Campeol-G/Nothing-Launcher)** | Single-screen Android launcher — no icons, no widgets |
 <!-- projects:end -->

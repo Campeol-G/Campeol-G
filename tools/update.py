@@ -409,9 +409,12 @@ def main():
         if not desc:
             continue
         label = name + (" (fork)" if node.get("isFork") else "")
-        ranked.append((mine, node.get("pushedAt") or "", label, desc))
+        url = f"https://github.com/{full}"
+        ranked.append((mine, node.get("pushedAt") or "", label, desc, url))
     ranked.sort(key=lambda r: (r[0], r[1]), reverse=True)
-    projects = [{"name": r[2], "description": r[3]} for r in ranked[:limit]]
+    projects = [
+        {"name": r[2], "description": r[3], "url": r[4]} for r in ranked[:limit]
+    ]
     if projects:
         print("   projetos: " + ", ".join(p["name"] for p in projects))
 

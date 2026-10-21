@@ -212,6 +212,8 @@ def stats_rows(data):
             "Open PRs/Issues",
             f"{activity.get('open_prs', 0)} / {activity.get('open_issues', 0)}",
         ])
+    if activity.get("working_on"):
+        rows.append(["working in", activity["working_on"]])
     return rows
 
 

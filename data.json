@@ -29,7 +29,7 @@
     },
     {
       "title": "activity",
-      "rows": [["Commits (12mo)", "143"], ["Repos", "5"], ["Streak", "12 days"], ["Lines of Code", "7,217  ( +8,421 / -1,204 )"], ["working in", ""]]
+      "auto": "stats"
     },
     {
       "title": "about",
@@ -41,44 +41,34 @@
     }
   ],
   "activity": {
-    "streak": 1,
-    "longest_streak": 64,
-    "commits": 406,
-    "lines_added": 61166,
-    "lines_deleted": 14956,
-    "repos": 6,
-    "open_prs": 0,
-    "open_issues": 0,
+    "streak": 12,
+    "longest_streak": 27,
+    "commits": 143,
+    "lines_added": 8421,
+    "lines_deleted": 1204,
+    "repos": 5,
+    "open_prs": 2,
+    "open_issues": 1,
+    "working_on": "SuperJogoDaVelha",
     "languages": {
-      "Java": 0.7584,
-      "JavaScript": 0.1864,
-      "SCSS": 0.024,
-      "Python": 0.0218,
-      "TypeScript": 0.0047,
-      "Shell": 0.0025,
-      "Mustache": 0.0008,
-      "HTML": 0.0006,
-      "Batchfile": 0.0004,
-      "CSS": 0.0004,
-      "Dockerfile": 0.0002
+      "Java": 0.86,
+      "TypeScript": 0.05,
+      "Python": 0.04,
+      "Shell": 0.03,
+      "SCSS": 0.02
     },
-    "working_on": "SiteBlock",
     "projects": [
       {
-        "name": "Nothing-Launcher",
-        "description": "Single-screen Android launcher — no icons, no widgets"
+        "name": "Study-Simplifier",
+        "description": "AI study planner — LLM + RAG · Spring Boot + React"
       },
       {
         "name": "SiteBlock",
         "description": "Cross-platform CLI to block domains — hosts file + DNS"
       },
       {
-        "name": "Study-Simplifier",
-        "description": "AI study planner — LLM + RAG · Spring Boot + React"
-      },
-      {
-        "name": "akhq (fork)",
-        "description": "Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more..."
+        "name": "Nothing-Launcher",
+        "description": "Single-screen Android launcher — no icons, no widgets"
       }
     ]
   },

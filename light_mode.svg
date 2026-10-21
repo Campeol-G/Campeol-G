@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1880px" height="784px"
-     viewBox="0 0 1880 784" font-family="'Mono','DejaVu Sans Mono','Menlo','Liberation Mono',monospace" font-size="16px">
+<svg xmlns="http://www.w3.org/2000/svg" width="1537px" height="788px"
+     viewBox="0 0 1537 788" font-family="'Mono','DejaVu Sans Mono','Menlo','Liberation Mono',monospace" font-size="16px">
 <style>
 @font-face {
   src: local('Consolas');
@@ -31,8 +31,8 @@ text, tspan { white-space: pre; }
 
 </style>
 
-<rect width="1880" height="784" fill="#F2EFE5" rx="14"/>
-<rect x="0.5" y="0.5" width="1879" height="783" rx="14" fill="none" stroke="#D0D5C9" stroke-width="1"/>
+<rect width="1537" height="788" fill="#F2EFE5" rx="14"/>
+<rect x="0.5" y="0.5" width="1536" height="787" rx="14" fill="none" stroke="#D0D5C9" stroke-width="1"/>
 <g>
 <text x="26.0" y="38.0" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">MMM%%#OOo..::cccooc:....::cO#MMM%#@O@%%%MMMMMMMM%#OoOOOooc::coooOO@###%M%%MMMMM%#@Ooocccoooooco:</text>
 <text x="26.0" y="52.1" fill="#506653" font-size="12.5px" textLength="718.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve">MMMM%@Oo::ccccocoooc. .....::O##@@@@#%%MMMM%#@@@@OoO@@@@Ooc::ccooooOoo@#@@#%%%MM%%#@Oocccc:ccco:</text>
@@ -91,84 +91,88 @@ text, tspan { white-space: pre; }
 <rect x="774.8" y="51.0" width="3" height="14" fill="#3D5143"/>
 <text x="784.8" y="62.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">system</text>
 <text x="774.8" y="84.0" fill="#506653" font-weight="700">os</text>
-<text x="804.0" y="84.0" fill="#7D8778">.............</text>
-<text x="943.2" y="84.0" fill="#3D5143">Arch Linux, Windows 11, Android</text>
+<text x="804.0" y="84.0" fill="#7D8778">..............</text>
+<text x="952.8" y="84.0" fill="#3D5143">Arch Linux, Windows 11, Android</text>
 <text x="774.8" y="102.0" fill="#506653" font-weight="700">host</text>
-<text x="823.2" y="102.0" fill="#7D8778">...........</text>
-<text x="943.2" y="102.0" fill="#3D5143">Computer science student — backend Java</text>
+<text x="823.2" y="102.0" fill="#7D8778">............</text>
+<text x="952.8" y="102.0" fill="#3D5143">Computer science student — backend Java</text>
 <text x="774.8" y="120.0" fill="#506653" font-weight="700">editor</text>
-<text x="842.4" y="120.0" fill="#7D8778">.........</text>
-<text x="943.2" y="120.0" fill="#3D5143">VS Code, Neovim, Zed</text>
+<text x="842.4" y="120.0" fill="#7D8778">..........</text>
+<text x="952.8" y="120.0" fill="#3D5143">VS Code, Neovim, Zed</text>
 <rect x="774.8" y="143.0" width="3" height="14" fill="#3D5143"/>
 <text x="784.8" y="154.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">projects</text>
-<text x="774.8" y="176.0" fill="#506653" font-weight="700">Nothing-Launcher</text>
-<text x="936.4" y="176.0" fill="#7D8778" font-size="14px">— Single-screen Android launcher — no icons, no widgets</text>
+<text x="774.8" y="176.0" fill="#506653" font-weight="700">Study-Simplifier</text>
+<text x="936.4" y="176.0" fill="#7D8778" font-size="14px">— AI study planner — LLM + RAG · Spring Boot + React</text>
 <text x="774.8" y="194.0" fill="#506653" font-weight="700">SiteBlock</text>
 <text x="869.2" y="194.0" fill="#7D8778" font-size="14px">— Cross-platform CLI to block domains — hosts file + DNS</text>
-<text x="774.8" y="212.0" fill="#506653" font-weight="700">Study-Simplifier</text>
-<text x="936.4" y="212.0" fill="#7D8778" font-size="14px">— AI study planner — LLM + RAG · Spring Boot + React</text>
-<text x="774.8" y="230.0" fill="#506653" font-weight="700">akhq (fork)</text>
-<text x="888.4" y="230.0" fill="#7D8778" font-size="14px">— Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more...</text>
-<rect x="774.8" y="253.0" width="3" height="14" fill="#3D5143"/>
-<text x="784.8" y="264.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">stack</text>
-<text x="774.8" y="286.0" fill="#506653" font-weight="700">languages</text>
-<text x="871.2" y="286.0" fill="#7D8778">......</text>
-<text x="943.2" y="286.0" fill="#3D5143">Java, Python, SQL</text>
-<text x="774.8" y="304.0" fill="#506653" font-weight="700">frameworks</text>
-<text x="880.8" y="304.0" fill="#7D8778">.....</text>
-<text x="943.2" y="304.0" fill="#3D5143">Spring Boot, Android</text>
-<text x="774.8" y="322.0" fill="#506653" font-weight="700">databases</text>
-<text x="871.2" y="322.0" fill="#7D8778">......</text>
-<text x="943.2" y="322.0" fill="#3D5143">PostgreSQL, MongoDB, MySQL</text>
-<text x="774.8" y="340.0" fill="#506653" font-weight="700">tools</text>
-<text x="832.8" y="340.0" fill="#7D8778">..........</text>
-<text x="943.2" y="340.0" fill="#3D5143">Gradle, Maven, Docker, Kafka, Git</text>
-<rect x="774.8" y="363.0" width="3" height="14" fill="#3D5143"/>
-<text x="784.8" y="374.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">activity</text>
-<text x="774.8" y="396.0" fill="#506653" font-weight="700">Commits (12mo)</text>
-<text x="919.2" y="396.0" fill="#7D8778">..</text>
-<text x="943.2" y="396.0" fill="#3D5143">143</text>
-<text x="774.8" y="414.0" fill="#506653" font-weight="700">Repos</text>
-<text x="832.8" y="414.0" fill="#7D8778">..........</text>
-<text x="943.2" y="414.0" fill="#3D5143">5</text>
-<text x="774.8" y="432.0" fill="#506653" font-weight="700">Streak</text>
-<text x="842.4" y="432.0" fill="#7D8778">.........</text>
-<text x="943.2" y="432.0" fill="#3D5143">12 days</text>
-<text x="774.8" y="450.0" fill="#506653" font-weight="700">Lines of Code</text>
-<text x="909.6" y="450.0" fill="#7D8778">..</text>
-<text x="943.2" y="450.0" fill="#3D5143">7,217  ( +8,421 / -1,204 )</text>
-<text x="774.8" y="468.0" fill="#506653" font-weight="700">working in</text>
-<text x="880.8" y="468.0" fill="#7D8778">.....</text>
-<text x="943.2" y="468.0" fill="#3D5143">SiteBlock</text>
-<rect x="774.8" y="491.0" width="3" height="14" fill="#3D5143"/>
-<text x="784.8" y="502.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">about</text>
-<text x="774.8" y="524.0" fill="#506653" font-weight="700">spoken</text>
-<text x="842.4" y="524.0" fill="#7D8778">.........</text>
-<text x="943.2" y="524.0" fill="#3D5143">Portuguese (native) · English (conversational)</text>
-<text x="774.8" y="542.0" fill="#506653" font-weight="700">into</text>
-<text x="823.2" y="542.0" fill="#7D8778">...........</text>
-<text x="943.2" y="542.0" fill="#3D5143">Applied AI, distributed systems, Android, CLI &amp; TUI</text>
-<text x="774.8" y="560.0" fill="#506653" font-weight="700">uptime</text>
-<text x="842.4" y="560.0" fill="#7D8778">.........</text>
-<text x="943.2" y="560.0" fill="#3D5143">17 years, 4 months, 5 days</text>
-<rect x="774.8" y="583.0" width="3" height="14" fill="#3D5143"/>
-<text x="784.8" y="594.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">contact</text>
-<text x="774.8" y="616.0" fill="#506653" font-weight="700">email</text>
-<text x="832.8" y="616.0" fill="#7D8778">..........</text>
-<text x="943.2" y="616.0" fill="#3D5143">gustavocampeol28@gmail.com</text>
-<text x="774.8" y="634.0" fill="#506653" font-weight="700">leetcode</text>
-<text x="861.6" y="634.0" fill="#7D8778">.......</text>
-<text x="943.2" y="634.0" fill="#3D5143">Chicolinguica</text>
-<text x="774.8" y="652.0" fill="#506653" font-weight="700">discord</text>
-<text x="852.0" y="652.0" fill="#7D8778">........</text>
-<text x="943.2" y="652.0" fill="#3D5143">gustavo_.cl</text>
-<line x1="26.0" y1="717.9" x2="1664.0" y2="717.9" stroke="#D0D5C9" stroke-width="1"/>
+<text x="774.8" y="212.0" fill="#506653" font-weight="700">Nothing-Launcher</text>
+<text x="936.4" y="212.0" fill="#7D8778" font-size="14px">— Single-screen Android launcher — no icons, no widgets</text>
+<rect x="774.8" y="235.0" width="3" height="14" fill="#3D5143"/>
+<text x="784.8" y="246.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">stack</text>
+<text x="774.8" y="268.0" fill="#506653" font-weight="700">languages</text>
+<text x="871.2" y="268.0" fill="#7D8778">.......</text>
+<text x="952.8" y="268.0" fill="#3D5143">Java, Python, SQL</text>
+<text x="774.8" y="286.0" fill="#506653" font-weight="700">frameworks</text>
+<text x="880.8" y="286.0" fill="#7D8778">......</text>
+<text x="952.8" y="286.0" fill="#3D5143">Spring Boot, Android</text>
+<text x="774.8" y="304.0" fill="#506653" font-weight="700">databases</text>
+<text x="871.2" y="304.0" fill="#7D8778">.......</text>
+<text x="952.8" y="304.0" fill="#3D5143">PostgreSQL, MongoDB, MySQL</text>
+<text x="774.8" y="322.0" fill="#506653" font-weight="700">tools</text>
+<text x="832.8" y="322.0" fill="#7D8778">...........</text>
+<text x="952.8" y="322.0" fill="#3D5143">Gradle, Maven, Docker, Kafka, Git</text>
+<rect x="774.8" y="345.0" width="3" height="14" fill="#3D5143"/>
+<text x="784.8" y="356.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">activity</text>
+<text x="774.8" y="378.0" fill="#506653" font-weight="700">Streak</text>
+<text x="842.4" y="378.0" fill="#7D8778">..........</text>
+<text x="952.8" y="378.0" fill="#3D5143">12 days</text>
+<text x="774.8" y="396.0" fill="#506653" font-weight="700">Longest</text>
+<text x="852.0" y="396.0" fill="#7D8778">.........</text>
+<text x="952.8" y="396.0" fill="#3D5143">27 days</text>
+<text x="774.8" y="414.0" fill="#506653" font-weight="700">Commits (1y)</text>
+<text x="900.0" y="414.0" fill="#7D8778">....</text>
+<text x="952.8" y="414.0" fill="#3D5143">143</text>
+<text x="774.8" y="432.0" fill="#506653" font-weight="700">Lines of Code</text>
+<text x="909.6" y="432.0" fill="#7D8778">...</text>
+<text x="952.8" y="432.0" fill="#3D5143">7,217 ( +8,421, -1,204 )</text>
+<text x="774.8" y="450.0" fill="#506653" font-weight="700">Repos</text>
+<text x="832.8" y="450.0" fill="#7D8778">...........</text>
+<text x="952.8" y="450.0" fill="#3D5143">5</text>
+<text x="774.8" y="468.0" fill="#506653" font-weight="700">Open PRs/Issues</text>
+<text x="928.8" y="468.0" fill="#7D8778">..</text>
+<text x="952.8" y="468.0" fill="#3D5143">2 / 1</text>
+<text x="774.8" y="486.0" fill="#506653" font-weight="700">working in</text>
+<text x="880.8" y="486.0" fill="#7D8778">......</text>
+<text x="952.8" y="486.0" fill="#3D5143">SuperJogoDaVelha</text>
+<rect x="774.8" y="509.0" width="3" height="14" fill="#3D5143"/>
+<text x="784.8" y="520.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">about</text>
+<text x="774.8" y="542.0" fill="#506653" font-weight="700">spoken</text>
+<text x="842.4" y="542.0" fill="#7D8778">..........</text>
+<text x="952.8" y="542.0" fill="#3D5143">Portuguese (native) · English (conversational)</text>
+<text x="774.8" y="560.0" fill="#506653" font-weight="700">into</text>
+<text x="823.2" y="560.0" fill="#7D8778">............</text>
+<text x="952.8" y="560.0" fill="#3D5143">Applied AI, distributed systems, Android, CLI &amp; TUI</text>
+<text x="774.8" y="578.0" fill="#506653" font-weight="700">uptime</text>
+<text x="842.4" y="578.0" fill="#7D8778">..........</text>
+<text x="952.8" y="578.0" fill="#3D5143">17 years, 4 months, 4 days</text>
+<rect x="774.8" y="601.0" width="3" height="14" fill="#3D5143"/>
+<text x="784.8" y="612.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">contact</text>
+<text x="774.8" y="634.0" fill="#506653" font-weight="700">email</text>
+<text x="832.8" y="634.0" fill="#7D8778">...........</text>
+<text x="952.8" y="634.0" fill="#3D5143">gustavocampeol28@gmail.com</text>
+<text x="774.8" y="652.0" fill="#506653" font-weight="700">leetcode</text>
+<text x="861.6" y="652.0" fill="#7D8778">........</text>
+<text x="952.8" y="652.0" fill="#3D5143">Chicolinguica</text>
+<text x="774.8" y="670.0" fill="#506653" font-weight="700">discord</text>
+<text x="852.0" y="670.0" fill="#7D8778">.........</text>
+<text x="952.8" y="670.0" fill="#3D5143">gustavo_.cl</text>
+<line x1="26.0" y1="717.9" x2="1321.4" y2="717.9" stroke="#D0D5C9" stroke-width="1"/>
 <text x="26.0" y="739.9" fill="#7D8778" font-size="13px">─</text>
 <text x="35.0" y="739.9" fill="#7D8778" font-size="13px">[</text>
 <text x="43.0" y="739.9" fill="#7D8778" font-size="13px">java </text>
-<text x="82.0" y="739.9" fill="#506653" font-size="13px">████████</text>
-<text x="144.4" y="739.9" fill="#7D8778" font-size="13px">░░</text>
-<text x="160.0" y="739.9" fill="#7D8778" font-size="13px"> 76%</text>
+<text x="82.0" y="739.9" fill="#506653" font-size="13px">█████████</text>
+<text x="152.2" y="739.9" fill="#7D8778" font-size="13px">░</text>
+<text x="160.0" y="739.9" fill="#7D8778" font-size="13px"> 86%</text>
 <text x="191.2" y="739.9" fill="#7D8778" font-size="13px">]</text>
 <text x="207.2" y="739.9" fill="#7D8778" font-size="13px">─</text>
 <text x="216.2" y="739.9" fill="#7D8778" font-size="13px">[</text>
@@ -176,19 +180,19 @@ text, tspan { white-space: pre; }
 <text x="271.0" y="739.9" fill="#7D8778" font-size="13px">]</text>
 <text x="287.0" y="739.9" fill="#7D8778" font-size="13px">─</text>
 <text x="296.0" y="739.9" fill="#7D8778" font-size="13px">[</text>
-<text x="304.0" y="739.9" fill="#7D8778" font-size="13px">streak 1d</text>
-<text x="374.2" y="739.9" fill="#7D8778" font-size="13px">]</text>
-<text x="390.2" y="739.9" fill="#7D8778" font-size="13px">─</text>
-<text x="399.2" y="739.9" fill="#7D8778" font-size="13px">[</text>
-<text x="407.2" y="739.9" fill="#7D8778" font-size="13px">repos 6</text>
-<text x="461.8" y="739.9" fill="#7D8778" font-size="13px">]</text>
-<text class="cursor" x="486.8" y="739.9" fill="#3D5143" font-size="13px">█</text>
+<text x="304.0" y="739.9" fill="#7D8778" font-size="13px">streak 12d</text>
+<text x="382.0" y="739.9" fill="#7D8778" font-size="13px">]</text>
+<text x="398.0" y="739.9" fill="#7D8778" font-size="13px">─</text>
+<text x="407.0" y="739.9" fill="#7D8778" font-size="13px">[</text>
+<text x="415.0" y="739.9" fill="#7D8778" font-size="13px">repos 5</text>
+<text x="469.6" y="739.9" fill="#7D8778" font-size="13px">]</text>
+<text class="cursor" x="494.6" y="739.9" fill="#3D5143" font-size="13px">█</text>
 <g>
-<rect x="1749.0" y="723.9" width="15.0" height="15.0" fill="#506653"/>
-<rect x="1767.0" y="723.9" width="15.0" height="15.0" fill="#86A79B"/>
-<rect x="1785.0" y="723.9" width="15.0" height="15.0" fill="#3D5143"/>
-<rect x="1803.0" y="723.9" width="15.0" height="15.0" fill="#7D8778"/>
-<rect x="1821.0" y="723.9" width="15.0" height="15.0" fill="#D8DFD0"/>
-<rect x="1839.0" y="723.9" width="15.0" height="15.0" fill="#A18F7B"/>
+<rect x="1406.4" y="723.9" width="15.0" height="15.0" fill="#506653"/>
+<rect x="1424.4" y="723.9" width="15.0" height="15.0" fill="#86A79B"/>
+<rect x="1442.4" y="723.9" width="15.0" height="15.0" fill="#3D5143"/>
+<rect x="1460.4" y="723.9" width="15.0" height="15.0" fill="#7D8778"/>
+<rect x="1478.4" y="723.9" width="15.0" height="15.0" fill="#D8DFD0"/>
+<rect x="1496.4" y="723.9" width="15.0" height="15.0" fill="#A18F7B"/>
 </g>
 </svg>
