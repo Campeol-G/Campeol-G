@@ -1,12 +1,4 @@
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./logo_dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./logo_light.svg">
-    <img alt="Gustavo Campeol" src="./logo_light.svg" width="700">
-  </picture>
-</div>
-
-<div align="center">
 
 # Hi, I'm Gustavo 👋
 
@@ -18,8 +10,57 @@
 
 <!-- readme:start -->
 ```text
-❯ Gustavo Campeol @Campeol-G
-  Java Backend · Android · Applied AI
+MMM%%#OOo..::cccooc:....::cO#MMM%#@O@%%%MMMMMMMM%#OoOOOooc::coooOO@###%M%%MMMMM%#@Ooocccoooooco:
+MMMM%@Oo::ccccocoooc. .....::O##@@@@#%%MMMM%#@@@@OoO@@@@Ooc::ccooooOoo@#@@#%%%MM%%#@Oocccc:ccco:
+MMMM%@OocoOoooocooo:.     ...:c@@#%%%M%@oc:...........:::::::::ccoccooooOOOOOOOoooooocc::ccoocc.
+MMM%#@OoOOOOOoooooo:        ..:o@#@Ooc..  ................:::::::cccccccoocc:::::...::cooOOoccc:
+MMM%#@OO@@OOOOOoocc.      ......::.    ...................::::::::::cccccccc::.... .coOOOOooccoc
+MMM%#OOOOOOOOOoocc:       ...........     ...............:::::....::::ccccc::.  .. .oO@@OoccccOo
+MM%#@OOOOOOOOoocc:.       .........................................::::ccccc:...   .oO@OOooccc#o
+%%#OoooOOOOocc:::::       .......:ccooOOOo::......     ...........cO@@Oooooocc::.. .cOO@@Oocco%o
+%%OccoOOOoc::::::::     .......coO@######@o:....               ..:O%MMM%%#@Ooooc:...cO@@@@OocOMO
+#OcccoOOoc::::ccc:.............cO@#%%%%%%#Oc...                  :O#%%MMMMM#@occc:.:oO@@@@@Oo@MO
+Oc:ccoooocc::ccc:::cc:::.......coO@@@###@Oc.::.       .          :o##%%M%@@@Oc::::::coO@@@@Oo@%o
+Oc:coooooocc:...::oOoccc:::::...:cooOOOcc:....  .........        .coO@@##oocc......:cccoO@@OoO@c
+Oooocccccc:.....:cc:::...::cc:.....:::.....   ...::::::....        .:ccooccc:....::ccccccO@OO@%o
+OOo:   ... .....cccoc......:cc..............::ccccccccoccccc::....    ..:.....::::::::::::cO@#%o
+@OOcccc.........c@##o:::::...::......::.::ccccccccccccOoooooccooccccc:::.....::::...:.:..::o@#%o
+#OO@@@o.........@M%O:c. .:::...:::::::ccoccccccccccccoOooocccccccccoooooc::::::...::cccc:.oO@@#c
+M#OO@@O:   ....c###ococo:     .:::::oOOoocccccccccooO@#Ooooooooooooooooooccc:...::::c@occcoOO@@c
+%@OOO@@o:......cOOOcccoo.     ..:ccO@@ooocccccccoO@##%%#@OOOoooooOOOO@@#@ccc:.   ...:::::cccO@@c
+%#@OO@##o:.....cocc::..  .....:::cO@Ooccc::..::coO@####%#@@@@@@@@@@@@@@#@cccc:.     ::c:::coO@@c
+%#OoOO@@o:....coooocc:::::::::::cO@occc:..     .coooO@@@@@@@@@@@@@o::.:ccccccc:.    ::c:::coOO@c
+%#OooO@O:.....OOoocccc:::::::..:@@Occc::..      .cocooOOOOOO@@@@O:      ..:cccccc::::::::ccoOO@c
+%@#@oO@c......oOcc:::.........:O@Ooocccoc.      .coooooOOoooO@@O:      ....:ccc::cccccccccoO@@@c
+%###Ooo:   ...:cc:::........cO##Oocc:::::        cooooooooooO@@o.      ....:cocc::::ccccO####@@c
+%##@ccc:   ...:c:::.... .co@#%%%#Oc:     .     .:oOocccoocoOO@@c        ...:coocccccccc@%MM%#@O:
+%#%%Oc:.   ...:c::....cc@#%%%%%##@Oc.       .:coO@oocccooooO@#@c..  .....  ..:cocc::cc@MMM%#OOO:
+%#@%%o:.     .:cccooO@@@@##%####@OOoo:.....:coO@@Oocccccccoo@#Ooc:......  .::c@#Oc:::O%M%#OOOOO:
+M%%@Oo:..    :O@@@@@#@@#####@@@@OoooooccccccoO@#@occccccc:cooOOOooc:......:ccO###@o:c@M%@@O@@Oo:
+MMM#Oc:..   .:@%%%%#######@@@@@@OoccccccccccoO@#Occ::cooc::::coOOOOooc:::ccccO###%#Oo@##@@@@OOo.
+MMM#@Oc..   .c@%MM%%##@##@@OOOOOoccccccccooooOO@o::::cccc:..::coOOOOOOoocccco@###%M%#@#%###@@Oo:
+M%%#ooo:..  .c@%%%%###@@@@OOoooOoooccccccccccocc:...::::::....:ccooooooccc:o@#####%%%%MM%%#@@oc.
+%%##Oooc....:o@####%%#@OOOOOooOooooccc::::..... ......  .    ...::cccccccco@###@#%%##MMM%#@Occc.
+%%##@@Oo.....O##@@@##@OOoooccccocccccc:...       .             ....:::::co@@@@@@@####MMM#Oo:::c.
+###@@@@O:...:@@ocoO@@@OOOOoccccccccccccc:.......                  ...::cO@@@@@@##%@@%%%#Oo:::cc.
+%##@@O@O:.:.:OOcccoOO@OOOOOoooccccccccooooccooc::::.           .....:co@#@@@@@@####@#%@oo:::ccc.
+###@@OOO:...:coc::coOOOOOOooooccccccccoOOOOO@@Ooooc:....::..::::::ccoO@@@OO@@@OoO@#@@Ooc:::cccc.
+###@OOOo. ...:cccccooooOOOooooccccooooooooOOO@O@Oooccccccccccccc::ccoOOOOOOO@Oc:cOOoOoc:::ccccc.
+#%#@OoOo.   .:ccccooocoooooooooccoooOoOOO@####@OOc::cooooccccccc:ccooOOO@OOOOo::coc:ccc::cccccc.
+%%@OOoOo:    .:ccccc::::ccccooocoooooooOOOOOooc:.    ..::cccccccccooooOOOOOOOc::cc.:cc::cccccco:
+%#@@OOOOc      .ccc::::.::::cccc:...:::::::.......      ...:::ccccccooOOOOOOc::coc::ccccccccoco:
+##@@OOO@o:      .cOOOooOoc::ccc::..::cccc:::::::::.::::::......:::::ccccccc::o@##Occcccccccccco:
+#@@@OoOOOc:..     :cO@%%%@occocc:::::::::::::..:::::::ccc:::cc:..::::cccccoo@%MM#Occccccccccooo:
+@@@Oooooc.:o:...    .:cO#@@Ooooccccc:cc:::::.::.:::c:::cc::ccccc:::coOOO@#%MMMM%OcccccccccccooOc
+#@Oocc::..c#O:o@Oc.    ..::oOOOoocc:::::::c::::..:::::::::cccccccccO@@##%MMM%#OoccccccccccccoO#o
+Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::::ccccccccccoO%o
+:... .....::::c@#%#c..         .coooO@OOOococccoooocccooooOOOO@####%%%%%@o:......:::ccccccccoO%o
+     .......:::cooc::....         .:::cO@OO@@OOO@OooooOOOO@####%%%#@@Oc::.    ...:::ccccccccoO%o
+     ..............:::::::.            .:cO@#%%%%%###%%#@@@@@@@OOoc:.          ..:::c:cccccco@Mo
+      ...................:::...            .oOOO@#@@OOOoooocc::.         .......:::::::cccco#MMo
+
+  ❯ Gustavo Campeol @Campeol-G
+    Java Backend · Android · Applied AI
   ──────────────────────────────────────────────────────────────
 
   system
@@ -54,6 +95,8 @@
     email ............. gustavocampeol28@gmail.com
     leetcode .......... Chicolinguica
     discord ........... gustavo_.cl
+
+  [java █████████░ 86%]─[up 17y]─[streak 12d]─[repos 5]
 ```
 <!-- readme:end -->
 

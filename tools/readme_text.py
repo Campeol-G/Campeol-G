@@ -20,7 +20,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from render import age_string, stats_rows  # noqa: E402
+from render import age_string, load_data, stats_rows  # noqa: E402
 
 README = "README.md"
 
@@ -31,11 +31,34 @@ PROJ_START = "<!-- projects:start -->"
 PROJ_END = "<!-- projects:end -->"
 
 
+def status_bar(data):
+    """Barra de status no texto: ─[java 86%]─[up 17y]─[streak 12d]─"""
+    activity = data.get("activity") or {}
+    segs = []
+
+    langs = activity.get("languages") or {}
+    if langs:
+        name, share = sorted(langs.items(), key=lambda kv: kv[1], reverse=True)[0]
+        pct = int(round(share * 100))
+        cells = 10
+        filled = max(1, round(pct / 100 * cells))
+        segs.append(f"{name.lower()} {'█' * filled}{'░' * (cells - filled)} {pct}%")
+
+    up = age_string(data.get("birthday", ""))
+    if up:
+        segs.append(f"up {up.split(' years')[0]}y")
+    if "streak" in activity:
+        segs.append(f"streak {activity['streak']}d")
+    if "repos" in activity:
+        segs.append(f"repos {activity['repos']}")
+
+    return "  " + "─".join(f"[{s}]" for s in segs) if segs else ""
+
+
 def terminal_block(data):
-    """Monta o bloco de terminal (estilo fastfetch) em texto puro."""
+    """Monta o card de terminal em texto puro (mesmo formato do SVG)."""
     activity = data.get("activity") or {}
 
-    # Valores que vem sozinhos (idade, repo mais recente).
     def fill(key, value):
         if value:
             return value
@@ -60,14 +83,21 @@ def terminal_block(data):
     key_w = max(key_w, 12)
 
     def row(key, value):
-        # "chave ....... valor", com os pontinhos de leader do fastfetch.
         dots = "." * max(2, key_w - len(key) + 2)
         return f"    {key} {dots} {value}".rstrip()
 
     lines = []
-    lines.append(f"❯ {data.get('handle', '')} @{data.get('host', '')}")
+
+    # A arte ASCII entra como texto: no tamanho nativo do GitHub ela fica
+    # nitida (numa imagem, 96 colunas virariam chuvisco ao encolher).
+    art = data.get("logo_lines") or []
+    if art:
+        lines.extend(art)
+        lines.append("")
+
+    lines.append(f"  ❯ {data.get('handle', '')} @{data.get('host', '')}")
     if data.get("subtitle"):
-        lines.append(f"  {data['subtitle']}")
+        lines.append(f"    {data['subtitle']}")
     lines.append("  " + "─" * (key_w + 46))
 
     for mod in data.get("modules", []):
@@ -100,6 +130,11 @@ def terminal_block(data):
         lines.append(f"  {title}")
         lines.extend(rendered)
 
+    bar = status_bar(data)
+    if bar:
+        lines.append("")
+        lines.append(bar)
+
     return "\n".join(lines)
 
 
@@ -131,8 +166,7 @@ def replace_block(text, start_marker, end_marker, content):
 
 
 def main():
-    with open("data.json", encoding="utf-8") as f:
-        data = json.load(f)
+    data = load_data("data.json")
 
     block = "```text\n" + terminal_block(data) + "\n```"
     table = projects_table(data)

@@ -73,5 +73,6 @@
     ]
   },
   "logo_scale": 0.78,
-  "logo_image": "reference/logo_blocks_96.txt"
+  "logo_image": "reference/logo_blocks_96.txt",
+  "login": "Campeol-G"
 }

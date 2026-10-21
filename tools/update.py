@@ -271,20 +271,29 @@ def dump_json(path, data):
 
 
 def read_handle():
-    """O usuario vem do data.json (campo handle) ou da env GITHUB_USER."""
+    """O login do GitHub vem do data.json.
+
+    Cuidado: 'handle' e' o nome de exibicao ("Gustavo Campeol") e NAO serve
+    pra API. O login e' o campo 'login' (fallback: 'host', depois a env).
+    """
     if USER:
         return USER
     try:
         with open(DATA_FILE, encoding="utf-8") as f:
-            return json.load(f).get("handle", "")
+            data = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return ""
+    for key in ("login", "host", "handle"):
+        value = data.get(key)
+        if value and " " not in value:
+            return value
+    return ""
 
 
 def main():
     handle = read_handle()
     if not handle:
-        sys.exit("Informe o usuario em data.json (campo handle) ou em GITHUB_USER.")
+        sys.exit("Informe o login em data.json (campo 'login') ou em GITHUB_USER.")
     now = datetime.datetime.now(datetime.timezone.utc)
     since = now - datetime.timedelta(days=371)
 
