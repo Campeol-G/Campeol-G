@@ -92,7 +92,7 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
   about
     spoken ............ Portuguese (native) · English (conversational)
     into .............. Applied AI, distributed systems, Android, CLI & TUI
-    uptime ............ 17 years, 4 months, 5 days
+    uptime ............ 17 years, 4 months, 4 days
 
   contact
     email ............. gustavocampeol28@gmail.com
