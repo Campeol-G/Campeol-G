@@ -133,10 +133,10 @@ text, tspan { white-space: pre; }
 <text x="952.8" y="414.0" fill="#3D5143">64 days</text>
 <text x="774.8" y="432.0" fill="#506653" font-weight="700">Commits (1y)</text>
 <text x="900.0" y="432.0" fill="#7D8778">....</text>
-<text x="952.8" y="432.0" fill="#3D5143">407</text>
+<text x="952.8" y="432.0" fill="#3D5143">409</text>
 <text x="774.8" y="450.0" fill="#506653" font-weight="700">Lines of Code</text>
 <text x="909.6" y="450.0" fill="#7D8778">...</text>
-<text x="952.8" y="450.0" fill="#3D5143">46,213 ( +61,384, -15,171 )</text>
+<text x="952.8" y="450.0" fill="#3D5143">46,215 ( +61,394, -15,179 )</text>
 <text x="774.8" y="468.0" fill="#506653" font-weight="700">Repos</text>
 <text x="832.8" y="468.0" fill="#7D8778">...........</text>
 <text x="952.8" y="468.0" fill="#3D5143">6</text>
@@ -156,7 +156,7 @@ text, tspan { white-space: pre; }
 <text x="952.8" y="578.0" fill="#3D5143">Applied AI, distributed systems, Android, CLI &amp; TUI</text>
 <text x="774.8" y="596.0" fill="#506653" font-weight="700">uptime</text>
 <text x="842.4" y="596.0" fill="#7D8778">..........</text>
-<text x="952.8" y="596.0" fill="#3D5143">17 years, 4 months, 4 days</text>
+<text x="952.8" y="596.0" fill="#3D5143">17 years, 4 months, 5 days</text>
 <rect x="774.8" y="619.0" width="3" height="14" fill="#3D5143"/>
 <text x="784.8" y="630.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">contact</text>
 <text x="774.8" y="652.0" fill="#506653" font-weight="700">email</text>
