@@ -41,34 +41,48 @@
     }
   ],
   "activity": {
-    "streak": 12,
-    "longest_streak": 27,
-    "commits": 143,
-    "lines_added": 8421,
-    "lines_deleted": 1204,
-    "repos": 5,
-    "open_prs": 2,
-    "open_issues": 1,
-    "working_on": "SuperJogoDaVelha",
+    "streak": 1,
+    "longest_streak": 64,
+    "commits": 407,
+    "lines_added": 61384,
+    "lines_deleted": 15171,
+    "repos": 6,
+    "open_prs": 0,
+    "open_issues": 0,
     "languages": {
-      "Java": 0.86,
-      "TypeScript": 0.05,
-      "Python": 0.04,
-      "Shell": 0.03,
-      "SCSS": 0.02
+      "Java": 0.7583,
+      "JavaScript": 0.1864,
+      "SCSS": 0.0239,
+      "Python": 0.0219,
+      "TypeScript": 0.0047,
+      "Shell": 0.0025,
+      "Mustache": 0.0008,
+      "HTML": 0.0006,
+      "Batchfile": 0.0004,
+      "CSS": 0.0004,
+      "Dockerfile": 0.0002
     },
+    "working_on": "SiteBlock",
     "projects": [
       {
-        "name": "Study-Simplifier",
-        "description": "AI study planner — LLM + RAG · Spring Boot + React"
+        "name": "Nothing-Launcher",
+        "description": "Single-screen Android launcher — no icons, no widgets",
+        "url": "https://github.com/Campeol-G/Nothing-Launcher"
       },
       {
         "name": "SiteBlock",
-        "description": "Cross-platform CLI to block domains — hosts file + DNS"
+        "description": "Cross-platform CLI to block domains — hosts file + DNS",
+        "url": "https://github.com/Campeol-G/SiteBlock"
       },
       {
-        "name": "Nothing-Launcher",
-        "description": "Single-screen Android launcher — no icons, no widgets"
+        "name": "Study-Simplifier",
+        "description": "AI study planner — LLM + RAG · Spring Boot + React",
+        "url": "https://github.com/Campeol-G/Study-Simplifier"
+      },
+      {
+        "name": "akhq (fork)",
+        "description": "Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more...",
+        "url": "https://github.com/Campeol-G/akhq"
       }
     ]
   },
