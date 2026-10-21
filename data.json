@@ -71,5 +71,6 @@
         "description": "Single-screen Android launcher — no icons, no widgets"
       }
     ]
-  }
+  },
+  "logo_scale": 0.78
 }

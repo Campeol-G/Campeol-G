@@ -31,6 +31,20 @@ BLOCKS6 = " ▖▌▐▞▚█"
 BLOCKS_MED = " ░▓█"
 # Ramp "pesada": sem espaco no topo, todo pixel desenhado (boa leitura em claro).
 HEAVY = ".:-=+*#%@"
+# Ramp classica de 70 niveis (a dos ASCII arts antigos): cobertura de tinta
+# crescente, feita para foto. Densidade alta onde a imagem e' escura.
+PHOTO = (" `^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$")
+# Rampas ASCII densas: poucos niveis, mas cada caractere cobre bastante
+# celula. Sao as que funcionam em foto, porque caractere fino = ruido.
+ASCII5 = " .:oO@"
+ASCII4 = " .oO@"
+ASCII6 = " .:coO@"
+ASCII3 = " .O@"
+# Rampas densas com mais niveis: cada caractere ainda preenche bem a celula,
+# mas com mais tons para a imagem ficar mais fiel.
+ASCII8 = " .:coO@#"
+ASCII10 = " .:coO@#%M"
+ASCII7 = " .coO@#"
 # Ramp para imagens coloridas/flat (identicon do GitHub, por exemplo).
 DUO = " #"
 
@@ -42,18 +56,30 @@ RAMPS = {
     "blocks6": BLOCKS6,
     "blocks_med": BLOCKS_MED,
     "heavy": HEAVY,
+    "photo": PHOTO,
+    "ascii5": ASCII5,
+    "ascii4": ASCII4,
+    "ascii6": ASCII6,
+    "ascii3": ASCII3,
+    "ascii8": ASCII8,
+    "ascii10": ASCII10,
+    "ascii7": ASCII7,
     "duo": DUO,
 }
 
 
-def load_square(path, size=512):
+def load_square(path, size=512, sharpen=0.0):
     """Abre a imagem, corta no quadrado central e devolve em tons de cinza."""
     img = Image.open(path).convert("RGB")
     w, h = img.size
     side = min(w, h)
     left, top = (w - side) // 2, (h - side) // 2
-    img = img.crop((left, top, left + side, top + side))
-    return img.convert("L").resize((size, size), Image.LANCZOS)
+    img = img.crop((left, top, left + side, top + side)).convert("L")
+    if sharpen:
+        from PIL import ImageFilter
+        img = img.filter(ImageFilter.UnsharpMask(
+            radius=2.0, percent=int(sharpen * 100), threshold=2))
+    return img.resize((size, size), Image.LANCZOS)
 
 
 def local_autocontrast(arr, win):
@@ -102,8 +128,8 @@ def dither(arr, levels):
     return np.clip(np.floor(scaled), 0, levels - 1).astype(np.int32)
 
 
-def to_gray_matrix(path, cols, gamma=1.0, levels=False, local=0, dither_levels=0):
-    src = load_square(path, 512)
+def to_gray_matrix(path, cols, gamma=1.0, levels=False, local=0, dither_levels=0, sharpen=0.0):
+    src = load_square(path, 512, sharpen)
     arr = np.asarray(src, dtype=np.float32)
 
     if local:
@@ -158,7 +184,7 @@ def to_stencil_matrix(path, cols, threshold=0.55, local=0):
 
 
 def render(path, cols, mode, gamma=1.0, levels=False, invert=False, local=0,
-           threshold=0.55, dither_levels=0):
+           threshold=0.55, dither_levels=0, sharpen=0.0):
     if mode == "duo":
         mat, w, h = to_dual_matrix(path, cols)
         ramp = DUO
@@ -166,7 +192,7 @@ def render(path, cols, mode, gamma=1.0, levels=False, invert=False, local=0,
         mat, w, h = to_stencil_matrix(path, cols, threshold, local)
         ramp = " █"
     else:
-        mat, w, h = to_gray_matrix(path, cols, gamma, levels, local, dither_levels)
+        mat, w, h = to_gray_matrix(path, cols, gamma, levels, local, dither_levels, sharpen)
         ramp = RAMPS[mode]
     if invert:
         mat = [255 - v for v in mat]
@@ -184,6 +210,7 @@ def main():
     ap.add_argument("--mode", choices=list(RAMPS) + ["stencil"], default="gray")
     ap.add_argument("--threshold", type=float, default=0.55, help="corte do stencil (0-1)")
     ap.add_argument("--dither", type=int, default=0, help="niveis com dithering de Bayer")
+    ap.add_argument("--sharpen", type=float, default=0.0, help="unsharp mask (0-300)")
     ap.add_argument("--gamma", type=float, default=1.0)
     ap.add_argument("--levels", action="store_true", help="estica o contraste automaticamente")
     ap.add_argument("--invert", action="store_true", help="inverte o brilho")
@@ -193,7 +220,7 @@ def main():
     args = ap.parse_args()
 
     lines = render(args.image, args.cols, args.mode, args.gamma, args.levels,
-                   args.invert, args.local, args.threshold, args.dither)
+                   args.invert, args.local, args.threshold, args.dither, args.sharpen)
     # Todas as linhas com o mesmo numero de caracteres (espacos a direita),
     # para o SVG poder forcar a largura via textLength sem quebrar a grade.
     width = max(len(l) for l in lines)

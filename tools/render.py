@@ -126,6 +126,12 @@ text, tspan {{ white-space: pre; }}
 
 
 def ascii_block(lines, x, y, color, char_w=CHAR_W, char_h=CHAR_H, scale=1.0):
+    """Desenha a arte ASCII.
+
+    O textLength fixa a largura de cada linha, entao a escala pode ser
+    qualquer uma: a grade (quantidade de colunas) nunca quebra, so muda
+    o tamanho fisico.
+    """
     """Cada linha recebe textLength fixo -> a grade nunca quebra, independente
     da fonte que o navegador resolver usar."""
     out = [f'<g>']
@@ -284,8 +290,8 @@ def project_width(name, desc):
 def measure(data, style):
     """Geometria do layout."""
     logo = data.get("logo_lines", [])
-    logo_scale = 13.0 / CHAR_H if style == "panel" else 1.0
-    logo_w = max((len(l) for l in logo), default=0) * CHAR_W
+    logo_scale = 13.0 / CHAR_H if style == "panel" else float(data.get("logo_scale", 1.0))
+    logo_w = max((len(l) for l in logo), default=0) * CHAR_W * logo_scale
     logo_h = len(logo) * CHAR_H * logo_scale
 
     key_w = val_w = 0
@@ -335,7 +341,12 @@ def measure(data, style):
     w = text_x + max(content_w, header_width(data)) + PAD
     if style == "cli":
         top = content_top(data)
-        h = top + block_height(mods) + 16 + STATUS_H + PAD
+        sc = float(data.get("logo_scale", 1.0))
+        # O logo comeca alinhado com o titulo (mesma linha do topo do card).
+        logo_y = PAD + 2
+        logo_bottom = logo_y + logo_h
+        content_bottom = top + block_height(mods) + CHAR_H
+        h = max(content_bottom, logo_bottom) + 16 + STATUS_H + PAD
     else:
         h = PAD + max(logo_h, right_h) + PAD
     return w, h, logo_w, logo_h, key_w, val_w, right_h
@@ -549,13 +560,18 @@ def render(data, style, palette_name):
 
     if style == "cli":
         top = content_top(data)
-        body_h = h - top - 16 - STATUS_H - PAD
+        sc = float(data.get("logo_scale", 1.0))
+        logo_bottom = top
         if logo:
-            logo_top = top + max(0, (body_h - logo_h) / 2)
-            out.append(ascii_block(logo, PAD, logo_top + CHAR_H - 4, t["logo"]))
+            # Alinhado com o titulo: o logo comeca na mesma linha do topo.
+            logo_y = PAD + 2
+            out.append(ascii_block(logo, PAD, logo_y + CHAR_H * sc - 4, t["logo"],
+                                   char_w=CHAR_W * sc, char_h=CHAR_H * sc, scale=sc))
+            logo_bottom = logo_y + logo_h
         y = render_prompt(t, data, out, text_x, PAD + CHAR_H, key_w + val_w)
         y = render_sections(t, data, out, text_x, content_top(data), key_w, val_w, bar=True)
-        bar_y = y + 16
+        # A barra de status fica abaixo do maior entre conteudo e logo.
+        bar_y = max(y, logo_bottom) + 16
         render_statusbar(t, data, out, PAD, bar_y, w - PAD * 2 - 190)
         render_strip(t, out, w - PAD, bar_y + 6)
     elif style == "box":
