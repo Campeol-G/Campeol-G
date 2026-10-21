@@ -12,16 +12,17 @@
     "Study-Simplifier": "AI study planner — LLM + RAG · Spring Boot + React",
     "SiteBlock": "Cross-platform CLI to block domains — hosts file + DNS",
     "Nothing-Launcher": "Single-screen Android launcher — no icons, no widgets",
-    "akhq": "Apache Kafka GUI — Java + React"
+    "akhq": "Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more..."
   },
   "modules": [
     {
       "title": "system",
-      "rows": [["os", "Arch Linux, Windows 11, Android"], ["host", "Computer science student — backend Java"], ["editor", "VS Code, Neovim, Zed"]]
+      "rows": [["os", "Arch Linux, Windows 11, Android"], ["host", "Computer science student"], ["editor", "VS Code, Neovim, Zed"]]
     },
     {
       "title": "projects",
-      "type": "projects"
+      "type": "projects",
+      "rows": []
     },
     {
       "title": "stack",
@@ -29,11 +30,12 @@
     },
     {
       "title": "activity",
-      "auto": "stats"
+      "auto": "stats",
+      "rows": []
     },
     {
       "title": "about",
-      "rows": [["spoken", "Portuguese (native) · English (conversational)"], ["into", "Applied AI, distributed systems, Android, CLI & TUI"], ["uptime", ""]]
+      "rows": [["spoken", "Portuguese (native) · English B2"], ["into", "Distributed systems, CLI & TUI"], ["uptime", ""]]
     },
     {
       "title": "contact",
@@ -86,7 +88,7 @@
       }
     ]
   },
-  "logo_scale": 0.78,
+  "logo_scale": 1.0,
   "logo_image": "reference/logo_blocks_96.txt",
   "login": "Campeol-G"
 }

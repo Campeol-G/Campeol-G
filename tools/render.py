@@ -243,8 +243,8 @@ def module_rows(data, mod):
 
 
 def prompt_height(data):
-    """Altura do cabecalho (prompt): uma linha."""
-    return CHAR_H
+    """Altura do cabecalho (prompt): uma linha, ou duas com o subtitulo."""
+    return CHAR_H * (2 if data.get("subtitle") else 1)
 
 
 def content_top(data):
@@ -256,7 +256,11 @@ STATUS_H = 40   # altura reservada para a barra de status
 
 
 def header_width(data):
-    """Largura necessaria do cabecalho (tudo numa linha so)."""
+    """Largura necessaria do cabecalho.
+
+    O subtitudo fica na linha de baixo, entao a largura e a maior entre as
+    duas linhas.
+    """
     handle = data.get("handle", "")
     host = data.get("host", "")
     subtitle = data.get("subtitle", "")
@@ -264,12 +268,19 @@ def header_width(data):
     if host:
         w += text_width(" · ", 17) + text_width(f"@{host}", 17)
     if subtitle:
-        w += text_width("  ·  ", 17) + text_width(subtitle, 17)
+        w = max(w, 20 + text_width(subtitle, 17))
     return w
 
 
+MAX_DESC = 28   # caracteres da descricao dentro do card (a tabela usa a completa)
+
+
 def project_lines(data, mod):
-    """Linhas do bloco de projetos: nome + descricao, vindos do activity."""
+    """Linhas do bloco de projetos: nome + descricao, vindos do activity.
+
+    A descricao e' cortada: no card ela precisa caber na largura, e a
+    descricao completa fica na tabela markdown do README.
+    """
     projects = (data.get("activity") or {}).get("projects") or []
     lines = []
     for p in projects:
@@ -277,6 +288,8 @@ def project_lines(data, mod):
         desc = p.get("description", "")
         if not name:
             continue
+        if len(desc) > MAX_DESC:
+            desc = desc[: MAX_DESC - 1].rstrip() + "…"
         lines.append((name, desc))
     return lines
 
@@ -358,7 +371,11 @@ def measure(data, style):
 
 # ------------------------------------------------------------- renderizacao
 def render_prompt(t, data, out, x, y, w):
-    """Titulo e subtitulo na mesma linha, no estilo prompt de shell."""
+    """Titulo e subtitulo, no estilo prompt de shell.
+
+    O subtitudo vai na linha de baixo: na mesma linha ele empurraria o card
+    pra direita, e o card ja e' largo demais pra coluna do GitHub.
+    """
     handle = data.get("handle", "")
     host = data.get("host", "")
     out.append(
@@ -379,11 +396,10 @@ def render_prompt(t, data, out, x, y, w):
             f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="17px">'
             f'@{esc(host)}</text>'
         )
-        cx += text_width(f"@{host}", 17)
     if data.get("subtitle"):
         out.append(
-            f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="17px">'
-            f'  ·  {esc(data["subtitle"])}</text>'
+            f'<text x="{x + 20:.1f}" y="{y + CHAR_H:.1f}" fill="{t["dim"]}" '
+            f'font-size="17px">{esc(data["subtitle"])}</text>'
         )
     return y
 
