@@ -6,6 +6,7 @@ on:
     paths:
       - "data.json"
       - "logo.txt"
+      - "reference/**"
       - "tools/**"
       - ".github/workflows/update.yml"
   schedule:
@@ -37,19 +38,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PROFILE_TOKEN }}
         run: python tools/update.py
 
+      - name: Resample art
+        run: python tools/resample_art.py reference/logo_blocks_96.txt logo.txt --cols 72
+
       - name: Render logo and card
         run: |
           python tools/render.py --data data.json --style cli --theme both --assign light --logo-only --outdir .
           python tools/render.py --data data.json --style cli --theme both --assign light --outdir .
 
       - name: Render README
-        run: python tools/readme_text.py
+        run: python tools/readme_table.py
 
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json dark_mode.svg light_mode.svg logo_dark.svg logo_light.svg README.md cache/
+          git add data.json logo.txt dark_mode.svg light_mode.svg logo_dark.svg logo_light.svg README.md cache/
           git diff --staged --stat
           if git diff --staged --quiet; then
             echo "Nada mudou."
