@@ -81,7 +81,7 @@ Ooc::.....c@c:O#%M@.        .:cO@OOooOOoc:cc::::::c::c::ccoooocO@@##%%%MM%#Oo:::
     tools ............. Gradle, Maven, Docker, Kafka, Git
 
   activity
-    Streak ............ 1 days
+    Streak ............ 1 day
     Longest ........... 64 days
     Commits (1y) ...... 407
     Lines of Code ..... 46,213 ( +61,384, -15,171 )

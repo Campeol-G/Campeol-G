@@ -127,7 +127,7 @@ text, tspan { white-space: pre; }
 <text x="784.8" y="374.0" fill="#A7B69B" font-size="13px" font-weight="700" letter-spacing="0.8">activity</text>
 <text x="774.8" y="396.0" fill="#A3B8B0" font-weight="700">Streak</text>
 <text x="842.4" y="396.0" fill="#A7B69B">..........</text>
-<text x="952.8" y="396.0" fill="#D8C7A5">1 days</text>
+<text x="952.8" y="396.0" fill="#D8C7A5">1 day</text>
 <text x="774.8" y="414.0" fill="#A3B8B0" font-weight="700">Longest</text>
 <text x="852.0" y="414.0" fill="#A7B69B">.........</text>
 <text x="952.8" y="414.0" fill="#D8C7A5">64 days</text>

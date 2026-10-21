@@ -195,9 +195,11 @@ def stats_rows(data):
         return f"{v:,}"
 
     if "streak" in activity:
-        rows.append(["Streak", f"{activity['streak']} days"])
+        d = activity["streak"]
+        rows.append(["Streak", f"{d} day{'' if d == 1 else 's'}"])
     if "longest_streak" in activity:
-        rows.append(["Longest", f"{activity['longest_streak']} days"])
+        d = activity["longest_streak"]
+        rows.append(["Longest", f"{d} day{'' if d == 1 else 's'}"])
     if "commits" in activity:
         rows.append(["Commits (1y)", num(activity["commits"])])
     if "lines_added" in activity:
