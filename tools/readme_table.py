@@ -5,7 +5,7 @@ Mantem a tabela de projetos do README, se ela existir.
 O card (arte + campos) e' um SVG: o GitHub renderiza a imagem do jeito que
 ela foi desenhada, e nao da pra clicar em nada dentro dela. O markdown
 entra so com o que a imagem nao faz: link clicavel e a descricao inteira
-dos projetos (no card a descricao e' a curta, que cabe na largura).
+dos projetos (no card, a curta, que cabe na largura).
 
 A tabela e' opt-in: enquanto o README nao tiver os marcadores, o tool
 nao cria o bloco.
@@ -46,8 +46,7 @@ def projects_table(data):
 def replace_block(text, start_marker, end_marker, content):
     """Substitui o conteudo entre dois marcadores.
 
-    O bloco so e' criado se ele ja existir no README: a tabela de projetos
-    e' opt-in, e enquanto o README nao pedir ela, o tool nao inventa.
+    O bloco so e' substituido se ja existir no README: a tabela e' opt-in.
     """
     pattern = re.compile(
         re.escape(start_marker) + r".*?" + re.escape(end_marker),

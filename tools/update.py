@@ -273,8 +273,8 @@ def dump_json(path, data):
 def read_handle():
     """O login do GitHub vem do data.json.
 
-    Cuidado: 'handle' e' o nome de exibicao ("Gustavo Campeol") e NAO serve
-    pra API. O login e' o campo 'login' (fallback: 'host', depois a env).
+    Cuidado: 'handle' e' o nome de exibicao, e nao serve pra API. O login
+    e' o campo 'login' (fallback: 'host', depois a env).
     """
     if USER:
         return USER
@@ -408,9 +408,9 @@ def main():
         desc = node.get("description") or fallback.get(name, "")
         if not desc:
             continue
-        # A descricao do GitHub pode ser enorme (a de um fork e' a do
-        # repositorio original), entao o card usa a versao curta curada em
-        # data.json; a inteira fica na tabela do README.
+        # A descricao do GitHub pode ter cem caracteres (a de um fork e' a
+        # do repositorio original), entao o card usa a versao curta curada
+        # em data.json.
         card_desc = fallback.get(name, "")
         label = name + (" (fork)" if node.get("isFork") else "")
         url = f"https://github.com/{full}"

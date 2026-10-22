@@ -24,12 +24,13 @@ import re
 import xml.sax.saxutils as sax
 
 # ---------------------------------------------------------------- metricas
+# Em px, menos TITLE_LINES, que e' em linhas.
 FONT_SIZE = 16.0
-CHAR_W = 9.6          # largura de um caractere na fonte monoespacada de 16px
-CHAR_H = 18.0         # altura de uma linha
-PAD = 26.0            # padding interno
-LOGO_GAP = 30.0       # espaco entre logo e coluna de texto
-TITLE_LINES = 3.0     # altura do cabecalho em linhas
+CHAR_W = 9.6          # 0.6 da fonte: a largura de um caractere monoespacado
+CHAR_H = 18.0
+PAD = 26.0
+LOGO_GAP = 30.0       # entre a arte e a coluna de campos
+TITLE_LINES = 3.0
 
 # Duas paletas de verdade, com as cores exatas de um terminal.
 PALETTES = {
@@ -108,10 +109,9 @@ def svg_header(width, height, extra_css=""):
 }}
 text, tspan {{ white-space: pre; }}
 
-/* Cursor piscando, como um terminal esperando comando.
-   CSS dentro de um SVG referenciado como imagem roda no GitHub (mesmo
-   mecanismo dos badges animados). O prefers-reduced-motion desliga
-   pra quem pediu. */
+/* Cursor piscando, como um terminal esperando comando. O CSS dentro de um
+   SVG referenciado como imagem roda no GitHub, e o prefers-reduced-motion
+   desliga pra quem pediu. */
 .cursor {{ animation: blink 1.15s steps(1, end) infinite; }}
 @keyframes blink {{
   0%, 49% {{ opacity: 1; }}
@@ -132,8 +132,6 @@ def ascii_block(lines, x, y, color, char_w=CHAR_W, char_h=CHAR_H, scale=1.0):
     qualquer uma: a grade (quantidade de colunas) nunca quebra, so muda
     o tamanho fisico.
     """
-    """Cada linha recebe textLength fixo -> a grade nunca quebra, independente
-    da fonte que o navegador resolver usar."""
     out = [f'<g>']
     font_size = FONT_SIZE * scale
     for i, line in enumerate(lines):
@@ -252,15 +250,12 @@ def content_top(data):
     return PAD + prompt_height(data) + 18
 
 
-STATUS_H = 40   # altura reservada para a barra de status
+STATUS_H = 40   # px: espaco reservado no layout pra barra de status
 
 
 def header_width(data):
-    """Largura necessaria do cabecalho.
-
-    O subtitudo fica na linha de baixo, entao a largura e a maior entre as
-    duas linhas.
-    """
+    """Largura necessaria do cabecalho: a maior entre a linha do prompt e a
+    do subtitulo, que fica na linha de baixo."""
     handle = data.get("handle", "")
     host = data.get("host", "")
     subtitle = data.get("subtitle", "")
@@ -278,9 +273,8 @@ MAX_DESC = 60   # teto de seguranca: a descricao curada do card precisa caber
 def project_lines(data, mod):
     """Linhas do bloco de projetos: nome + descricao, vindos do activity.
 
-    O card usa a descricao curta (card_description): a descricao do GitHub
-    pode ter cem caracteres e nao cabe em nenhuma coluna. A inteira fica na
-    tabela markdown do README.
+    O card usa a descricao curta (card_description): a do GitHub pode ter
+    cem caracteres e nao cabe em nenhuma coluna.
     """
     projects = (data.get("activity") or {}).get("projects") or []
     lines = []
@@ -380,8 +374,8 @@ def measure(data, style):
 def render_prompt(t, data, out, x, y, w):
     """Titulo e subtitulo, no estilo prompt de shell.
 
-    O subtitudo vai na linha de baixo: na mesma linha ele empurraria o card
-    pra direita, e o card ja e' largo demais pra coluna do GitHub.
+    O subtitudo vai na linha de baixo: na mesma linha empurraria o card pra
+    direita, e ele ja e' largo demais pra coluna do GitHub.
     """
     handle = data.get("handle", "")
     host = data.get("host", "")
@@ -460,7 +454,7 @@ def render_sections(t, data, out, x, y, key_w, val_w, bar=True):
                 f'<text x="{x + len(key) * CHAR_W + 10:.1f}" y="{y:.1f}" '
                 f'fill="{t["dim"]}">{"." * dots}</text>'
             )
-            # Valor: trechos em destaque sao pintados de verde.
+            # Valor: os trechos em destaque sao pintados com a cor de titulo.
             cx = x + key_w
             for chunk, hot in split_highlight(value, terms):
                 if hot:
@@ -482,8 +476,7 @@ def render_projects(t, data, out, x, y):
     """Bloco de projetos: nome em destaque + descricao.
 
     Com `project_layout: stacked` a descricao vai na linha de baixo do nome:
-    ela usa a largura da coluna inteira, entao o card nao cresce pra
-    caber a descricao inteira do lado do nome.
+    assim ela usa a largura da coluna e o card nao cresce.
     """
     stacked = data.get("project_layout") == "stacked"
     for name, desc in project_lines(data, {}):
@@ -586,9 +579,8 @@ def render_statusbar(t, data, out, x, y, w):
 def render_logo_only(data, palette_name):
     """So o desenho do logo (sem o card), pra usar como imagem no README.
 
-    O logo e' desenho, nao texto: encolhe bem e continua reconhecivel.
-    Usa "logo_image" (arte em blocos) porque bloco encolhe preservando a
-    forma; caractere fino vira ruido quando a imagem diminui.
+    Encolhe bem e continua reconhecivel, e usa "logo_image" (arte em
+    blocos): bloco encolhe preservando a forma, caractere fino vira ruido.
     """
     t = theme_from(palette_name)
     logo = data.get("logo_image_lines") or data.get("logo_lines", [])
@@ -726,7 +718,6 @@ def render(data, style, palette_name):
             f'<line x1="0" y1="{head_h:.0f}" x2="{w:.0f}" y2="{head_h:.0f}" '
             f'stroke="{t["frame"]}" stroke-width="1"/>'
         )
-        # cabecalho na faixa
         hx = PAD + logo_w * 0.62 + LOGO_GAP
         out.append(
             f'<text x="{hx:.1f}" y="{head_h / 2 + 6:.1f}" fill="{t["title"]}" font-size="18px" '
@@ -753,7 +744,7 @@ def render(data, style, palette_name):
             out.append(ascii_block(logo, PAD, head_h + PAD + CHAR_H - 4, t["logo"],
                                    char_h=13.0, scale=0.78))
 
-        # modulos em duas colunas, divididas por altura
+        # modulos em duas colunas, divididas pela quantidade
         mods = data.get("modules", [])
         half = (len(mods) + 1) // 2
         cols = [mods[:half], mods[half:]]
