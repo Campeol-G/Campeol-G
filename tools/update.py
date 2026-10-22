@@ -408,12 +408,17 @@ def main():
         desc = node.get("description") or fallback.get(name, "")
         if not desc:
             continue
+        # A descricao do GitHub pode ser enorme (a de um fork e' a do
+        # repositorio original), entao o card usa a versao curta curada em
+        # data.json; a inteira fica na tabela do README.
+        card_desc = fallback.get(name, "")
         label = name + (" (fork)" if node.get("isFork") else "")
         url = f"https://github.com/{full}"
-        ranked.append((mine, node.get("pushedAt") or "", label, desc, url))
+        ranked.append((mine, node.get("pushedAt") or "", label, desc, card_desc, url))
     ranked.sort(key=lambda r: (r[0], r[1]), reverse=True)
     projects = [
-        {"name": r[2], "description": r[3], "url": r[4]} for r in ranked[:limit]
+        {"name": r[2], "description": r[3], "card_description": r[4], "url": r[5]}
+        for r in ranked[:limit]
     ]
     if projects:
         print("   projetos: " + ", ".join(p["name"] for p in projects))

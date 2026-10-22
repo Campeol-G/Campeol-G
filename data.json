@@ -5,6 +5,7 @@
   "birthday": "2009-06-16",
   "logo": "logo.txt",
   "projects_limit": 4,
+  "project_layout": "stacked",
   "exclude_projects": [
     "SuperJogoDaVelha"
   ],
@@ -12,7 +13,7 @@
     "Study-Simplifier": "AI study planner — LLM + RAG · Spring Boot + React",
     "SiteBlock": "Cross-platform CLI to block domains — hosts file + DNS",
     "Nothing-Launcher": "Single-screen Android launcher — no icons, no widgets",
-    "akhq": "Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more..."
+    "akhq": "Kafka GUI for Apache Kafka"
   },
   "modules": [
     {
@@ -35,7 +36,7 @@
     },
     {
       "title": "about",
-      "rows": [["spoken", "Portuguese (native) · English B2"], ["into", "Distributed systems, CLI & TUI"], ["uptime", ""]]
+      "rows": [["spoken", "Portuguese (native) · English (conversational)"], ["into", "Distributed systems, CLI & TUI"], ["uptime", ""]]
     },
     {
       "title": "contact",
@@ -69,21 +70,25 @@
       {
         "name": "Nothing-Launcher",
         "description": "Single-screen Android launcher — no icons, no widgets",
+        "card_description": "Single-screen Android launcher — no icons, no widgets",
         "url": "https://github.com/Campeol-G/Nothing-Launcher"
       },
       {
         "name": "SiteBlock",
         "description": "Cross-platform CLI to block domains — hosts file + DNS",
+        "card_description": "Cross-platform CLI to block domains — hosts file + DNS",
         "url": "https://github.com/Campeol-G/SiteBlock"
       },
       {
         "name": "Study-Simplifier",
         "description": "AI study planner — LLM + RAG · Spring Boot + React",
+        "card_description": "AI study planner — LLM + RAG · Spring Boot + React",
         "url": "https://github.com/Campeol-G/Study-Simplifier"
       },
       {
         "name": "akhq (fork)",
         "description": "Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more...",
+        "card_description": "Kafka GUI for Apache Kafka",
         "url": "https://github.com/Campeol-G/akhq"
       }
     ]

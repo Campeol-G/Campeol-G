@@ -272,20 +272,21 @@ def header_width(data):
     return w
 
 
-MAX_DESC = 28   # caracteres da descricao dentro do card (a tabela usa a completa)
+MAX_DESC = 60   # teto de seguranca: a descricao curada do card precisa caber
 
 
 def project_lines(data, mod):
     """Linhas do bloco de projetos: nome + descricao, vindos do activity.
 
-    A descricao e' cortada: no card ela precisa caber na largura, e a
-    descricao completa fica na tabela markdown do README.
+    O card usa a descricao curta (card_description): a descricao do GitHub
+    pode ter cem caracteres e nao cabe em nenhuma coluna. A inteira fica na
+    tabela markdown do README.
     """
     projects = (data.get("activity") or {}).get("projects") or []
     lines = []
     for p in projects:
         name = p.get("name", "")
-        desc = p.get("description", "")
+        desc = p.get("card_description") or p.get("description", "")
         if not name:
             continue
         if len(desc) > MAX_DESC:
@@ -294,8 +295,12 @@ def project_lines(data, mod):
     return lines
 
 
-def project_width(name, desc):
+def project_width(name, desc, stacked=False):
     """Largura real de uma linha de projeto (nome em 16px, resto em 14px)."""
+    if stacked:
+        # A descricao fica na linha de baixo: ela usa a largura da coluna
+        # inteira, entao o card nao cresce pra accommodate ela.
+        return 20 + len(desc) * CHAR_W * (14.0 / FONT_SIZE)
     return (
         len(name) * CHAR_W
         + 8
@@ -311,12 +316,13 @@ def measure(data, style):
     logo_w = max((len(l) for l in logo), default=0) * CHAR_W * logo_scale
     logo_h = len(logo) * CHAR_H * logo_scale
 
+    stacked = data.get("project_layout") == "stacked"
     key_w = val_w = 0
     proj_w = 0
     for mod in data.get("modules", []):
         if mod.get("type") == "projects":
             for name, desc in project_lines(data, mod):
-                proj_w = max(proj_w, project_width(name, desc))
+                proj_w = max(proj_w, project_width(name, desc, stacked))
             continue
         for k, v in module_rows(data, mod):
             key_w = max(key_w, len(k))
@@ -336,7 +342,8 @@ def measure(data, style):
             if mod.get("title"):
                 h += CHAR_H + 4
             if mod.get("type") == "projects":
-                h += len(project_lines(data, mod)) * CHAR_H
+                lines = len(project_lines(data, mod))
+                h += lines * CHAR_H * (2 if stacked else 1)
             else:
                 h += len(module_rows(data, mod)) * CHAR_H
         return h
@@ -472,19 +479,33 @@ def render_sections(t, data, out, x, y, key_w, val_w, bar=True):
 
 
 def render_projects(t, data, out, x, y):
-    """Bloco de projetos: nome em destaque + descricao, na mesma linha."""
+    """Bloco de projetos: nome em destaque + descricao.
+
+    Com `project_layout: stacked` a descricao vai na linha de baixo do nome:
+    ela usa a largura da coluna inteira, entao o card nao cresce pra
+    caber a descricao inteira do lado do nome.
+    """
+    stacked = data.get("project_layout") == "stacked"
     for name, desc in project_lines(data, {}):
         out.append(
             f'<text x="{x:.1f}" y="{y:.1f}" fill="{t["key"]}" font-weight="700">'
             f'{esc(name)}</text>'
         )
-        cx = x + text_width(name, FONT_SIZE) + 8
-        if desc:
+        y += CHAR_H
+        if not desc:
+            continue
+        if stacked:
             out.append(
-                f'<text x="{cx:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="14px">'
+                f'<text x="{x + 20:.1f}" y="{y:.1f}" fill="{t["dim"]}" font-size="14px">'
+                f'{esc(desc)}</text>'
+            )
+            y += CHAR_H
+        else:
+            cx = x + text_width(name, FONT_SIZE) + 8
+            out.append(
+                f'<text x="{cx:.1f}" y="{y - CHAR_H:.1f}" fill="{t["dim"]}" font-size="14px">'
                 f'— {esc(desc)}</text>'
             )
-        y += CHAR_H
     return y
 
 
