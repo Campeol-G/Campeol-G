@@ -115,16 +115,16 @@ text, tspan { white-space: pre; }
 <text x="757.2" y="464.0" fill="#A7B69B" font-size="13px" font-weight="700" letter-spacing="0.8">activity</text>
 <text x="747.2" y="486.0" fill="#A3B8B0" font-weight="700">Streak</text>
 <text x="814.8" y="486.0" fill="#A7B69B">..........</text>
-<text x="925.2" y="486.0" fill="#D8C7A5">1 day</text>
+<text x="925.2" y="486.0" fill="#D8C7A5">2 days</text>
 <text x="747.2" y="504.0" fill="#A3B8B0" font-weight="700">Longest</text>
 <text x="824.4" y="504.0" fill="#A7B69B">.........</text>
 <text x="925.2" y="504.0" fill="#D8C7A5">64 days</text>
 <text x="747.2" y="522.0" fill="#A3B8B0" font-weight="700">Commits (1y)</text>
 <text x="872.4" y="522.0" fill="#A7B69B">....</text>
-<text x="925.2" y="522.0" fill="#D8C7A5">409</text>
+<text x="925.2" y="522.0" fill="#D8C7A5">415</text>
 <text x="747.2" y="540.0" fill="#A3B8B0" font-weight="700">Lines of Code</text>
 <text x="882.0" y="540.0" fill="#A7B69B">...</text>
-<text x="925.2" y="540.0" fill="#D8C7A5">46,215 ( +61,394, -15,179 )</text>
+<text x="925.2" y="540.0" fill="#D8C7A5">46,250 ( +62,507, -16,257 )</text>
 <text x="747.2" y="558.0" fill="#A3B8B0" font-weight="700">Repos</text>
 <text x="805.2" y="558.0" fill="#A7B69B">...........</text>
 <text x="925.2" y="558.0" fill="#D8C7A5">6</text>
@@ -144,7 +144,7 @@ text, tspan { white-space: pre; }
 <text x="925.2" y="668.0" fill="#D8C7A5">Distributed systems, CLI &amp; TUI</text>
 <text x="747.2" y="686.0" fill="#A3B8B0" font-weight="700">uptime</text>
 <text x="814.8" y="686.0" fill="#A7B69B">..........</text>
-<text x="925.2" y="686.0" fill="#D8C7A5">17 years, 4 months, 5 days</text>
+<text x="925.2" y="686.0" fill="#D8C7A5">17 years, 4 months, 6 days</text>
 <rect x="747.2" y="709.0" width="3" height="14" fill="#D6A85E"/>
 <text x="757.2" y="720.0" fill="#A7B69B" font-size="13px" font-weight="700" letter-spacing="0.8">contact</text>
 <text x="747.2" y="742.0" fill="#A3B8B0" font-weight="700">email</text>
@@ -170,7 +170,7 @@ text, tspan { white-space: pre; }
 <text x="271.0" y="834.0" fill="#A7B69B" font-size="13px">]</text>
 <text x="287.0" y="834.0" fill="#A7B69B" font-size="13px">─</text>
 <text x="296.0" y="834.0" fill="#A7B69B" font-size="13px">[</text>
-<text x="304.0" y="834.0" fill="#A7B69B" font-size="13px">streak 1d</text>
+<text x="304.0" y="834.0" fill="#A7B69B" font-size="13px">streak 2d</text>
 <text x="374.2" y="834.0" fill="#A7B69B" font-size="13px">]</text>
 <text x="390.2" y="834.0" fill="#A7B69B" font-size="13px">─</text>
 <text x="399.2" y="834.0" fill="#A7B69B" font-size="13px">[</text>
