@@ -88,10 +88,10 @@ text, tspan { white-space: pre; }
 <text x="925.2" y="138.0" fill="#D8C7A5">VS Code, Neovim, Zed</text>
 <rect x="747.2" y="161.0" width="3" height="14" fill="#D6A85E"/>
 <text x="757.2" y="172.0" fill="#A7B69B" font-size="13px" font-weight="700" letter-spacing="0.8">projects</text>
-<text x="747.2" y="194.0" fill="#A3B8B0" font-weight="700">Nothing-Launcher</text>
-<text x="767.2" y="212.0" fill="#A7B69B" font-size="14px">Single-screen Android launcher — no icons, no widgets</text>
-<text x="747.2" y="230.0" fill="#A3B8B0" font-weight="700">SiteBlock</text>
-<text x="767.2" y="248.0" fill="#A7B69B" font-size="14px">Cross-platform CLI to block domains — hosts file + DNS</text>
+<text x="747.2" y="194.0" fill="#A3B8B0" font-weight="700">SiteBlock</text>
+<text x="767.2" y="212.0" fill="#A7B69B" font-size="14px">Cross-platform CLI to block domains — hosts file + DNS</text>
+<text x="747.2" y="230.0" fill="#A3B8B0" font-weight="700">Nothing-Launcher</text>
+<text x="767.2" y="248.0" fill="#A7B69B" font-size="14px">Single-screen Android launcher — no icons, no widgets</text>
 <text x="747.2" y="266.0" fill="#A3B8B0" font-weight="700">Study-Simplifier</text>
 <text x="767.2" y="284.0" fill="#A7B69B" font-size="14px">AI study planner — LLM + RAG · Spring Boot + React</text>
 <text x="747.2" y="302.0" fill="#A3B8B0" font-weight="700">akhq (fork)</text>
@@ -120,10 +120,10 @@ text, tspan { white-space: pre; }
 <text x="925.2" y="504.0" fill="#D8C7A5">64 days</text>
 <text x="747.2" y="522.0" fill="#A3B8B0" font-weight="700">Commits (1y)</text>
 <text x="872.4" y="522.0" fill="#A7B69B">....</text>
-<text x="925.2" y="522.0" fill="#D8C7A5">419</text>
+<text x="925.2" y="522.0" fill="#D8C7A5">490</text>
 <text x="747.2" y="540.0" fill="#A3B8B0" font-weight="700">Lines of Code</text>
 <text x="882.0" y="540.0" fill="#A7B69B">...</text>
-<text x="925.2" y="540.0" fill="#D8C7A5">46,227 ( +62,560, -16,333 )</text>
+<text x="925.2" y="540.0" fill="#D8C7A5">62,177 ( +81,729, -19,552 )</text>
 <text x="747.2" y="558.0" fill="#A3B8B0" font-weight="700">Repos</text>
 <text x="805.2" y="558.0" fill="#A7B69B">...........</text>
 <text x="925.2" y="558.0" fill="#D8C7A5">6</text>
@@ -132,7 +132,7 @@ text, tspan { white-space: pre; }
 <text x="925.2" y="576.0" fill="#D8C7A5">0 / 0</text>
 <text x="747.2" y="594.0" fill="#A3B8B0" font-weight="700">working in</text>
 <text x="853.2" y="594.0" fill="#A7B69B">......</text>
-<text x="925.2" y="594.0" fill="#D8C7A5">SuperJogoDaVelha</text>
+<text x="925.2" y="594.0" fill="#D8C7A5">SiteBlock</text>
 <rect x="747.2" y="617.0" width="3" height="14" fill="#D6A85E"/>
 <text x="757.2" y="628.0" fill="#A7B69B" font-size="13px" font-weight="700" letter-spacing="0.8">about</text>
 <text x="747.2" y="650.0" fill="#A3B8B0" font-weight="700">spoken</text>
@@ -161,7 +161,7 @@ text, tspan { white-space: pre; }
 <text x="43.0" y="834.0" fill="#A7B69B" font-size="13px">java </text>
 <text x="82.0" y="834.0" fill="#A3B8B0" font-size="13px">████████</text>
 <text x="144.4" y="834.0" fill="#A7B69B" font-size="13px">░░</text>
-<text x="160.0" y="834.0" fill="#A7B69B" font-size="13px"> 76%</text>
+<text x="160.0" y="834.0" fill="#A7B69B" font-size="13px"> 78%</text>
 <text x="191.2" y="834.0" fill="#A7B69B" font-size="13px">]</text>
 <text x="207.2" y="834.0" fill="#A7B69B" font-size="13px">─</text>
 <text x="216.2" y="834.0" fill="#A7B69B" font-size="13px">[</text>

@@ -46,38 +46,38 @@
   "activity": {
     "streak": 2,
     "longest_streak": 64,
-    "commits": 419,
-    "lines_added": 62560,
-    "lines_deleted": 16333,
+    "commits": 490,
+    "lines_added": 81729,
+    "lines_deleted": 19552,
     "repos": 6,
     "open_prs": 0,
     "open_issues": 0,
     "languages": {
-      "Java": 0.7583,
-      "JavaScript": 0.1861,
-      "SCSS": 0.0239,
-      "Python": 0.0222,
-      "TypeScript": 0.0047,
-      "Shell": 0.0025,
-      "Mustache": 0.0008,
-      "HTML": 0.0006,
-      "Batchfile": 0.0004,
-      "CSS": 0.0004,
+      "Java": 0.7801,
+      "JavaScript": 0.1677,
+      "SCSS": 0.0215,
+      "Python": 0.02,
+      "TypeScript": 0.0042,
+      "Shell": 0.0039,
+      "Batchfile": 0.0008,
+      "Mustache": 0.0007,
+      "HTML": 0.0005,
+      "CSS": 0.0003,
       "Dockerfile": 0.0002
     },
-    "working_on": "SuperJogoDaVelha",
+    "working_on": "SiteBlock",
     "projects": [
-      {
-        "name": "Nothing-Launcher",
-        "description": "Single-screen Android launcher — no icons, no widgets",
-        "card_description": "Single-screen Android launcher — no icons, no widgets",
-        "url": "https://github.com/Campeol-G/Nothing-Launcher"
-      },
       {
         "name": "SiteBlock",
         "description": "Cross-platform CLI to block domains — hosts file + DNS",
         "card_description": "Cross-platform CLI to block domains — hosts file + DNS",
         "url": "https://github.com/Campeol-G/SiteBlock"
+      },
+      {
+        "name": "Nothing-Launcher",
+        "description": "Single-screen Android launcher — no icons, no widgets",
+        "card_description": "Single-screen Android launcher — no icons, no widgets",
+        "url": "https://github.com/Campeol-G/Nothing-Launcher"
       },
       {
         "name": "Study-Simplifier",
