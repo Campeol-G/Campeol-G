@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """
-Mantem a parte de markdown do README.
+Mantem a tabela de projetos do README, se ela existir.
 
 O card (arte + campos) e' um SVG: o GitHub renderiza a imagem do jeito que
 ela foi desenhada, e nao da pra clicar em nada dentro dela. O markdown
 entra so com o que a imagem nao faz: link clicavel e a descricao inteira
-dos projetos (no card a descricao e' cortada pra caber na largura).
+dos projetos (no card a descricao e' a curta, que cabe na largura).
+
+A tabela e' opt-in: enquanto o README nao tiver os marcadores, o tool
+nao cria o bloco.
 
 Uso:
     python3 tools/readme_table.py
@@ -41,15 +44,19 @@ def projects_table(data):
 
 
 def replace_block(text, start_marker, end_marker, content):
-    """Substitui o conteudo entre dois marcadores, criando o bloco se preciso."""
+    """Substitui o conteudo entre dois marcadores.
+
+    O bloco so e' criado se ele ja existir no README: a tabela de projetos
+    e' opt-in, e enquanto o README nao pedir ela, o tool nao inventa.
+    """
     pattern = re.compile(
         re.escape(start_marker) + r".*?" + re.escape(end_marker),
         re.S,
     )
+    if not pattern.search(text):
+        return text
     block = f"{start_marker}\n{content}\n{end_marker}"
-    if pattern.search(text):
-        return pattern.sub(lambda _: block, text)
-    return text.rstrip() + "\n\n" + block + "\n"
+    return pattern.sub(lambda _: block, text)
 
 
 def main():
