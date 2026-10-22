@@ -121,10 +121,10 @@ text, tspan { white-space: pre; }
 <text x="925.2" y="504.0" fill="#3D5143">64 days</text>
 <text x="747.2" y="522.0" fill="#506653" font-weight="700">Commits (1y)</text>
 <text x="872.4" y="522.0" fill="#7D8778">....</text>
-<text x="925.2" y="522.0" fill="#3D5143">407</text>
+<text x="925.2" y="522.0" fill="#3D5143">409</text>
 <text x="747.2" y="540.0" fill="#506653" font-weight="700">Lines of Code</text>
 <text x="882.0" y="540.0" fill="#7D8778">...</text>
-<text x="925.2" y="540.0" fill="#3D5143">46,213 ( +61,384, -15,171 )</text>
+<text x="925.2" y="540.0" fill="#3D5143">46,215 ( +61,394, -15,179 )</text>
 <text x="747.2" y="558.0" fill="#506653" font-weight="700">Repos</text>
 <text x="805.2" y="558.0" fill="#7D8778">...........</text>
 <text x="925.2" y="558.0" fill="#3D5143">6</text>
