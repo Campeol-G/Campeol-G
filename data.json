@@ -46,17 +46,17 @@
   "activity": {
     "streak": 2,
     "longest_streak": 64,
-    "commits": 416,
-    "lines_added": 62520,
-    "lines_deleted": 16283,
+    "commits": 419,
+    "lines_added": 62560,
+    "lines_deleted": 16333,
     "repos": 6,
     "open_prs": 0,
     "open_issues": 0,
     "languages": {
-      "Java": 0.7581,
-      "JavaScript": 0.1862,
+      "Java": 0.7583,
+      "JavaScript": 0.1861,
       "SCSS": 0.0239,
-      "Python": 0.0223,
+      "Python": 0.0222,
       "TypeScript": 0.0047,
       "Shell": 0.0025,
       "Mustache": 0.0008,
@@ -65,7 +65,7 @@
       "CSS": 0.0004,
       "Dockerfile": 0.0002
     },
-    "working_on": "SiteBlock",
+    "working_on": "SuperJogoDaVelha",
     "projects": [
       {
         "name": "Nothing-Launcher",
