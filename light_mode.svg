@@ -114,16 +114,16 @@ text, tspan { white-space: pre; }
 <text x="757.2" y="464.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">activity</text>
 <text x="747.2" y="486.0" fill="#506653" font-weight="700">Streak</text>
 <text x="814.8" y="486.0" fill="#7D8778">..........</text>
-<text x="925.2" y="486.0" fill="#3D5143">0 days</text>
+<text x="925.2" y="486.0" fill="#3D5143">7 days</text>
 <text x="747.2" y="504.0" fill="#506653" font-weight="700">Longest</text>
 <text x="824.4" y="504.0" fill="#7D8778">.........</text>
 <text x="925.2" y="504.0" fill="#3D5143">64 days</text>
 <text x="747.2" y="522.0" fill="#506653" font-weight="700">Commits (1y)</text>
 <text x="872.4" y="522.0" fill="#7D8778">....</text>
-<text x="925.2" y="522.0" fill="#3D5143">535</text>
+<text x="925.2" y="522.0" fill="#3D5143">539</text>
 <text x="747.2" y="540.0" fill="#506653" font-weight="700">Lines of Code</text>
 <text x="882.0" y="540.0" fill="#7D8778">...</text>
-<text x="925.2" y="540.0" fill="#3D5143">64,540 ( +88,027, -23,487 )</text>
+<text x="925.2" y="540.0" fill="#3D5143">64,864 ( +95,482, -30,618 )</text>
 <text x="747.2" y="558.0" fill="#506653" font-weight="700">Repos</text>
 <text x="805.2" y="558.0" fill="#7D8778">...........</text>
 <text x="925.2" y="558.0" fill="#3D5143">6</text>
@@ -132,7 +132,7 @@ text, tspan { white-space: pre; }
 <text x="925.2" y="576.0" fill="#3D5143">0 / 0</text>
 <text x="747.2" y="594.0" fill="#506653" font-weight="700">working in</text>
 <text x="853.2" y="594.0" fill="#7D8778">......</text>
-<text x="925.2" y="594.0" fill="#3D5143">Nothing-Launcher</text>
+<text x="925.2" y="594.0" fill="#3D5143">SiteBlock</text>
 <rect x="747.2" y="617.0" width="3" height="14" fill="#3D5143"/>
 <text x="757.2" y="628.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">about</text>
 <text x="747.2" y="650.0" fill="#506653" font-weight="700">spoken</text>
@@ -143,7 +143,7 @@ text, tspan { white-space: pre; }
 <text x="925.2" y="668.0" fill="#3D5143">Distributed systems, CLI &amp; TUI</text>
 <text x="747.2" y="686.0" fill="#506653" font-weight="700">uptime</text>
 <text x="814.8" y="686.0" fill="#7D8778">..........</text>
-<text x="925.2" y="686.0" fill="#3D5143">17 years, 4 months, 9 days</text>
+<text x="925.2" y="686.0" fill="#3D5143">17 years, 4 months, 10 days</text>
 <rect x="747.2" y="709.0" width="3" height="14" fill="#3D5143"/>
 <text x="757.2" y="720.0" fill="#7D8778" font-size="13px" font-weight="700" letter-spacing="0.8">contact</text>
 <text x="747.2" y="742.0" fill="#506653" font-weight="700">email</text>
@@ -169,7 +169,7 @@ text, tspan { white-space: pre; }
 <text x="271.0" y="834.0" fill="#7D8778" font-size="13px">]</text>
 <text x="287.0" y="834.0" fill="#7D8778" font-size="13px">─</text>
 <text x="296.0" y="834.0" fill="#7D8778" font-size="13px">[</text>
-<text x="304.0" y="834.0" fill="#7D8778" font-size="13px">streak 0d</text>
+<text x="304.0" y="834.0" fill="#7D8778" font-size="13px">streak 7d</text>
 <text x="374.2" y="834.0" fill="#7D8778" font-size="13px">]</text>
 <text x="390.2" y="834.0" fill="#7D8778" font-size="13px">─</text>
 <text x="399.2" y="834.0" fill="#7D8778" font-size="13px">[</text>

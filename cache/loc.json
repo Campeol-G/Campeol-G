@@ -1,7 +1,7 @@
 {
   "Campeol-G/Campeol-G": {
     "additions": 7726,
-    "commits_total": 35,
+    "commits_total": 36,
     "deletions": 5057,
     "my_commits": 25
   },
@@ -12,10 +12,10 @@
     "my_commits": 69
   },
   "Campeol-G/SiteBlock": {
-    "additions": 37118,
-    "commits_total": 150,
-    "deletions": 6169,
-    "my_commits": 141
+    "additions": 44573,
+    "commits_total": 154,
+    "deletions": 13300,
+    "my_commits": 145
   },
   "Campeol-G/Study-Simplifier": {
     "additions": 13285,
