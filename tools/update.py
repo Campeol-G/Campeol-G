@@ -290,6 +290,36 @@ def read_handle():
     return ""
 
 
+def select_projects(repos, cache, data):
+    """Ranqueia os repos pelos commits proprios.
+
+    Fork sem commit proprio nao entra. A descricao curada vira
+    card_description; sem ela o card cai na descricao do GitHub (o render
+    trunca), e projeto sem descricao nenhuma entra so com o nome.
+    """
+    fallback = data.get("project_descriptions", {})
+    excluded = set(data.get("exclude_projects", []))
+    limit = int(data.get("projects_limit", 4))
+    ranked = []
+    for node in repos:
+        full = node["nameWithOwner"]
+        name = node.get("name") or full.split("/", 1)[1]
+        if name in excluded or full in excluded:
+            continue
+        mine = (cache.get(full) or {}).get("my_commits", 0)
+        if node.get("isFork") and mine == 0:
+            continue
+        desc = node.get("description") or fallback.get(name, "")
+        label = name + (" (fork)" if node.get("isFork") else "")
+        url = f"https://github.com/{full}"
+        ranked.append((mine, node.get("pushedAt") or "", label, desc, fallback.get(name, ""), url))
+    ranked.sort(key=lambda r: (r[0], r[1]), reverse=True)
+    return [
+        {"name": r[2], "description": r[3], "card_description": r[4], "url": r[5]}
+        for r in ranked[:limit]
+    ]
+
+
 def main():
     handle = read_handle()
     if not handle:
@@ -394,32 +424,7 @@ def main():
         data = json.load(f)
 
     # Bloco de projetos: os que tem mais trabalho seu (commits proprios).
-    fallback = data.get("project_descriptions", {})
-    excluded = set(data.get("exclude_projects", []))
-    limit = int(data.get("projects_limit", 4))
-    ranked = []
-    for node in repos:
-        full = node["nameWithOwner"]
-        name = node.get("name") or full.split("/", 1)[1]
-        if name in excluded or full in excluded:
-            continue
-        entry = cache.get(full) or {}
-        mine = entry.get("my_commits", 0)
-        desc = node.get("description") or fallback.get(name, "")
-        if not desc:
-            continue
-        # A descricao do GitHub pode ter cem caracteres (a de um fork e' a
-        # do repositorio original), entao o card usa a versao curta curada
-        # em data.json.
-        card_desc = fallback.get(name, "")
-        label = name + (" (fork)" if node.get("isFork") else "")
-        url = f"https://github.com/{full}"
-        ranked.append((mine, node.get("pushedAt") or "", label, desc, card_desc, url))
-    ranked.sort(key=lambda r: (r[0], r[1]), reverse=True)
-    projects = [
-        {"name": r[2], "description": r[3], "card_description": r[4], "url": r[5]}
-        for r in ranked[:limit]
-    ]
+    projects = select_projects(repos, cache, data)
     if projects:
         print("   projetos: " + ", ".join(p["name"] for p in projects))
 
