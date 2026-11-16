@@ -47,30 +47,32 @@
   "activity": {
     "streak": 1,
     "longest_streak": 64,
-    "commits": 762,
-    "lines_added": 95538,
-    "lines_deleted": 30657,
+    "commits": 787,
+    "lines_added": 119437,
+    "lines_deleted": 33898,
     "repos": 6,
     "open_prs": 0,
     "open_issues": 0,
     "languages": {
-      "Java": 0.7856,
-      "JavaScript": 0.1612,
-      "SCSS": 0.0207,
-      "Python": 0.0192,
-      "Shell": 0.0062,
-      "TypeScript": 0.0041,
-      "Batchfile": 0.0015,
-      "Mustache": 0.0007,
-      "HTML": 0.0005,
-      "CSS": 0.0003,
-      "Dockerfile": 0.0002
+      "Java": 0.9472,
+      "Python": 0.0272,
+      "Shell": 0.0171,
+      "TypeScript": 0.0056,
+      "Batchfile": 0.0021,
+      "CSS": 0.0004,
+      "HTML": 0.0003
     },
-    "working_on": "SiteBlock",
+    "working_on": "ChicoBot",
     "projects": [
       {
+        "name": "ChicoBot",
+        "description": "Personal Discord music bot built with Java, featuring YouTube and SoundCloud playback, playlist management, and OCR-based music import from screenshots.",
+        "card_description": "",
+        "url": "https://github.com/Campeol-G/ChicoBot"
+      },
+      {
         "name": "SiteBlock",
-        "description": "Cross-platform CLI to block domains — hosts file + DNS",
+        "description": "Cross-platform website blocker built with Java, featuring timed restrictions, domain management, reusable profiles, and an optional local DNS server.",
         "card_description": "Cross-platform CLI to block domains — hosts file + DNS",
         "url": "https://github.com/Campeol-G/SiteBlock"
       },
@@ -85,12 +87,6 @@
         "description": "AI study planner — LLM + RAG · Spring Boot + React",
         "card_description": "AI study planner — LLM + RAG · Spring Boot + React",
         "url": "https://github.com/Campeol-G/Study-Simplifier"
-      },
-      {
-        "name": "akhq (fork)",
-        "description": "Kafka GUI for Apache Kafka to manage topics, topics data, consumers group, schema registry, connect and more...",
-        "card_description": "Kafka GUI for Apache Kafka",
-        "url": "https://github.com/Campeol-G/akhq"
       }
     ]
   },
