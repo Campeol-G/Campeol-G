@@ -47,22 +47,22 @@
   "activity": {
     "streak": 1,
     "longest_streak": 64,
-    "commits": 787,
+    "commits": 789,
     "lines_added": 119437,
     "lines_deleted": 33898,
-    "repos": 6,
+    "repos": 7,
     "open_prs": 0,
     "open_issues": 0,
     "languages": {
-      "Java": 0.9472,
-      "Python": 0.0272,
+      "Java": 0.9471,
+      "Python": 0.0273,
       "Shell": 0.0171,
       "TypeScript": 0.0056,
       "Batchfile": 0.0021,
       "CSS": 0.0004,
       "HTML": 0.0003
     },
-    "working_on": "ChicoBot",
+    "working_on": "learn-anything",
     "projects": [
       {
         "name": "ChicoBot",
