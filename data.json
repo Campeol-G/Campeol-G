@@ -45,7 +45,7 @@
     }
   ],
   "activity": {
-    "streak": 1,
+    "streak": 0,
     "longest_streak": 64,
     "commits": 789,
     "lines_added": 119437,
